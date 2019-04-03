@@ -1,0 +1,37 @@
+<!doctype html><html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>控件:标题控件</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body><div class="main"><div class="tree">
+<p><strong>Index</strong></p>
+<p><a href="npyscreen.html">npyscreen</a></p>
+
+<ol>
+<li><a href="npyscreen--npyscreen介绍.html">npyscreen介绍</a></li>
+<li><a href="npyscreen--创建npyscreen应用程序.html">创建npyscreen应用程序</a></li>
+<li><a href="npyscreen--Application应用对象.html">Application应用对象</a></li>
+<li><a href="npyscreen--Form窗口对象.html">Form窗口对象</a></li>
+<li><a href="npyscreen--控件基本特性.html">控件:基本特性</a></li>
+<li><a href="npyscreen--控件显示文本.html">控件:显示文本</a></li>
+<li><a href="npyscreen--控件选取选项.html">控件:选取选项</a></li>
+<li><a href="npyscreen--控件树表与树的显示.html">控件:树表与树的显示</a></li>
+<li><a href="npyscreen--控件日期,滑块和复合控件.html">控件:日期,滑块和复合控件</a></li>
+<li><a href="npyscreen--控件网格.html">控件:网格</a></li>
+<li><a href="npyscreen--控件其他控制.html">控件:其他控制</a></li>
+<li><a href="npyscreen--控件标题控件.html">控件:标题控件</a></li>
+<li><a href="npyscreen--控件控件框.html">控件:控件框</a></li>
+<li><a href="npyscreen--按键绑定全解.html">按键绑定全解</a></li>
+<li><a href="npyscreen--增强鼠标支持.html">增强鼠标支持</a></li>
+<li><a href="npyscreen--色彩支持.html">色彩支持</a></li>
+<li><a href="npyscreen--显示简讯通知及选项.html">显示简讯通知及选项</a></li>
+<li><a href="npyscreen--清空屏幕.html">清空屏幕</a></li>
+<li><a href="npyscreen--应用支持.html">应用支持</a></li>
+<li><a href="npyscreen--编写更复杂的窗口.html">编写更复杂的窗口</a></li>
+<li><a href="npyscreen--编写测试.html">编写测试</a></li>
+<li><a href="npyscreen--示例程序一个简单的通讯录.html">示例程序:一个简单的通讯录</a></li>
+</ol></div>
+<div class="page"><h1><b><u>控件:标题控件</u></b></h1><strong><h2>控件:标题控件</h2></strong><br /><br />标准控件的大多数版本被设定成两种形式-一个基础版本和一个会输出 控件名字的标签 的对应版本.例如, Textfield 和 TitleText.<br /><br />带标题的版本实际是围绕里面包含的控件做的封装器,而不是另外方式做了适配的控件,这会是一个在修改它们的动作的时候会造成混乱的原因.[直接粗暴修改基础版的控件,带标题的版本也会受基础版影响,产生不必要的动作和属性继承]<br /><br />通常,创建你自己的这些控件的新版本的时候,你应该先创建内部要包含的控件,然后在创建一个带标题的版本.<br /><br />举个例子:<br /><div class="codebox"><div class="codebox">class&nbsp;NewTextWidget(textbox.Textfield):<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff;font-weight:400">#&nbsp;all&nbsp;of&nbsp;the&nbsp;custom&nbsp;code&nbsp;for&nbsp;this&nbsp;class</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff;font-weight:400">#&nbsp;should&nbsp;go&nbsp;here.</span><br /><br /><br />class&nbsp;TitleProductSearch(TitleText):<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_entry_type&nbsp;=&nbsp;NewTextWidget</div></div><br />你可以通过传递 begin_entry_at参数到构造函数来调整子控件[输入框]在屏幕上被放置的位置.其默认值是16.你同样可以重写控件,决定是否给标题一个独立的行,这个可以通过在控件创建时传递 use_two_lines=True|False 参数来做到.默认的 use_two_lines=None 设置会把标题和包含的控件放在同一行,除非标签是在太长的情况除外.<br /><br />你可以在创建的时候使用 labelColor='LABEL'参数来改变标签的颜色.你也可以使用你当前正在使用的主题中的任何颜色.<br /><br />创建完成后,由 TitleWidget对象 管理的两个小控件可以通过 label_widget<span style="color:#404040;"> </span>和<span style="color:#404040;"> </span>entry_widget 属性来访问.<br /><br /><strong><h3>带标题的多行控件</h3></strong><br /><br />如果你正在创建带标题版本的多行控件的话,你会发现从 TitleMultiLine类继承反而会更好,因其功能上封装了更多的多行控件功能.<br /></div></div>
+</body></html>

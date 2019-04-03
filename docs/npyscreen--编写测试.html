@@ -1,0 +1,37 @@
+<!doctype html><html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>编写测试</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body><div class="main"><div class="tree">
+<p><strong>Index</strong></p>
+<p><a href="npyscreen.html">npyscreen</a></p>
+
+<ol>
+<li><a href="npyscreen--npyscreen介绍.html">npyscreen介绍</a></li>
+<li><a href="npyscreen--创建npyscreen应用程序.html">创建npyscreen应用程序</a></li>
+<li><a href="npyscreen--Application应用对象.html">Application应用对象</a></li>
+<li><a href="npyscreen--Form窗口对象.html">Form窗口对象</a></li>
+<li><a href="npyscreen--控件基本特性.html">控件:基本特性</a></li>
+<li><a href="npyscreen--控件显示文本.html">控件:显示文本</a></li>
+<li><a href="npyscreen--控件选取选项.html">控件:选取选项</a></li>
+<li><a href="npyscreen--控件树表与树的显示.html">控件:树表与树的显示</a></li>
+<li><a href="npyscreen--控件日期,滑块和复合控件.html">控件:日期,滑块和复合控件</a></li>
+<li><a href="npyscreen--控件网格.html">控件:网格</a></li>
+<li><a href="npyscreen--控件其他控制.html">控件:其他控制</a></li>
+<li><a href="npyscreen--控件标题控件.html">控件:标题控件</a></li>
+<li><a href="npyscreen--控件控件框.html">控件:控件框</a></li>
+<li><a href="npyscreen--按键绑定全解.html">按键绑定全解</a></li>
+<li><a href="npyscreen--增强鼠标支持.html">增强鼠标支持</a></li>
+<li><a href="npyscreen--色彩支持.html">色彩支持</a></li>
+<li><a href="npyscreen--显示简讯通知及选项.html">显示简讯通知及选项</a></li>
+<li><a href="npyscreen--清空屏幕.html">清空屏幕</a></li>
+<li><a href="npyscreen--应用支持.html">应用支持</a></li>
+<li><a href="npyscreen--编写更复杂的窗口.html">编写更复杂的窗口</a></li>
+<li><a href="npyscreen--编写测试.html">编写测试</a></li>
+<li><a href="npyscreen--示例程序一个简单的通讯录.html">示例程序:一个简单的通讯录</a></li>
+</ol></div>
+<div class="page"><h1><b><u>编写测试</u></b></h1><strong><h2>编写测试</h2></strong><br /><br />(4.7.0版本新加入)<br /><br />脚本化 npyscreen 应用的键盘输入用于测试目的是可行的.<br /><br />npyscreen模块导出下面的包含了相关设置的字典:<br /><div class="codebox"><div class="codebox">TEST_SETTINGS&nbsp;=&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff00ff;font-weight:400">'TEST_INPUT'</span>:&nbsp;<span style="color:#ff00ff;font-weight:400">None</span>,<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff00ff;font-weight:400">'TEST_INPUT_LOG'</span>:&nbsp;[],<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff00ff;font-weight:400">'CONTINUE_AFTER_TEST_INPUT'</span>:&nbsp;<span style="color:#ff00ff;font-weight:400">False</span>,<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff00ff;font-weight:400">'INPUT_GENERATOR'</span>:&nbsp;<span style="color:#ff00ff;font-weight:400">False</span><br />&nbsp;&nbsp;&nbsp;&nbsp;}</div></div><br /><br />如果 'TEST_INPUT'是 None,应用正常进行.如果他是一个数组,按键动作会从数组的左边开始被加载,然后送到应用程序获取键盘输入的地方.注意,像 curses.KEYDOWN 这样的特殊字符也可以被处理,而控制字符可以用像 '^X' 这样的字符串来表示.<br /><br />这种方式发送到应用程序的按键动作会自动的添加到 'TEST_INPUT_LOG',所以或许就可以看到在处理输入的时候在哪里出现了错误.<br /><br />如果 'CONTINUE_AFTER_TEST_INPUT' 为 True, 那么在指定自动输入之后, 'TEST_INPUT' 就被设成 None并且应用程序会正常继续.如果它为 False,那就会抛出 ExhaustedTestInput异常.这会可以让单元测试来接着检测应用的状态.<br /><br />'INPUT_GENERATOR' 可以设置为一个可迭代对象.每一个按键动作都会由 next(INPUT_GENERATOR)读取.假如可迭代对象是线程安全的,会让用一个线程来提供测试的输入变得容易.这可以优先用于 TEST_INPUT.在4.9版本中按用户要求加入.<br /><br /><strong><h3>便捷函数</h3></strong><h3>(4.8.5版本新加入)</h3><br /><br /><code>npyscreen.add_test_input_from_iterable</code><strong><span style="color:#2980b9;">(</span></strong><strong>iterable</strong><strong><span style="color:#2980b9;">)</span></strong><br />----将每一个可迭代对象添加到 TEST_SETTINGS[‘TEST_INPUT’].<br /><br /><code>npyscreen.add_test_input_ch</code><strong><span style="color:#2980b9;">(</span></strong><strong>ch</strong><strong><span style="color:#2980b9;">)</span></strong><br />----将 ch 添加到 TEST_SETTINGS[‘TEST_INPUT’].<br /><br /><strong><h3>防止编写单元测试产生分支</h3></strong><br /><br />为了防止底层的 curse库产生内存溢出,npyscreen库有时会选择在[fork出来的]分支进程中运行应用程序代码.在以测试为目标的时候这样可能不太合需求,并且出于测试目的,你可能会想传递 fork=False 到你的应用程序的 run()方法中.<br /><br /><strong><h3>例子</h3></strong><br /><br />下面的代码是一个小例子:<br /><div class="codebox"><div class="codebox"><span style="color:#0000ff;font-weight:700">#!/usr/bin/python</span><br /><span style="color:#a020f0;font-weight:400">import</span>&nbsp;curses<br /><span style="color:#a020f0;font-weight:400">import</span>&nbsp;npyscreen<br /><br />npyscreen.TEST_SETTINGS[<span style="color:#ff00ff;font-weight:400">'TEST_INPUT'</span>]&nbsp;=&nbsp;[ch&nbsp;for&nbsp;ch&nbsp;in&nbsp;<span style="color:#ff00ff;font-weight:400">'This&nbsp;is&nbsp;a&nbsp;test'</span>]<br />npyscreen.TEST_SETTINGS[<span style="color:#ff00ff;font-weight:400">'TEST_INPUT'</span>].append(curses.KEY_DOWN)<br />npyscreen.TEST_SETTINGS[<span style="color:#ff00ff;font-weight:400">'CONTINUE_AFTER_TEST_INPUT'</span>]&nbsp;=&nbsp;<span style="color:#ff00ff;font-weight:400">True</span><br /><br />class&nbsp;TestForm(npyscreen.Form):<br />&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;create(<span style="color:#008a8c;font-weight:400">self</span>):<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#008a8c;font-weight:400">self</span>.myTitleText&nbsp;=&nbsp;<span style="color:#008a8c;font-weight:400">self</span>.add(npyscreen.TitleText,&nbsp;name=<span style="color:#ff00ff;font-weight:400">"Events&nbsp;(Form&nbsp;Controlled):"</span>,&nbsp;editable=<span style="color:#ff00ff;font-weight:400">True</span>)<br /><br />class&nbsp;TestApp(npyscreen.StandardApp):<br />&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;onStart(<span style="color:#008a8c;font-weight:400">self</span>):<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#008a8c;font-weight:400">self</span>.addForm(<span style="color:#ff00ff;font-weight:400">"MAIN"</span>,&nbsp;TestForm)<br /><br /><br />if&nbsp;<span style="color:#008a8c;font-weight:400">__name__</span>&nbsp;==&nbsp;<span style="color:#ff00ff;font-weight:400">'__main__'</span>:<br />&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;=&nbsp;TestApp()<br />&nbsp;&nbsp;&nbsp;&nbsp;A.run(fork=<span style="color:#ff00ff;font-weight:400">False</span>)<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff;font-weight:400">#&nbsp;'This&nbsp;is&nbsp;a&nbsp;test'&nbsp;will&nbsp;appear&nbsp;in&nbsp;the&nbsp;first&nbsp;widget,&nbsp;as&nbsp;if&nbsp;typed&nbsp;by&nbsp;the&nbsp;user.</span></div></div><br /><br /></div></div>
+</body></html>

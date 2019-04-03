@@ -1,0 +1,37 @@
+<!doctype html><html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>增强鼠标支持</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body><div class="main"><div class="tree">
+<p><strong>Index</strong></p>
+<p><a href="npyscreen.html">npyscreen</a></p>
+
+<ol>
+<li><a href="npyscreen--npyscreen介绍.html">npyscreen介绍</a></li>
+<li><a href="npyscreen--创建npyscreen应用程序.html">创建npyscreen应用程序</a></li>
+<li><a href="npyscreen--Application应用对象.html">Application应用对象</a></li>
+<li><a href="npyscreen--Form窗口对象.html">Form窗口对象</a></li>
+<li><a href="npyscreen--控件基本特性.html">控件:基本特性</a></li>
+<li><a href="npyscreen--控件显示文本.html">控件:显示文本</a></li>
+<li><a href="npyscreen--控件选取选项.html">控件:选取选项</a></li>
+<li><a href="npyscreen--控件树表与树的显示.html">控件:树表与树的显示</a></li>
+<li><a href="npyscreen--控件日期,滑块和复合控件.html">控件:日期,滑块和复合控件</a></li>
+<li><a href="npyscreen--控件网格.html">控件:网格</a></li>
+<li><a href="npyscreen--控件其他控制.html">控件:其他控制</a></li>
+<li><a href="npyscreen--控件标题控件.html">控件:标题控件</a></li>
+<li><a href="npyscreen--控件控件框.html">控件:控件框</a></li>
+<li><a href="npyscreen--按键绑定全解.html">按键绑定全解</a></li>
+<li><a href="npyscreen--增强鼠标支持.html">增强鼠标支持</a></li>
+<li><a href="npyscreen--色彩支持.html">色彩支持</a></li>
+<li><a href="npyscreen--显示简讯通知及选项.html">显示简讯通知及选项</a></li>
+<li><a href="npyscreen--清空屏幕.html">清空屏幕</a></li>
+<li><a href="npyscreen--应用支持.html">应用支持</a></li>
+<li><a href="npyscreen--编写更复杂的窗口.html">编写更复杂的窗口</a></li>
+<li><a href="npyscreen--编写测试.html">编写测试</a></li>
+<li><a href="npyscreen--示例程序一个简单的通讯录.html">示例程序:一个简单的通讯录</a></li>
+</ol></div>
+<div class="page"><h1><b><u>增强鼠标支持</u></b></h1><strong><h2>增强鼠标支持</h2></strong><br /><br />想要更细致的处理鼠标事件的控件需要覆盖 .handle_mouse_event(self, mouse_event) 方法.注意 mouse_envent 是一个元组:<br /><div class="codebox"><div class="codebox">def&nbsp;handle_mouse_event(<span style="color:#008a8c;font-weight:400">self</span>,&nbsp;mouse_event):<br />&nbsp;&nbsp;&nbsp;&nbsp;mouse_id,&nbsp;x,&nbsp;y,&nbsp;z,&nbsp;bstate&nbsp;=&nbsp;mouse_event&nbsp;<span style="color:#0000ff;font-weight:400">#&nbsp;see&nbsp;note&nbsp;below.</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff;font-weight:400">#&nbsp;Do&nbsp;things&nbsp;here....</span></div></div><br />这个通常很有用,但是 x 和 y 都是绝对位置,而不是相对位置.因为这个原因,你应该使用[npyscreen]已给出的方便的函数工具来把这些值转换成与控件坐标对应的[相对位置]值.这样的话,大多的鼠标处理函数都会看起来像这样:<br /><div class="codebox"><div class="codebox">def&nbsp;handle_mouse_event(<span style="color:#008a8c;font-weight:400">self</span>,&nbsp;mouse_event):<br />&nbsp;&nbsp;&nbsp;&nbsp;mouse_id,&nbsp;rel_x,&nbsp;rel_y,&nbsp;z,&nbsp;bstate&nbsp;=&nbsp;<span style="color:#008a8c;font-weight:400">self</span>.interpret_mouse_event(mouse_event)<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff;font-weight:400">#&nbsp;Do&nbsp;things&nbsp;here.....</span></div></div><br />鼠标 handler[处理函数] 只会在控件是"可编辑"的条件下被调用.只有在很少见的情况下,你可能会想用一个不可编辑的控件来响应鼠标事件.在那样的情况下,你可以把控件的的 .self.interested_in_mouse_even_when_not_editable 属性设置为 True.<br /><br />关于鼠标事件的更多细节参见python标准库的 curses 模块的文档.<br /></div></div>
+</body></html>

@@ -1,0 +1,37 @@
+<!doctype html><html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>控件:显示文本</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body><div class="main"><div class="tree">
+<p><strong>Index</strong></p>
+<p><a href="npyscreen.html">npyscreen</a></p>
+
+<ol>
+<li><a href="npyscreen--npyscreen介绍.html">npyscreen介绍</a></li>
+<li><a href="npyscreen--创建npyscreen应用程序.html">创建npyscreen应用程序</a></li>
+<li><a href="npyscreen--Application应用对象.html">Application应用对象</a></li>
+<li><a href="npyscreen--Form窗口对象.html">Form窗口对象</a></li>
+<li><a href="npyscreen--控件基本特性.html">控件:基本特性</a></li>
+<li><a href="npyscreen--控件显示文本.html">控件:显示文本</a></li>
+<li><a href="npyscreen--控件选取选项.html">控件:选取选项</a></li>
+<li><a href="npyscreen--控件树表与树的显示.html">控件:树表与树的显示</a></li>
+<li><a href="npyscreen--控件日期,滑块和复合控件.html">控件:日期,滑块和复合控件</a></li>
+<li><a href="npyscreen--控件网格.html">控件:网格</a></li>
+<li><a href="npyscreen--控件其他控制.html">控件:其他控制</a></li>
+<li><a href="npyscreen--控件标题控件.html">控件:标题控件</a></li>
+<li><a href="npyscreen--控件控件框.html">控件:控件框</a></li>
+<li><a href="npyscreen--按键绑定全解.html">按键绑定全解</a></li>
+<li><a href="npyscreen--增强鼠标支持.html">增强鼠标支持</a></li>
+<li><a href="npyscreen--色彩支持.html">色彩支持</a></li>
+<li><a href="npyscreen--显示简讯通知及选项.html">显示简讯通知及选项</a></li>
+<li><a href="npyscreen--清空屏幕.html">清空屏幕</a></li>
+<li><a href="npyscreen--应用支持.html">应用支持</a></li>
+<li><a href="npyscreen--编写更复杂的窗口.html">编写更复杂的窗口</a></li>
+<li><a href="npyscreen--编写测试.html">编写测试</a></li>
+<li><a href="npyscreen--示例程序一个简单的通讯录.html">示例程序:一个简单的通讯录</a></li>
+</ol></div>
+<div class="page"><h1><b><u>控件:显示文本</u></b></h1><strong><h2>控件:显示文本</h2></strong><br /><br /><strong>Textfild,TitleText</strong><br />----一个单行的文本,虽然长度是任意的 -它一个基本的输入控件.注意,有一些版本的文档中会不恰当的将其指代成 'textbox'(文本框)控件.<br /><strong>FixedText, TitleFixedText</strong><br />----一个单行文本,但其文本框的编辑功能被移除了.<br /><strong>Autocomplete</strong><br />----这是一个带有附加功能的文本框-其概念是如果用户按下了 TAB键控件会尝试'补全'用户正在输入的内容,适当的给出可供选择的选项.其调用的方法是 auto_complete(inputch).<br />----当然,上下文就是一切. Autocomplete也因此没那么有用,但其目的是作为你能用作子类的东西.参见 Filename 和 TitleFilename 这两个类作为例子.<br /><strong>Filename,TitleFilename</strong><br />----一个会尝试'补全'用户输入的文件名或者路径的文本框.<br />----这是一个 Autocomplete 控件使用的例子.<br /><strong>MultiLineEdit</strong><br />----这是一个允许用户编辑多行文本的控件.<br /><strong>Pager,TitlePager</strong><br />----该控件显示多行文本,并允许用户来回滚动,但不能编辑.要显示的文本保存在 .value 属性中.[页面控件]<br /><br /><strong><h3>详解</h3></strong><br /><br />class <code>Textbox</code><br />----<code>display_value</code><strong><span style="color:#555555;">(</span></strong><strong>vl</strong><strong><span style="color:#555555;">)</span></strong><br />--------控制 .value 属性的值如何显示.因为多个版本的文本控件相互使用,混合控件(比如大多数的多行控件类)里,该方法通常会被覆盖重写.<br />----<code>show_brief_message</code><strong><span style="color:#555555;">()</span></strong><br />--------发出蜂鸣并显示一个短信息给用户.通常是有更好的方式来做这些的,但是它也是有用的,比如在 Autocomplete 类中显示错误.<br /></div></div>
+</body></html>
