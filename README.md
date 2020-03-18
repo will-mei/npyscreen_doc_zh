@@ -3,4 +3,4 @@
 
 在线浏览地址:
 
-https://will-mei.github.io/npyscreen_doc_zh/
+https://npyscreen-doc-zh.readthedocs.io/zh_CN/latest/
