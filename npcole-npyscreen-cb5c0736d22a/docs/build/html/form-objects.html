@@ -1,0 +1,623 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Form Objects &mdash; npyscreen 中文手册 2 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Widgets: Basic Features" href="widgets.html" />
+    <link rel="prev" title="应用对象" href="application-objects.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> npyscreen 中文手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">npyscreen简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-structure.html">创建npyscreen应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html">应用对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html#id5">其他应用类</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Form Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-form">Creating a Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#placing-widgets-on-a-form">Placing widgets on a Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-standard-form-features">Other Standard Form Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#displaying-and-editing-forms">Displaying and Editing Forms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#when-forms-exit">When forms exit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#standard-form-classes">Standard Form Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mutt-like-forms">Mutt-like Forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-page-forms">Multi-page Forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#menus">Menus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resizing-forms-new-in-version-2-0pre88">Resizing Forms (New in version 2.0pre88)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets: Basic Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-text.html">Widgets: Displaying Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-multiline.html">Widgets: Picking Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-trees.html">Widgets: Trees and Tree displays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html">Widgets: Dates, Sliders and Combination Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-grids">Widgets: Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-other-controls">Widgets: Other Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html">Widgets: Titled Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html#widgets-box-widgets">Widgets: Box Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keybindings.html">All about Key Bindings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Enhancing Mouse Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color.html">Support for Colour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html">Displaying Brief Messages and Choices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html#blanking-the-screen">Blanking the Screen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options.html">Application Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="muttlike.html">Writing More Complex Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-tests.html">Writing Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-addressbk.html">Example Application: A simple address book</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">npyscreen 中文手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Form Objects</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/form-objects.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="form-objects">
+<h1>Form Objects<a class="headerlink" href="#form-objects" title="永久链接至标题">¶</a></h1>
+<p>A Form object is a screen area that contains widgets.  Forms control which widget a user is editing, and may provide additional functionality, such as pop-up menus or actions that happen on particular keypresses.</p>
+<div class="section" id="creating-a-form">
+<h2>Creating a Form<a class="headerlink" href="#creating-a-form" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="Form">
+<em class="property">class </em><code class="sig-name descname">Form</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">lines=0</em>, <em class="sig-param">columns=0</em>, <em class="sig-param">minimum_lines=24</em>, <em class="sig-param">minimum_columns=80</em><span class="sig-paren">)</span><a class="headerlink" href="#Form" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<p>Forms have the following class attributes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEFAULT_LINES</span>      <span class="o">=</span> <span class="mi">0</span>
+<span class="n">DEFAULT_COLUMNS</span>    <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SHOW_ATX</span>           <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SHOW_ATY</span>           <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>The default values will create a form that fills the whole screen and which is displayed in the top left corner.  See the arguments passed in to the constructor for more details on controlling the size of a form.</p>
+<p>The Following arguments can be passed to a Form’s constructor:</p>
+<dl class="simple">
+<dt><em>name=</em></dt><dd><p>Names the Form.  As for some widgets, this will display a title.</p>
+</dd>
+<dt><em>lines=0, columns=0, minimum_lines=24, minimum_columns=80</em></dt><dd><p>You can adjust the size of the Form, either providing an absolute size (with <em>lines=</em> and <em>columns=</em>) or a minimum size (<em>minimum_lines=</em> and <em>minimum_columns=</em>).  The default minimums (24x80) provide the standard size for terminal.  If you plan your Forms to fit within that size, they should be viewable on almost all systems without the need to scroll the Form.  Note that you can use the absolute sizing in one direction and the minimum in the other, should you wish.</p>
+</dd>
+</dl>
+<p>The standard constructor will call the method <em>.create()</em>, which you should override to create the Form widgets.  See below.</p>
+</div>
+<div class="section" id="placing-widgets-on-a-form">
+<h2>Placing widgets on a Form<a class="headerlink" href="#placing-widgets-on-a-form" title="永久链接至标题">¶</a></h2>
+<p>To add a widget to a Form, use the method:</p>
+<dl class="method">
+<dt id="Form.add">
+<code class="sig-prename descclassname">Form.</code><code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">WidgetClass</em>, <em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#Form.add" title="永久链接至目标">¶</a></dt>
+<dd><p>WidgetClass must be a class, all of the additional arguments will be passed to the widget’s own constructor.  A     reference to the widget will be returned.</p>
+</dd></dl>
+
+<p>The position and size of a widget are controlled by the widget’s constructor.  However, there are hints that the Form class provides.  If you do not override the position of the widget, it will be placed according to the Form’s <em>.nextrelx</em> and <em>nextrely</em> instance attributes.  The <em>.nextrely</em> attribute is increased automatically each time a widget is placed.  You might also increase it yourself by doing something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">nextrely</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Which would leave a gap between the previous widget and the next placed one.</p>
+<dl class="attribute">
+<dt id="Form.nextrely">
+<code class="sig-prename descclassname">Form.</code><code class="sig-name descname">nextrely</code><a class="headerlink" href="#Form.nextrely" title="永久链接至目标">¶</a></dt>
+<dd><p>The y position at which the next created widget should be made.  The standard forms set this to the line below the previously created widget as each widget is added to the form.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nextrelx">
+<code class="sig-name descname">nextrelx</code><a class="headerlink" href="#nextrelx" title="永久链接至目标">¶</a></dt>
+<dd><p>The x position at which the next created widget should be made.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="other-standard-form-features">
+<h2>Other Standard Form Features<a class="headerlink" href="#other-standard-form-features" title="永久链接至标题">¶</a></h2>
+<dl class="method">
+<dt id="Form.create">
+<code class="sig-prename descclassname">Form.</code><code class="sig-name descname">create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Form.create" title="永久链接至目标">¶</a></dt>
+<dd><p>This method is called by the Form’s constructor.  It does nothing by default - it is there for you to override in
+subclasses, but it is the best place to set up all the widgets on a Form.  Expect this method to be full of
+<em>self.add(…)</em> method calls, then!</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Form.while_editing">
+<code class="sig-prename descclassname">Form.</code><code class="sig-name descname">while_editing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Form.while_editing" title="永久链接至目标">¶</a></dt>
+<dd><p>This method is called as the user moves between widgets.  It is intended for you to override in subclasses, to do things like altering one widget based on the value of another.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Form.adjust_widgets">
+<code class="sig-prename descclassname">Form.</code><code class="sig-name descname">adjust_widgets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Form.adjust_widgets" title="永久链接至目标">¶</a></dt>
+<dd><p>Be very careful with this method.  It is called for every keypress while the Form is being edited, and there is no guarantee that it might not be called even more frequently.  By default it does nothing, and is intended for you to override.  Since it gets called so frequently, thoughtlessness here could slow down your whole application.</p>
+<p>For example, be very conservative with redraws of the whole Form (a slow operation) - make sure you put in code to test whether a redraw is necessary, and try to only redraw widgets that really need to be changed, rather than redrawing the whole screen.</p>
+<p>If the Form’s parentApp also has a method called <em>adjust_widgets</em>, this will also be called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Form.while_waiting">
+<code class="sig-prename descclassname">Form.</code><code class="sig-name descname">while_waiting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Form.while_waiting" title="永久链接至目标">¶</a></dt>
+<dd><p>If you wish to perform actions while waiting for the user to press a key, you may define a <em>while_waiting</em> method.  You should also set the attribute <em>keypress_timeout</em>, which is a value in ms.  Whenever waiting for input, if more than the time given in <em>keypress_timeout</em> passes, while_waiting will be called.  Note that npyscreen takes no steps to ensure that <em>while_waiting()</em> is called at exactly regular intervals, and in fact it may never be called at all if the user continually presses keys.</p>
+<p>If a form’s parentApp has a method called <em>while_waiting</em> this will also be called.</p>
+<p>A <em>keypress_timeout</em> value of 10 suggests that the <em>while_waiting</em> method is called about every second, assuming the user takes no other action.</p>
+<p>See the included example Example-waiting.py for a fully worked example.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Form.keypress_timeout">
+<code class="sig-prename descclassname">Form.</code><code class="sig-name descname">keypress_timeout</code><a class="headerlink" href="#Form.keypress_timeout" title="永久链接至目标">¶</a></dt>
+<dd><p>See the <cite>while_waiting</cite> method above.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Form.set_value">
+<code class="sig-prename descclassname">Form.</code><code class="sig-name descname">set_value</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#Form.set_value" title="永久链接至目标">¶</a></dt>
+<dd><p>Store <em>value</em> in the <em>.value</em> attribute of the <em>Form</em> and then call the <em>whenParentChangeValue</em> method of every widget that has it.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="displaying-and-editing-forms">
+<h2>Displaying and Editing Forms<a class="headerlink" href="#displaying-and-editing-forms" title="永久链接至标题">¶</a></h2>
+<dl class="method">
+<dt id="Form.display">
+<code class="sig-prename descclassname">Form.</code><code class="sig-name descname">display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Form.display" title="永久链接至目标">¶</a></dt>
+<dd><p>Redraw every widget on the Form and the Form itself.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Form.DISPLAY">
+<code class="sig-prename descclassname">Form.</code><code class="sig-name descname">DISPLAY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Form.DISPLAY" title="永久链接至目标">¶</a></dt>
+<dd><p>Redraw the form, but make extra sure that the display is reset.  This is a slow operation, and avoid calling if possible.  You may sometimes need to use this if an external process has disrupted the terminal.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Form.edit">
+<code class="sig-prename descclassname">Form.</code><code class="sig-name descname">edit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Form.edit" title="永久链接至目标">¶</a></dt>
+<dd><p>Allow the user to interactively edit the value of each widget.  You should not need to call this method if correctly using the <em>NPSAppManaged</em> class.  You should avoid calling this method if possible, but you will need to use it if writing simple applications that do not use the NPSAppManaged class.  Calling this method directly is akin to creating a modal dialog box in a GUI application.  As far as possible consider this method an internal API call.</p>
+</dd></dl>
+
+<div class="section" id="when-forms-exit">
+<h3>When forms exit<a class="headerlink" href="#when-forms-exit" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div><p>Forms may exit their editing modes for a number of reasons.  In NPSAppManaged applications, the controlling application may cause the form to exit.</p>
+<p>Setting the attribute <cite>.editing</cite> to False yourself, however, will cause the form to exit.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="standard-form-classes">
+<h2>Standard Form Classes<a class="headerlink" href="#standard-form-classes" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="sig-name descname">Form</code></dt>
+<dd><p>The basic Form class.  When editing the form, the user can exit by selecting the OK button in the bottom right corner.</p>
+<p>By default, a Form will fill the Terminal.  Popup is simply a Form with a smaller default size.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="Popup">
+<em class="property">class </em><code class="sig-name descname">Popup</code><a class="headerlink" href="#Popup" title="永久链接至目标">¶</a></dt>
+<dd><p>Popup is simply a Form with a smaller default size.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ActionForm">
+<em class="property">class </em><code class="sig-name descname">ActionForm</code><a class="headerlink" href="#ActionForm" title="永久链接至目标">¶</a></dt>
+<dd><p>The ActionForm creates OK and Cancel buttons.  Selecting either exits the form.  The method <em>on_ok</em> or <em>on_cancel</em> is called when the Form exits (assuming the user selected one of these buttons).  Subclasses may therefore usefully override one or both of these methods, which by default do nothing.</p>
+<blockquote>
+<div><dl class="method">
+<dt id="ActionForm.on_ok">
+<code class="sig-name descname">on_ok</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ActionForm.on_ok" title="永久链接至目标">¶</a></dt>
+<dd><p>Called when the ok button is pressed.  Setting the attribute <cite>.editing</cite> to True in this method will abort editing the form.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ActionForm.on_cancel">
+<code class="sig-name descname">on_cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ActionForm.on_cancel" title="永久链接至目标">¶</a></dt>
+<dd><p>Called when the cancel button is pressed. Setting the attribute <cite>.editing</cite> to True in this method will abort editing the form.</p>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="ActionFormV2">
+<em class="property">class </em><code class="sig-name descname">ActionFormV2</code><a class="headerlink" href="#ActionFormV2" title="永久链接至目标">¶</a></dt>
+<dd><p>New in Version 4.3.0.  This version of ActionForm behaves similarly to ActionForm above, but the code is much cleaner.  It should
+be much easier to subclass.  Eventually, this version may entirely replace ActionForm.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ActionFormMinimal">
+<em class="property">class </em><code class="sig-name descname">ActionFormMinimal</code><a class="headerlink" href="#ActionFormMinimal" title="永久链接至目标">¶</a></dt>
+<dd><p>New in Version 4.4.0.  This version of ActionFormV2 only features an OK button.  Added at user request for use in
+special circumstances.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ActionPopup">
+<em class="property">class </em><code class="sig-name descname">ActionPopup</code><a class="headerlink" href="#ActionPopup" title="永久链接至目标">¶</a></dt>
+<dd><p>A smaller version of the ActionForm.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="SplitForm">
+<em class="property">class </em><code class="sig-name descname">SplitForm</code><a class="headerlink" href="#SplitForm" title="永久链接至目标">¶</a></dt>
+<dd><p>The SplitForm has a horizontal line across the middle.  The method <em>get_half_way()</em> will tell you where it has been drawn.</p>
+<blockquote>
+<div><dl class="attribute">
+<dt id="SplitForm.draw_line_at">
+<code class="sig-name descname">draw_line_at</code><a class="headerlink" href="#SplitForm.draw_line_at" title="永久链接至目标">¶</a></dt>
+<dd><p>This attribute defines the position at which the line should be drawn across the screen.  It can be set by passing <cite>draw_line_at=</cite>
+to the constructor, or will be set automatically at the value returned by the method <cite>get_half_way</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="SplitForm.get_half_way">
+<code class="sig-name descname">get_half_way</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SplitForm.get_half_way" title="永久链接至目标">¶</a></dt>
+<dd><p>return the y co-ordinate of the bar across the middle of the form.  In fact in subclasses of this form, there is no
+particular reason why the y co-ordinate should in fact be half way down the form, and subclasses may return whatever
+value is convenient.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="SplitForm.MOVE_LINE_ON_RESIZE">
+<code class="sig-name descname">MOVE_LINE_ON_RESIZE</code><a class="headerlink" href="#SplitForm.MOVE_LINE_ON_RESIZE" title="永久链接至目标">¶</a></dt>
+<dd><p>This class attribute specifies whether the position of the line should be moved when the form is resized.  Since
+any widgets below the line would also need to be moved (presumably in an overriden <cite>resize</cite> method on subclasses of
+this form, this value is set to False by default).</p>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="FormWithMenus">
+<em class="property">class </em><code class="sig-name descname">FormWithMenus</code><a class="headerlink" href="#FormWithMenus" title="永久链接至目标">¶</a></dt>
+<dd><p>Similar to the Form class, but provides the additional functionality of Popup menus.</p>
+<p>To add a new menu to the Form use the method <em>new_menu(name=’’)</em>.  This will create the menu and return a proxy to it.  For more details see the section on Menus below.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ActionFormWithMenus">
+<em class="property">class </em><code class="sig-name descname">ActionFormWithMenus</code><a class="headerlink" href="#ActionFormWithMenus" title="永久链接至目标">¶</a></dt>
+<dd><p>Similar to the ActionForm class, but provides the additional functionality of Popup menus.</p>
+<p>To add a new menu to the Form use the method <em>new_menu(name=’’)</em>.  This will create the menu and return a proxy to it.  For more details see the section on Menus below.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ActionFormV2WithMenus">
+<em class="property">class </em><code class="sig-name descname">ActionFormV2WithMenus</code><a class="headerlink" href="#ActionFormV2WithMenus" title="永久链接至目标">¶</a></dt>
+<dd><p>New in Version 4.3.0.  This version of ActionFormWithMenus behaves similarly to ActionForm above, but the code is much cleaner.  It should
+be much easier to subclass.  Eventually, this version may entirely replace ActionFormWithMenus.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="FormBaseNew">
+<em class="property">class </em><code class="sig-name descname">FormBaseNew</code><a class="headerlink" href="#FormBaseNew" title="永久链接至目标">¶</a></dt>
+<dd><p>This form does not have an <em>ok</em> or <em>cancel</em> button by default.  The additional methods <em>pre_edit_loop</em> and <em>post_edit_loop</em> are called before and after the Form is edited.  The default versions do nothing.  This class is intended as a base for more complex user interfaces.</p>
+<dl class="method">
+<dt id="FormBaseNew.pre_edit_loop">
+<code class="sig-name descname">pre_edit_loop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#FormBaseNew.pre_edit_loop" title="永久链接至目标">¶</a></dt>
+<dd><p>Called before the form is edited.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FormBaseNew.post_edit_loop">
+<code class="sig-name descname">post_edit_loop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#FormBaseNew.post_edit_loop" title="永久链接至目标">¶</a></dt>
+<dd><p>Called after the edit loop exits.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="FormBaseNewWithMenus">
+<em class="property">class </em><code class="sig-name descname">FormBaseNewWithMenus</code><a class="headerlink" href="#FormBaseNewWithMenus" title="永久链接至目标">¶</a></dt>
+<dd><p>Menu-enabled version of FormBaseNew.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="mutt-like-forms">
+<h2>Mutt-like Forms<a class="headerlink" href="#mutt-like-forms" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="FormMutt">
+<em class="property">class </em><code class="sig-name descname">FormMutt</code><a class="headerlink" href="#FormMutt" title="永久链接至目标">¶</a></dt>
+<dd><p>Inspired by the user interfaces of programs like <em>mutt</em> or <em>irssi</em>, this form defines four default widgets:</p>
+<dl class="simple">
+<dt><em>wStatus1</em></dt><dd><p>This is at the top of the screen.  You can change the type of widget used by changing the <em>STATUS_WIDGET_CLASS</em> class attribute (note this is used for both status lines).</p>
+</dd>
+<dt><em>wStatus2</em></dt><dd><p>This occupies the second to last line of the screen. You can change the type of widget used by changing the <em>STATUS_WIDGET_CLASS</em> class attribute (note this is used for both status lines).</p>
+</dd>
+<dt><em>wMain</em></dt><dd><p>This occupies the area between wStatus1 and wStatus2, and is a MultiLine widget.  You can alter the type of widget that appears here by subclassing <em>FormMutt</em> and changing the <em>MAIN_WIDGET_CLASS</em> class attribute.</p>
+</dd>
+<dt><em>wCommand</em></dt><dd><p>This Field occupies the last line of the screen. You can change the type of widget used by altering the <em>COMMAND_WIDGET_CLASS</em> class attribute.</p>
+</dd>
+</dl>
+<p>By default, wStatus1 and wStatus2 have <em>editable</em> set to False.</p>
+</dd></dl>
+
+<dl>
+<dt>FormMuttActive, FormMuttActiveWithMenus, FormMuttActiveTraditional, FormMuttActiveTraditionalWithMenus</dt><dd><p>These classes are intended to make the creation of more complicated applications easier.  Each class uses the additional classes <em>NPSFilteredDataBase</em>, <em>ActionControllerSimple</em>, <em>TextCommandBox</em>, <em>TextCommandBoxTraditional</em>.</p>
+<p>A very common *nix style of terminal application (used by applications like mutt and irssi) has a central display with a list or grid of times, a command line at the bottom and some status lines.</p>
+<p>These classes make setting up a similar form easy.  The difference between the <em>FormMuttActive</em> and <em>FormMuttActiveTraditional</em> classes is that in the latter the only widget that the user ever actually edits is the command line at the bottom of the screen.  However, keypresses will be passed to the multiline widget in the centre of the display if these widgets are not editing a command line, allowing the user to scroll around and select items.</p>
+<p>What is actually displayed on the screen is controlled by the <em>ActionControllerSimple</em> class, which uses as a base the data stored not by any of the individual widgets but by the <em>NPSFilteredDatabase</em> class.</p>
+<p>See the section on writing Mutt-like applications later in this documentation for more information.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="multi-page-forms">
+<h2>Multi-page Forms<a class="headerlink" href="#multi-page-forms" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="FormMultiPage">
+<em class="property">class </em><code class="sig-name descname">FormMultiPage</code><span class="sig-paren">(</span><em class="sig-param">new in version 2.0pre63</em><span class="sig-paren">)</span><a class="headerlink" href="#FormMultiPage" title="永久链接至目标">¶</a></dt>
+<dd><p>This <em>experimental</em> class adds support for multi-page forms.  By default, scrolling down off the last widget on a page moves to the next page, and moving up from the first widget moves back a page.</p>
+<p>The default class will display the page you are on in the bottom right corner if the attribute <em>display_pages</em> is True and if there is more than one page.  You can also pass <em>display_pages=False</em> in to the constructor.  The color used for this display is stored in the attribute <em>pages_label_color</em>.  By default this is ‘NORMAL’.  Other good values might be ‘STANDOUT’, ‘CONTROL’ or ‘LABEL’. Again, you can pass this in to the constructor.</p>
+<p>Please note that this class is EXPERIMENTAL.  The API is still under review, and may change in future releases.  It is intended for applications which may have to create forms dynamically, which might need to create a single form larger than a screen (for example, a Jabber client that needs to display an xmpp form specified by the server.)  It is <em>not</em> intended to display arbitrarily large lists of items.  For that purpose, the multiline classes of widgets are much more efficient.</p>
+<p>Three new methods are added to this form:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FormMultiPage.add_page">
+<code class="sig-prename descclassname">FormMultiPage.</code><code class="sig-name descname">add_page</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#FormMultiPage.add_page" title="永久链接至目标">¶</a></dt>
+<dd><p>Intended for use during the creation of the form.  This adds a new page, and resets the position at which new widgets will be added.  The index of the page added is returned.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FormMultiPage.switch_page">
+<code class="sig-prename descclassname">FormMultiPage.</code><code class="sig-name descname">switch_page</code><span class="sig-paren">(</span><em class="sig-param">*index*</em><span class="sig-paren">)</span><a class="headerlink" href="#FormMultiPage.switch_page" title="永久链接至目标">¶</a></dt>
+<dd><p>This method changes the active page to the one specified by <em>index</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FormMultiPage.add_widget_intelligent">
+<code class="sig-prename descclassname">FormMultiPage.</code><code class="sig-name descname">add_widget_intelligent</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**keywords</em><span class="sig-paren">)</span><a class="headerlink" href="#FormMultiPage.add_widget_intelligent" title="永久链接至目标">¶</a></dt>
+<dd><p>This method adds a widget to the form.  If there is not enough space on the current page, it tries creating a new page and adding the widget there.  Note that this method may still raise an exception if the user has specified options that prevent the widget from appearing even on the new page.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="FormMultPageAction">
+<em class="property">class </em><code class="sig-name descname">FormMultPageAction</code><span class="sig-paren">(</span><em class="sig-param">new in version 2.0pre64</em><span class="sig-paren">)</span><a class="headerlink" href="#FormMultPageAction" title="永久链接至目标">¶</a></dt>
+<dd><p>This is an <em>experimental</em> version of the FormMultiPage class that adds the on_ok and on_cancel methods of the ActionForm class and automatically creates cancel and ok buttons on the last page of the form.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="FormMultiPageWithMenus">
+<em class="property">class </em><code class="sig-name descname">FormMultiPageWithMenus</code><a class="headerlink" href="#FormMultiPageWithMenus" title="永久链接至目标">¶</a></dt>
+<dd><p>Menu-enabled version of MultiPage.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="FormMultiPageActionWithMenus">
+<em class="property">class </em><code class="sig-name descname">FormMultiPageActionWithMenus</code><a class="headerlink" href="#FormMultiPageActionWithMenus" title="永久链接至目标">¶</a></dt>
+<dd><p>Menu-enabled version of MultiPageAction.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="menus">
+<h2>Menus<a class="headerlink" href="#menus" title="永久链接至标题">¶</a></h2>
+<p>Some Form classes support the use of popup menus.  Menus could in theory be used as widgets on their own.  Popup menus (inspired, in fact, by the menu system in RiscOS) were selected instead of drop-down menus as being more suitable for a keyboard environment, making better use of available screen space and being easier to deploy on terminals of varied sizes.</p>
+<p>By default, the supporting forms will display an advert that the menu system is available to the user, and a shortcut to the list of menus.  If the form has multiple menus, a ‘root’ menu listing all of them will be displayed.</p>
+<p>Menus are usually created by calling a (supporting) Form’s <em>new_menu</em> method.  Version 2.0pre82 adds the argument <em>shortcut=None</em> to this method.  In the list of menus that the Form displays, this shortcut will be displayed.  After a menu has been created, the following methods on that object are useful:</p>
+<dl class="method">
+<dt id="NewMenu.addItem">
+<code class="sig-prename descclassname">NewMenu.</code><code class="sig-name descname">addItem</code><span class="sig-paren">(</span><em class="sig-param">text=''</em>, <em class="sig-param">onSelect=function</em>, <em class="sig-param">shortcut=None</em>, <em class="sig-param">arguments=None</em>, <em class="sig-param">keywords=None</em><span class="sig-paren">)</span><a class="headerlink" href="#NewMenu.addItem" title="永久链接至目标">¶</a></dt>
+<dd><p><em>text</em> should be the string to be displayed on the menu.  <cite>onSelect</cite> should be a function to be called if that item is selected by the user.  This is one of the few easy opportunities in npyscreen to create circular references - you may wish to pass in a proxy to a function instead.  I’ve tried to guard you against circular references as much as possible - but this is just one of those times I can’t second-guess your application structure. Version 2.0pre82 adds the ability to add a shortcut.</p>
+<p>From version 3.6 onwards, menu items can be specified with a list of <em>arguments</em> and/or a dictionary of keywords.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NewMenu.addItemsFromList">
+<code class="sig-prename descclassname">NewMenu.</code><code class="sig-name descname">addItemsFromList</code><span class="sig-paren">(</span><em class="sig-param">item_list</em><span class="sig-paren">)</span><a class="headerlink" href="#NewMenu.addItemsFromList" title="永久链接至目标">¶</a></dt>
+<dd><p>The agument for this function should be a list or tuple. Each element of this should be a tuple of the arguments that are used for creating each item.  This method is DEPRECATED and may be removed or altered in a future version.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NewMenu.addNewSubmenu">
+<code class="sig-prename descclassname">NewMenu.</code><code class="sig-name descname">addNewSubmenu</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">shortcut=None</em>, <em class="sig-param">preDisplayFunction=None</em>, <em class="sig-param">pdfuncArguments=None</em>, <em class="sig-param">pdfuncKeywords=None</em><span class="sig-paren">)</span><a class="headerlink" href="#NewMenu.addNewSubmenu" title="永久链接至目标">¶</a></dt>
+<dd><p>Create a new submenu (returning a proxy to it).  This is the preferred way of creating submenus. Version 2.0pre82 adds the ability to add a keyboard shortcut.</p>
+<p>From version 3.7 onwards, you can define a function and arguments to be called before this menu is displayed.  This might mean you
+can adjust the content of the menu at the point it is displayed.  Added at user request.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NewMenu.addSubmenu">
+<code class="sig-prename descclassname">NewMenu.</code><code class="sig-name descname">addSubmenu</code><span class="sig-paren">(</span><em class="sig-param">submenu</em><span class="sig-paren">)</span><a class="headerlink" href="#NewMenu.addSubmenu" title="永久链接至目标">¶</a></dt>
+<dd><p>Add an existing Menu to the Menu as a submenu.  All things considered, addNewSubmenu is usually a better bet.</p>
+</dd></dl>
+
+<p>(Internally, this menu system is referred to as the “New” menu system - it replaces a drop-down menu system with which I was never very happy.)</p>
+</div>
+<div class="section" id="resizing-forms-new-in-version-2-0pre88">
+<h2>Resizing Forms (New in version 2.0pre88)<a class="headerlink" href="#resizing-forms-new-in-version-2-0pre88" title="永久链接至标题">¶</a></h2>
+<p>When a form is resized, a signal is sent to the form currently on the screen.  Whether or not the form handles this is decided by three things.</p>
+<p>If you set the variable <cite>npyscreen.DISABLE_RESIZE_SYSTEM</cite> to True, forms will not resize at all.</p>
+<dl class="simple">
+<dt>The class attribute <cite>ALLOW_RESIZE</cite> (=True by default).</dt><dd><p>If this is set to false the form will not resize itself.</p>
+</dd>
+</dl>
+<p>The class attribute <cite>FIX_MINIMUM_SIZE_WHEN_CREATED</cite> controls whether the form can be made smaller than the size it was when it was created.  By default this is set to <cite>False</cite>.  This is because for over a decade, npyscreen assumed that forms would never change size, and many programs may rely on the fact that the form will never be resized.  If you are writing new code from scratch, you can set this value to True, provided that you test the results to make sure that resizing the form will not crash your application.</p>
+<p>When a form is resized, the method <cite>resize</cite> will be called <em>after</em> the new size of the form has been fixed.  Forms may override this method to move widgets to new locations or alter anything else about the layout of the form as appropriate.</p>
+<p>When using the <cite>NPSAppManaged</cite> system, forms will be automatically resized before they are displayed.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="widgets.html" class="btn btn-neutral float-right" title="Widgets: Basic Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="application-objects.html" class="btn btn-neutral float-left" title="应用对象" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Nicholas Cole
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

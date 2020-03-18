@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Application Support &mdash; npyscreen 中文手册 2 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Writing More Complex Forms" href="muttlike.html" />
+    <link rel="prev" title="Displaying Brief Messages and Choices" href="messages.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> npyscreen 中文手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">npyscreen简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-structure.html">创建npyscreen应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html">应用对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html#id5">其他应用类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form-objects.html">Form Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets: Basic Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-text.html">Widgets: Displaying Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-multiline.html">Widgets: Picking Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-trees.html">Widgets: Trees and Tree displays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html">Widgets: Dates, Sliders and Combination Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-grids">Widgets: Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-other-controls">Widgets: Other Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html">Widgets: Titled Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html#widgets-box-widgets">Widgets: Box Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keybindings.html">All about Key Bindings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Enhancing Mouse Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color.html">Support for Colour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html">Displaying Brief Messages and Choices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html#blanking-the-screen">Blanking the Screen</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Application Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#options-and-option-lists">Options and Option Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-code">Example Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="muttlike.html">Writing More Complex Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-tests.html">Writing Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-addressbk.html">Example Application: A simple address book</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">npyscreen 中文手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Application Support</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/options.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="application-support">
+<h1>Application Support<a class="headerlink" href="#application-support" title="永久链接至标题">¶</a></h1>
+<div class="section" id="options-and-option-lists">
+<h2>Options and Option Lists<a class="headerlink" href="#options-and-option-lists" title="永久链接至标题">¶</a></h2>
+<p>One common problem is to display a list of options to the user.  In simple applications, a custom designed form may be used for this purpose, but for many tasks an automatically generated form is desirable.  An <em>experimental</em> system to support this was introduced in version 2.0pre84.</p>
+<p>At the core of this system is the concept of the <em>Option</em> object.  These objects store either single values or lists of values depending on their type, as well as any documentation that goes with the option in question and which should be presented to the user.  Options are created with the following arguments: <em>OptionType(name, value=None, documentation=None, short_explanation=None, option_widget_keywords = None, default = None)</em>.  The <em>short_explanation</em> argument is currently not used by the default widgets but will be used in future versions.  Option classes designed to allow the user to select from a limited range of options may also be created with the <em>choices</em> arguement.</p>
+<p>All option classes also have the class attributes DEFAULT and WIDGET_TO_USE.  The first of these defines a default value if this is not specified.  The second specifies the class of widget that is used to allow the user to adjust the option in question.</p>
+<p>The following option classes are currently defined: <cite>OptionFreeText</cite>, <cite>OptionSingleChoice</cite>, <cite>OptionMultiChoice</cite>, <cite>OptionMultiFreeList</cite>, <cite>OptionBoolean</cite>, <cite>OptionFilename</cite>, <cite>OptionDate</cite>, <cite>OptionMultiFreeText</cite>.  The value stored in the Option object should be set with the <em>set(value)</em> method and retrieved with the <em>get()</em> method.  All Option classes also define a method <em>when_set</em> which can be overridden and which will be called after the value is changed.  Options that allow the user to select from a series of limited choices also have the methods <em>setChoices(choices)</em> and <em>getChoices</em>.</p>
+<p>An option list can be displayed using the <em>OptionListDisplay</em> widget.  This takes a list of options as its <em>values</em> attribute.  If an option is selected, a form will be presented to the user that will display the documentation (if any) and allow the user to change the value of it.</p>
+<p>Option collections may be gathered together with an <em>OptionList</em> object.  <em>OptionList</em> classes have an attribute <em>options</em>.  This is simply a list, to which Option objects may be appended. Future versions may define a different API.  The purpose of <em>OptionList</em> objects is to help saving and restoring collections of objects to test files.  The format of these files is a custom text format, similar to standard unix file but capable of storing and restoring lists of strings (using tab characters as a seperator.)  This format is still evolving, and may be changed in future versions.  Only values that vary from the default are stored.</p>
+<p><em>OptionList</em> objects may be created with a <em>filename</em> argument, and have the methods <em>write_to_file(fn=None)</em> and <em>reload_from_file(fn=None)</em>.</p>
+<p>The class <em>SimpleOptionForm</em> is a form designed to show how these elements work.  The <em>OptionListDisplay</em> widget is created as an attribute with the name <em>wOptionList</em>.</p>
+</div>
+<div class="section" id="example-code">
+<h2>Example Code<a class="headerlink" href="#example-code" title="永久链接至标题">¶</a></h2>
+<p>The following short demo program will store the specified options in the file ‘/tmp/test’ between invocations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># encoding: utf-8</span>
+
+<span class="kn">import</span> <span class="nn">npyscreen</span>
+<span class="k">class</span> <span class="nc">TestApp</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">NPSApp</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Options</span> <span class="o">=</span> <span class="n">npyscreen</span><span class="o">.</span><span class="n">OptionList</span><span class="p">()</span>
+
+        <span class="c1"># just for convenience so we don&#39;t have to keep writing Options.options</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="n">Options</span><span class="o">.</span><span class="n">options</span>
+
+        <span class="n">options</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">OptionFreeText</span><span class="p">(</span><span class="s1">&#39;FreeText&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">documentation</span><span class="o">=</span><span class="s2">&quot;This is some documentation.&quot;</span><span class="p">))</span>
+        <span class="n">options</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">OptionMultiChoice</span><span class="p">(</span><span class="s1">&#39;Multichoice&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Choice 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Choice 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Choice 3&#39;</span><span class="p">]))</span>
+        <span class="n">options</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">OptionFilename</span><span class="p">(</span><span class="s1">&#39;Filename&#39;</span><span class="p">,</span> <span class="p">))</span>
+        <span class="n">options</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">OptionDate</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="p">))</span>
+        <span class="n">options</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">OptionMultiFreeText</span><span class="p">(</span><span class="s1">&#39;Multiline Text&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
+        <span class="n">options</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">OptionMultiFreeList</span><span class="p">(</span><span class="s1">&#39;Multiline List&#39;</span><span class="p">))</span>
+
+                <span class="k">try</span><span class="p">:</span>
+                <span class="n">Options</span><span class="o">.</span><span class="n">reload_from_file</span><span class="p">(</span><span class="s1">&#39;/tmp/test&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+                        <span class="k">pass</span>
+
+        <span class="n">F</span>  <span class="o">=</span> <span class="n">npyscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Welcome to Npyscreen&quot;</span><span class="p">,)</span>
+
+        <span class="n">ms</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">OptionListDisplay</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Option List&quot;</span><span class="p">,</span>
+                <span class="n">values</span> <span class="o">=</span> <span class="n">options</span><span class="p">,</span>
+                <span class="n">scroll_exit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">max_height</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+        <span class="n">F</span><span class="o">.</span><span class="n">edit</span><span class="p">()</span>
+
+        <span class="n">Options</span><span class="o">.</span><span class="n">write_to_file</span><span class="p">(</span><span class="s1">&#39;/tmp/test&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">App</span> <span class="o">=</span> <span class="n">TestApp</span><span class="p">()</span>
+    <span class="n">App</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="muttlike.html" class="btn btn-neutral float-right" title="Writing More Complex Forms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="messages.html" class="btn btn-neutral float-left" title="Displaying Brief Messages and Choices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Nicholas Cole
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

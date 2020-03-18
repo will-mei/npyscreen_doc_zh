@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Widgets: Displaying Text &mdash; npyscreen 中文手册 2 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Widgets: Picking Options" href="widgets-multiline.html" />
+    <link rel="prev" title="Widgets: Basic Features" href="widgets.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> npyscreen 中文手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">npyscreen简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-structure.html">创建npyscreen应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html">应用对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html#id5">其他应用类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form-objects.html">Form Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets: Basic Features</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Widgets: Displaying Text</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#in-detail">In detail</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-multiline.html">Widgets: Picking Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-trees.html">Widgets: Trees and Tree displays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html">Widgets: Dates, Sliders and Combination Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-grids">Widgets: Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-other-controls">Widgets: Other Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html">Widgets: Titled Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html#widgets-box-widgets">Widgets: Box Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keybindings.html">All about Key Bindings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Enhancing Mouse Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color.html">Support for Colour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html">Displaying Brief Messages and Choices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html#blanking-the-screen">Blanking the Screen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options.html">Application Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="muttlike.html">Writing More Complex Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-tests.html">Writing Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-addressbk.html">Example Application: A simple address book</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">npyscreen 中文手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Widgets: Displaying Text</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/widgets-text.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="widgets-displaying-text">
+<h1>Widgets: Displaying Text<a class="headerlink" href="#widgets-displaying-text" title="永久链接至标题">¶</a></h1>
+<dl>
+<dt>Textfield, TitleText</dt><dd><p>A single line of text, although of arbitrary length - the basic entry widget.  N.B. some versions of the documentation incorrection refer to a ‘textbox’ widget.</p>
+</dd>
+<dt>FixedText, TitleFixedText</dt><dd><p>A single line of text, but with the editing functions of Textbox removed.</p>
+</dd>
+<dt>PasswordEntry, TitlePassword</dt><dd><p>A textbox but altered so that the exact letters of <em>.value</em> are not displayed.</p>
+</dd>
+<dt>Autocomplete</dt><dd><p>This is a textbox but with additional functionality - the idea is that if the user presses TAB the widget will attempt to ‘complete’ what the user was typing, offering a choice of options if appropriate.   The method called is <cite>auto_complete(inputch)</cite>.</p>
+<p>Of course, context is everything here.  <em>Autocomplete</em> is therefore not useful, but is intended as something you can subclass.  See the Filename and TitleFilename classes for examples.</p>
+</dd>
+<dt>Filename, TitleFilename</dt><dd><p>A textbox that will attempt to ‘complete’ a filename or path entered by the user.</p>
+<p>This is an example of the <em>Autocomplete</em> widget.</p>
+</dd>
+<dt>FilenameCombo, TitleFilenameCombo</dt><dd><p>This is a more advanced way to select files.  New in version 2.0pre82.</p>
+</dd>
+<dt>MultiLineEdit</dt><dd><p>This widget allows the user to edit several lines of text.</p>
+</dd>
+<dt>Pager, TitlePager</dt><dd><p>This widget displays lines of text, allowing the user to scroll through them, but not edit them.  The text to display is held in the <cite>.values</cite> attribute.</p>
+</dd>
+</dl>
+<div class="section" id="in-detail">
+<h2>In detail<a class="headerlink" href="#in-detail" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="Textbox">
+<em class="property">class </em><code class="sig-name descname">Textbox</code><a class="headerlink" href="#Textbox" title="永久链接至目标">¶</a></dt>
+<dd><dl class="method">
+<dt id="Textbox.display_value">
+<code class="sig-name descname">display_value</code><span class="sig-paren">(</span><em class="sig-param">vl</em><span class="sig-paren">)</span><a class="headerlink" href="#Textbox.display_value" title="永久链接至目标">¶</a></dt>
+<dd><p>Control how the value of the <cite>.value</cite> attribute is displayed.  Since versions of the text widgets are used in other, compound widgets (such as most of the multiline classes), this method is often overridden.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Textbox.show_brief_message">
+<code class="sig-name descname">show_brief_message</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Textbox.show_brief_message" title="永久链接至目标">¶</a></dt>
+<dd><p>Beep and display a brief message to the user.  In general, there are better ways to do this, but this is somtimes useful, for example when showing errors in Autocomplete classes.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="widgets-multiline.html" class="btn btn-neutral float-right" title="Widgets: Picking Options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="widgets.html" class="btn btn-neutral float-left" title="Widgets: Basic Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Nicholas Cole
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

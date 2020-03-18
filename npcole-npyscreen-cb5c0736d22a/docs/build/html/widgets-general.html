@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Widgets: Dates, Sliders and Combination Widgets &mdash; npyscreen 中文手册 2 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Widgets: Titled Widgets" href="widgets-title.html" />
+    <link rel="prev" title="Widgets: Trees and Tree displays" href="widgets-trees.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> npyscreen 中文手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">npyscreen简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-structure.html">创建npyscreen应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html">应用对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html#id5">其他应用类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form-objects.html">Form Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets: Basic Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-text.html">Widgets: Displaying Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-multiline.html">Widgets: Picking Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-trees.html">Widgets: Trees and Tree displays</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Widgets: Dates, Sliders and Combination Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#widgets-grids">Widgets: Grids</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#customizing-the-appearance-of-individual-grid-cells">Customizing the appearance of individual grid cells</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#widgets-other-controls">Widgets: Other Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html">Widgets: Titled Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html#widgets-box-widgets">Widgets: Box Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keybindings.html">All about Key Bindings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Enhancing Mouse Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color.html">Support for Colour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html">Displaying Brief Messages and Choices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html#blanking-the-screen">Blanking the Screen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options.html">Application Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="muttlike.html">Writing More Complex Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-tests.html">Writing Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-addressbk.html">Example Application: A simple address book</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">npyscreen 中文手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Widgets: Dates, Sliders and Combination Widgets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/widgets-general.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="widgets-dates-sliders-and-combination-widgets">
+<h1>Widgets: Dates, Sliders and Combination Widgets<a class="headerlink" href="#widgets-dates-sliders-and-combination-widgets" title="永久链接至标题">¶</a></h1>
+<dl>
+<dt>DateCombo, TitleDateCombo</dt><dd><p>These widgets allow a user to select a date.  The actual selection of a date is done with the class MonthBox, which is displayed in a temporary window.  The constructor can be passed the following arguments - <cite>allowPastDate=False</cite> and <cite>allowTodaysDate=False</cite> - both of which will affect what the user is allowed to select. The constructor can also accept the argument <cite>allowClear=True</cite>.</p>
+</dd>
+<dt>ComboBox, TitleCombo</dt><dd><p>This box looks like a Textbox, but the user can only select from a list of options.  Which are displayed in a temporary window if the user wants to change the value.  Like the MultiLine widget, the attribute <em>value</em> is the index of a selection in the list <em>values</em>.  The ComboBox widget can also be customised by overloading the <em>display_value(self, vl)</em> method.</p>
+</dd>
+<dt>FilenameCombo, TitleFilenameCombo</dt><dd><p>This presents a control for picking filenames.  The following arguments can be passed in to the constructor:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select_dir</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">must_exist</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">confirm_if_exists</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">sort_by_extension</span><span class="o">=</span><span class="kc">True</span>
+</pre></div>
+</div>
+<p>These also correspond to attributes on the widget that can be set at any time.</p>
+<p>This widget was added in version 2.0pre81.</p>
+</dd>
+<dt>Slider, TitleSlider</dt><dd><p>Slider presents a horizontal slider.  The following additional arguments to the constructor are useful:</p>
+<dl class="simple">
+<dt>out_of=100</dt><dd><p>The maximum value of the slider.</p>
+</dd>
+<dt>step=1</dt><dd><p>The increments by which a user my increase or decrease the value.</p>
+</dd>
+<dt>lowest=0</dt><dd><p>The minimum value a user can select. Note that sliders are not designed to allow a user to select negative values.  <em>lowest</em> should be &gt;= 0</p>
+</dd>
+<dt>label=True</dt><dd><p>Whether to print a text label next to the slider.  If so, see the <em>translate_value</em> method.</p>
+</dd>
+<dt>block_color = None</dt><dd><p>The colour of the blocks that show the level of the slider. By default (None) the same value as the colour of the slider itself.</p>
+</dd>
+</dl>
+<p>All of these options set attributes of the same name that may be altered once the widget exists.</p>
+<p>The text displayed next to the widget (if <em>label=True</em>) is generated by the <em>translate_value</em> method.  This takes no options and returns a string.  It makes sense to subclass the Slider object and overload this method.  It probably makes sense to ensure that the string generated is of a fixed length.  Thus the default code looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stri</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> / </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_of</span><span class="p">)</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_of</span><span class="p">)))</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">4</span>
+<span class="n">stri</span> <span class="o">=</span> <span class="n">stri</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="k">return</span> <span class="n">stri</span>
+</pre></div>
+</div>
+</dd>
+<dt>SliderNoLabel, TitleSliderNoLabel</dt><dd><p>These versions of the Slider do not display a label.  (Similar to using the usual slider with <em>label=False</em>). New in Version 4.3.5</p>
+</dd>
+<dt>SliderPercent, TitleSliderPercent</dt><dd><p>These versions of the Slider display a percentage in the label.  The number of decimal places can be set by setting the attribute <em>accuracy</em> or by passing in the keyword <em>accuracy</em> to the constructor.  Default is 2. New in Version 4.3.5.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="widgets-grids">
+<h1>Widgets: Grids<a class="headerlink" href="#widgets-grids" title="永久链接至标题">¶</a></h1>
+<dl>
+<dt>SimpleGrid</dt><dd><p>This offers a spreadsheet-like display.  The default is only intended to display information (in a grid of text-fields).  However, it is designed to be flexible and easy to customize to display a variety of different data.  Future versions may include new types of grids.  Note that you can control the look of the grid by specifying either <em>columns</em> or <em>column_width</em> at the time the widget is created.  It may be that in the future the other multi-line classes will be derived from this class.</p>
+<p>The cursor location is specified in the attribute <em>.edit_cell</em>.  Note that this follows the (odd) curses convention of specifying the row, then the column.</p>
+<p><em>values</em> should be specified as a two-dimensional array.</p>
+<p>The convenience function <em>set_grid_values_from_flat_list(new_values, max_cols=None, reset_cursor=True)</em> takes a flat list and displays it on the grid.</p>
+<p>The following arguments can be passed to the constructor:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">column_width</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="n">col_margin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="n">row_height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="n">values</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">always_show_cursor</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">select_whole_line</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">(</span><span class="n">new</span> <span class="ow">in</span> <span class="n">version</span> <span class="mf">4.2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Classes derived from SimpleGrid may wish to modify the following class attributes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_contained_widgets</span>    <span class="o">=</span> <span class="n">textbox</span><span class="o">.</span><span class="n">Textfield</span>
+<span class="n">default_column_number</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">additional_y_offset</span>   <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># additional offset to leave within the widget before the grid</span>
+<span class="n">additional_x_offset</span>   <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># additional offset to leave within the widget before the grid</span>
+<span class="n">select_whole_line</span>   <span class="c1"># highlight the whole line that the cursor is on</span>
+</pre></div>
+</div>
+</dd>
+<dt>GridColTitles</dt><dd><p>Like the simple grid, but uses the first two lines of the display to display the column titles.  These can be provided as a <em>col_titles</em> argument at the time of construction, or by setting the <em>col_titles</em> attribute at any time.  In either case, provide a list of strings.</p>
+</dd>
+</dl>
+<div class="section" id="customizing-the-appearance-of-individual-grid-cells">
+<h2>Customizing the appearance of individual grid cells<a class="headerlink" href="#customizing-the-appearance-of-individual-grid-cells" title="永久链接至标题">¶</a></h2>
+<p>New in version 4.8.2.</p>
+<p>For some applications it may be desirable to customize the attributes of the contained grid widgets depending upon their content. Grid widgets call a method called <cite>custom_print_cell(actual_cell, display_value)</cite> after they have set the value of a cell and before the content of the cell is drawn to the screen.  The parameter <cite>actual_cell</cite> is the underlying widget object being used for display, while <cite>display_value</cite> is the object that has been set as the content of the cell (which is the output of the <cite>display_value</cite> method).</p>
+<p>The following code demonstrates how to use this facility to adjust the color of the text displayed in a grid. My thanks are due to Johan Lundstrom for suggesting this feature:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyGrid</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">GridColTitles</span><span class="p">):</span>
+    <span class="c1"># You need to override custom_print_cell to manipulate how</span>
+    <span class="c1"># a cell is printed. In this example we change the color of the</span>
+    <span class="c1"># text depending on the string value of cell.</span>
+    <span class="k">def</span> <span class="nf">custom_print_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">actual_cell</span><span class="p">,</span> <span class="n">cell_display_value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cell_display_value</span> <span class="o">==</span> <span class="s1">&#39;FAIL&#39;</span><span class="p">:</span>
+           <span class="n">actual_cell</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;DANGER&#39;</span>
+        <span class="k">elif</span> <span class="n">cell_display_value</span> <span class="o">==</span> <span class="s1">&#39;PASS&#39;</span><span class="p">:</span>
+           <span class="n">actual_cell</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;GOOD&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+           <span class="n">actual_cell</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;DEFAULT&#39;</span>
+
+<span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="c1"># making an example Form</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">npyscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Example viewer&#39;</span><span class="p">)</span>
+    <span class="n">myFW</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleText</span><span class="p">)</span>
+    <span class="n">gd</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MyGrid</span><span class="p">)</span>
+
+    <span class="c1"># Adding values to the Grid, this code just randomly</span>
+    <span class="c1"># fills a 2 x 4 grid with random PASS/FAIL strings.</span>
+    <span class="n">gd</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">getrandbits</span><span class="p">(</span><span class="mi">1</span><span class="p">)):</span>
+                <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;PASS&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;FAIL&quot;</span><span class="p">)</span>
+        <span class="n">gd</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="n">F</span><span class="o">.</span><span class="n">edit</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">npyscreen</span><span class="o">.</span><span class="n">wrapper_basic</span><span class="p">(</span><span class="n">myFunction</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="widgets-other-controls">
+<h1>Widgets: Other Controls<a class="headerlink" href="#widgets-other-controls" title="永久链接至标题">¶</a></h1>
+<dl>
+<dt>Checkbox, RoundCheckBox</dt><dd><p>These offer a single option - the label is generated from the attribute <em>name</em>, as for titled widgets.  The attribute <em>value</em> is either true or false.</p>
+<p>The function whenToggled(self) is called when the user toggles the state of the checkbox.  You can overload it.</p>
+</dd>
+<dt>CheckboxBare</dt><dd><p>This has no label, and is only useful in special circumstances.  It was added at user request.</p>
+</dd>
+<dt>CheckBoxMultiline, RoundCheckBoxMultiline</dt><dd><p>This widgets allow the label of the checkbox to be more than one line long.  The name of the widget should be specified as a
+list or tuple of strings.</p>
+<p>To use these widgets as part of a multiline widget, do the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MultiSelectWidgetOfSomeKind</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">MultiSelect</span><span class="p">):</span>
+    <span class="n">_contained_widgets</span> <span class="o">=</span> <span class="n">npyscreen</span><span class="o">.</span><span class="n">CheckBoxMultiline</span>
+    <span class="n">_contained_widget_height</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="k">def</span> <span class="nf">display_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vl</span><span class="p">):</span>
+        <span class="c1"># this function should return a list of strings.</span>
+</pre></div>
+</div>
+<p>New in version 2.0pre83.</p>
+</dd>
+<dt>Button</dt><dd><p>Functionally similar to the Checkbox widgets, but looking different.  The Button is usually used for OK and Cancel Buttons on Forms and similar things, though they should probably be replaced with the ButtonPress type.  The colour that the button is shown when selected is either an inverse of the colour of the button, or else selected by the attribute <em>cursor_color</em>.  This value can also be passed in to the constructor.  If this value is None, the inverse of the button colour will be used.</p>
+</dd>
+<dt>ButtonPress</dt><dd><p>Not a toggle, but a control.  This widget has the method <em>whenPressed(self)</em>, which you should overload to do your own things.</p>
+<p>From version 4.3.0 onwards, the constructor accepts an argument <em>when_pressed_function=None</em>.  If a callable is specified in this way, it will be called instead of the method <em>whenPressed</em>. NB.  The when_pressed_function functionality is potentially dangerous. It can set up a circular reference that the garbage collector will never free. If this is a risk for your program, it is best to subclass this object and override the <em>when_pressed_function</em> method instead.</p>
+</dd>
+<dt>FormControlCheckbox</dt><dd><p>A common use of Checkbox is to offer the user the option to enter additional data.  For example “Enter Expiry Date”.  In such a case, the Form needs to display additional fields in some cases, but not in others.  FormControlCheckbox makes this trivial.</p>
+<p>Two methods are defined:</p>
+<dl>
+<dt>addVisibleWhenSelected(<em>wg</em>)</dt><dd><p><em>wg</em> should be a widget.</p>
+<p>This method does not create a widget, but instead puts an existing widget under the control of the FormControlCheckbox.  If FormControlCheckbox is selected, the widget will be visible.</p>
+<p>As many widgets as you wish can be added in this way.</p>
+</dd>
+<dt>addInvisibleWhenSelected(<em>wg</em>)</dt><dd><p>Widgets registered in this way are visible only when the FormControlCheckbox is not selected.</p>
+</dd>
+</dl>
+</dd>
+<dt>AnnotateTextboxBase, TreeLineAnnotated, TreeLineSelectableAnnotated</dt><dd><p>The <em>AnnotateTextboxBase</em> class is mainly intended for use by the
+multiline listing widgets, for situations where each item displayed needs an
+annotation supplied to the left of the entry itself.  The API for these
+classes is slightly ugly, because these classes were originally intended for
+internal use only.  It is likely that more user-friendly versions will be
+supplied in a later release.  Classes derived from <em>AnnotateTextboxBase</em>
+should define the following:</p>
+<dl class="simple">
+<dt><em>ANNOTATE_WIDTH</em></dt><dd><p>This class attribute defines how much margin to leave before the
+text entry widget itself.  In the TreeLineAnnotated class the margin needed is calculated
+dynamically, and ANNOTATE_WIDTH is not needed.</p>
+</dd>
+<dt><em>getAnnotationAndColor</em></dt><dd><p>This function should return a tuple consisting of the string to
+display as the annotation and the name of the colour to use when displaying
+it.  The colour will be ignored on B/W displays, but should be provided in
+all cases, and the string should not be longer than <em>ANNOTATE_WIDTH</em>,
+although by default the class does not check this.</p>
+</dd>
+<dt><em>annotationColor</em>, <em>annotationNoColor</em></dt><dd><p>These methods draw the annotation on the screen.  If using strings
+only, these should not need overriding.  If one is altered, the other should
+be too, since npyscreen will use one if the display is configured for colour
+and the other if configured for black and white.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="widgets-title.html" class="btn btn-neutral float-right" title="Widgets: Titled Widgets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="widgets-trees.html" class="btn btn-neutral float-left" title="Widgets: Trees and Tree displays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Nicholas Cole
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

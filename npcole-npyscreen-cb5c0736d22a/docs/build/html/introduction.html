@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>npyscreen简介 &mdash; npyscreen 中文手册 2 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="创建npyscreen应用程序" href="application-structure.html" />
+    <link rel="prev" title="欢迎来到 npyscreen 中文文档!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> npyscreen 中文手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">npyscreen简介</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">项目目标</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">代码示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">优势</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">不足</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">兼容性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-3-4-0">Python 3.4.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unicode">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">类似的项目</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application-structure.html">创建npyscreen应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html">应用对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html#id5">其他应用类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form-objects.html">Form Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets: Basic Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-text.html">Widgets: Displaying Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-multiline.html">Widgets: Picking Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-trees.html">Widgets: Trees and Tree displays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html">Widgets: Dates, Sliders and Combination Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-grids">Widgets: Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-other-controls">Widgets: Other Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html">Widgets: Titled Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html#widgets-box-widgets">Widgets: Box Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keybindings.html">All about Key Bindings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Enhancing Mouse Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color.html">Support for Colour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html">Displaying Brief Messages and Choices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html#blanking-the-screen">Blanking the Screen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options.html">Application Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="muttlike.html">Writing More Complex Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-tests.html">Writing Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-addressbk.html">Example Application: A simple address book</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">npyscreen 中文手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>npyscreen简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="npyscreen">
+<h1>npyscreen简介<a class="headerlink" href="#npyscreen" title="永久链接至标题">¶</a></h1>
+<p><em>‘甩开其他维度的脏活,专心写好界面’</em></p>
+<div class="section" id="id1">
+<h2>项目目标<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>npyscreen 是一个用于编写命令行终端和控制台程序的 python 的部件库和应用程序框架.它构建于标准库中的 ncurses 库之上.</p>
+<p>如果询问用户给出信息可以变得简单一点那该有多好啊? 简单的就像这样:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MyForm</span> <span class="o">=</span> <span class="n">Form</span><span class="p">()</span>
+
+<span class="n">usrn_box</span> <span class="o">=</span> <span class="n">MyForm</span><span class="o">.</span><span class="n">add_widget</span><span class="p">(</span><span class="n">TitleText</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Your name:&quot;</span><span class="p">)</span>
+<span class="n">internet</span> <span class="o">=</span> <span class="n">MyForm</span><span class="o">.</span><span class="n">add_widget</span><span class="p">(</span><span class="n">TitleText</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Your favourite internet page:&quot;</span><span class="p">)</span>
+
+<span class="n">MyForm</span><span class="o">.</span><span class="n">edit</span><span class="p">()</span>
+
+<span class="c1"># usrn_box.value and internet.value now hold the user&#39;s answers.</span>
+</pre></div>
+</div>
+<p>要是你也这么想, 这个软件库很适合你.</p>
+</div>
+<div class="section" id="id2">
+<h2>代码示例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<img alt="_images/screen-capture.png" class="align-center" src="_images/screen-capture.png" />
+<p>这里是一个简单的,单屏幕的应用程序的例子.  更多其他的高级应用将会用到 NPSAppManaged 框架:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># encoding: utf-8</span>
+
+<span class="kn">import</span> <span class="nn">npyscreen</span>
+<span class="k">class</span> <span class="nc">TestApp</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">NPSApp</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># 这几行代码会创建一个窗口并放上控件.</span>
+        <span class="c1"># 一个挺复杂的窗口只花了 8 行代码 - 一行一个控件.</span>
+        <span class="n">F</span>  <span class="o">=</span> <span class="n">npyscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Welcome to Npyscreen&quot;</span><span class="p">,)</span>
+        <span class="n">t</span>  <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleText</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Text:&quot;</span><span class="p">,)</span>
+        <span class="n">fn</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleFilename</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Filename:&quot;</span><span class="p">)</span>
+        <span class="n">fn2</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleFilenameCombo</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Filename2:&quot;</span><span class="p">)</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleDateCombo</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Date:&quot;</span><span class="p">)</span>
+        <span class="n">s</span>  <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleSlider</span><span class="p">,</span> <span class="n">out_of</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Slider&quot;</span><span class="p">)</span>
+        <span class="n">ml</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">MultiLineEdit</span><span class="p">,</span>
+               <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;try typing here!</span><span class="se">\n</span><span class="s2">Mutiline text, press ^R to reformat.</span><span class="se">\n</span><span class="s2">&quot;&quot;&quot;</span><span class="p">,</span>
+               <span class="n">max_height</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">rely</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+        <span class="n">ms</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleSelectOne</span><span class="p">,</span> <span class="n">max_height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Pick One&quot;</span><span class="p">,</span>
+                <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Option1&quot;</span><span class="p">,</span><span class="s2">&quot;Option2&quot;</span><span class="p">,</span><span class="s2">&quot;Option3&quot;</span><span class="p">],</span> <span class="n">scroll_exit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ms2</span><span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleMultiSelect</span><span class="p">,</span> <span class="n">max_height</span> <span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Pick Several&quot;</span><span class="p">,</span>
+                <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Option1&quot;</span><span class="p">,</span><span class="s2">&quot;Option2&quot;</span><span class="p">,</span><span class="s2">&quot;Option3&quot;</span><span class="p">],</span> <span class="n">scroll_exit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># This lets the user interact with the Form.</span>
+        <span class="n">F</span><span class="o">.</span><span class="n">edit</span><span class="p">()</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">ms</span><span class="o">.</span><span class="n">get_selected_objects</span><span class="p">())</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">App</span> <span class="o">=</span> <span class="n">TestApp</span><span class="p">()</span>
+    <span class="n">App</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>优势<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>这个框架应该足够强大到能用来创建所有从快捷,简便的小程序,到复杂的多屏幕的应用程序.它被设计成可快速完成简单任务,并大幅度减轻编写大型程序的负担.</p>
+<p>它拥有种类非常丰富的默认控件 - 从简单的文本字段到更复杂的树和网格视图,应有尽有.</p>
+<p>这个库的关注点一直是提供一个快速的开发控制台程序方法.通常给屏幕增加个控件就只需一行.</p>
+</div>
+<div class="section" id="id4">
+<h2>不足<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>在2.0pre88 版本中引进了窗体随终端大小自动调整的能力.而之前的版本都一直假定使用固定大小的终端.</p>
+</div>
+<div class="section" id="id5">
+<h2>兼容性<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>当前版本是在 python3 下完成的,但是这些代码也兼容较新的 python2. 一些涉及 Unicode 的特性在 python3 下会运行的更好.</p>
+<p>它被设计成了仅使用 python 的标准库即可运行, 只需可运行的 python (2.6或更高)和 curses 库被安装即可. Npyscreen 也因此可以运行在几乎所有的通用平台,甚至在 window 中的 Cygwin 环境下. Windows 下的另一个选择是从 <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#curses">http://www.lfd.uci.edu/~gohlke/pythonlibs/#curses</a> 直接使用 curses 的 Python库.</p>
+</div>
+<div class="section" id="python-3-4-0">
+<h2>Python 3.4.0<a class="headerlink" href="#python-3-4-0" title="永久链接至标题">¶</a></h2>
+<p>在python3.4.0的curses模块中有一个灾难性的bug: <a class="reference external" href="http://bugs.python.org/issue21088">http://bugs.python.org/issue21088</a></p>
+<p>该 bug 在 python3.4.1 中被修复,而直到 3.4.1 发布出来也没有人提醒我这件事,我不打算在 npyscreen 里发布一个的解决方案,因为我觉得坚守 python3.4.0 的人数应该很小.如果这给你带来了问题,请与我联系.</p>
+</div>
+<div class="section" id="unicode">
+<h2>Unicode<a class="headerlink" href="#unicode" title="永久链接至标题">¶</a></h2>
+<p>从 2.0pre47 版本开始所有的文本控件在兼容 utf-8 的终端上应该都支持 utf-8 字符显示和输入了. 这也解决了该库一个长期存在的限制, 并且也让其适合在针对 非英语用户 的项目中使用了.</p>
+<p>自 2.0pre48 版本开始,该库即计划 在所有控件的 Unicode 处理上变得更加健壮.目前系统的还有一些地方在 utf-8/Unicode 的支持上仍需要进一步的努力.如果你碰到了的话 请向我们发送 bug 报告文档.</p>
+</div>
+<div class="section" id="id6">
+<h2>类似的项目<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>你可能还会喜欢看一下 <a class="reference external" href="http://excess.org/urwid/">http://excess.org/urwid/</a></p>
+<p>与 npyscreen 相比, urwid(二胡) 更像一个传统的事件驱动的GUI库, 主要针对其他的显示设备与光标.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="application-structure.html" class="btn btn-neutral float-right" title="创建npyscreen应用程序" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="欢迎来到 npyscreen 中文文档!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Nicholas Cole
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

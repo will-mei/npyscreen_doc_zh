@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>应用对象 &mdash; npyscreen 中文手册 2 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Form Objects" href="form-objects.html" />
+    <link rel="prev" title="创建npyscreen应用程序" href="application-structure.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> npyscreen 中文手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">npyscreen简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-structure.html">创建npyscreen应用程序</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">应用对象</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#npsappmanaged">让 NPSAppManaged 管理你的窗口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#npsapplicationmanaged">运行 NPSApplicationManaged 应用</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">细节说明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">NPSAppManaged 提供的附加服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">这个类管理的窗口的方法和属性</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#id5">其他应用类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form-objects.html">Form Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets: Basic Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-text.html">Widgets: Displaying Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-multiline.html">Widgets: Picking Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-trees.html">Widgets: Trees and Tree displays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html">Widgets: Dates, Sliders and Combination Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-grids">Widgets: Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-other-controls">Widgets: Other Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html">Widgets: Titled Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html#widgets-box-widgets">Widgets: Box Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keybindings.html">All about Key Bindings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Enhancing Mouse Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color.html">Support for Colour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html">Displaying Brief Messages and Choices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html#blanking-the-screen">Blanking the Screen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options.html">Application Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="muttlike.html">Writing More Complex Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-tests.html">Writing Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-addressbk.html">Example Application: A simple address book</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">npyscreen 中文手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>应用对象</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/application-objects.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>应用对象<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>NPSAppManaged 提供一个框架开始和结束应用程序, 以一种不会有递归深度问题的方式完成对你创建的各种窗口的显示管理.</p>
+<p>除非你有什么特别好的理由要用其他方式, 否则 <em>NPSAppManaged</em> 应该就是管理你的应用的最好方法.</p>
+<p>跟简朴的 NPSApp 类不同, 你不用自己写主循环 - <em>NPSAppManaged</em> 会管理好你的应用的每个窗口的显示. 设定好你的窗口对象,然后就只要调用你的 NPSAppManaged 实例的 <em>.run()</em> 方法就可以了.</p>
+<div class="section" id="npsappmanaged">
+<h2>让 NPSAppManaged 管理你的窗口<a class="headerlink" href="#npsappmanaged" title="永久链接至标题">¶</a></h2>
+<p>有3种方法来用 NPSAppManaged 实例注册一个窗口对象:</p>
+<dl class="method">
+<dt id="NPSAppManaged.addForm">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">addForm</code><span class="sig-paren">(</span><em class="sig-param">*id*</em>, <em class="sig-param">*FormClass*</em>, <em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#NPSAppManaged.addForm" title="永久链接至目标">¶</a></dt>
+<dd><p>在种版本的写法会先创建一个新的窗口, 然后用 NPSAppManaged 实例来注册. 它从窗口对象返回一个 weakref.proxy [弱引用的对象代理]. 其 <em>.id</em> 需要是一个可以唯一标识该窗口的字符串. <em>FormClass</em> 应该是要创建的窗口的类. 任何额外的参数都会别传递到该窗口的构造函数中[用来指定窗口的创建规格]. 如果你没有单独存放窗口的引用的地方,就用这种写法.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NPSAppManaged.addFormClass">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">addFormClass</code><span class="sig-paren">(</span><em class="sig-param">*id*</em>, <em class="sig-param">*FormClass* ...</em><span class="sig-paren">)</span><a class="headerlink" href="#NPSAppManaged.addFormClass" title="永久链接至目标">¶</a></dt>
+<dd><p>这种写法注册一个窗口类而不是一个实例. 每次被编辑完都会有一个新实例被创建. 额外的参数在每次创建的时被传递到窗口的构造函数中.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NPSAppManaged.registerForm">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">registerForm</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">fm</em><span class="sig-paren">)</span><a class="headerlink" href="#NPSAppManaged.registerForm" title="永久链接至目标">¶</a></dt>
+<dd><p><em>id</em> 需要是一个可以唯一标识该窗口的字符串.  <em>fm</em> 需要是一个窗口对象.  要注意,跟 .addForm 的写法比起来 - 这种写法只在 NPSAppManaged 中存放一个 weakref.proxy .</p>
+</dd></dl>
+
+<p>所有用 NPSAppManaged 实例注册的窗口都可以用 <em>self.parentApp</em> 来访问到对应用对象的控制.</p>
+<p>若因某些原因需要删除一个窗口, 你可以用 <cite>.removeForm(*id*)</cite> 方法来去做.</p>
+</div>
+<div class="section" id="npsapplicationmanaged">
+<h2>运行 NPSApplicationManaged 应用<a class="headerlink" href="#npsapplicationmanaged" title="永久链接至标题">¶</a></h2>
+<dl class="method">
+<dt id="run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#run" title="永久链接至目标">¶</a></dt>
+<dd><p>开始一个 NPSAppManaged 应用的主循环. 该方法会激活默认的窗口, 它应该被指定用 “MAIN” 来作为 id .</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="NPSAppManaged.STARTING_FORM">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">STARTING_FORM</code><a class="headerlink" href="#NPSAppManaged.STARTING_FORM" title="永久链接至目标">¶</a></dt>
+<dd><p>如果你出于什么原因要改默认窗口的名称,你可以在这改.</p>
+</dd></dl>
+
+<p>一旦程序开始运行, 下面的方法会控制哪个窗口展示给用户.</p>
+<dl class="method">
+<dt id="NPSAppManaged.setNextForm">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">setNextForm</code><span class="sig-paren">(</span><em class="sig-param">formid</em><span class="sig-paren">)</span><a class="headerlink" href="#NPSAppManaged.setNextForm" title="永久链接至目标">¶</a></dt>
+<dd><p>设定在当前窗口退出后,要显示的窗口.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NPSAppManaged.setNextFormPrevious">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">setNextFormPrevious</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NPSAppManaged.setNextFormPrevious" title="永久链接至目标">¶</a></dt>
+<dd><p>设定在当前窗口退出到历史中的上一个窗口时,要显示的窗口.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NPSAppManaged.switchForm">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">switchForm</code><span class="sig-paren">(</span><em class="sig-param">formid</em><span class="sig-paren">)</span><a class="headerlink" href="#NPSAppManaged.switchForm" title="永久链接至目标">¶</a></dt>
+<dd><p>立即切换到指定的窗口, 绕过一切当前窗口的退出逻辑.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NPSAppManaged.switchFormPrevious">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">switchFormPrevious</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NPSAppManaged.switchFormPrevious" title="永久链接至目标">¶</a></dt>
+<dd><p>立即切换到历史记录中之前工作的窗口.</p>
+</dd></dl>
+
+<div class="section" id="id2">
+<h3>细节说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>一旦所有的窗口都准备好并注册到 NPSAppManaged 实例, 你就该调用 .run() 方法了.</p>
+<p>这个方法会激活默认的窗口, 它应该以 “MAIN” 为 id. 你可以通过修改类或者实例的 <cite>.STARTING_FORM</cite> 变量来改变这个默认 id.</p>
+<p>这之后, 下一个被显示的窗口就是被实例的 <em>NEXT_ACTIVE_FORM</em> 变量所指定的. 不管什么时候当一个窗口的编辑循环退出了, 这个变量所指定的新窗口都会被激活. 如果此时 <em>NEXT_ACTIVE_FORM</em> 是 None, 主循环会退出. <em>NEXT_ACTIVE_FORM</em> 应该通过调用应用的 <em>setNextForm(formid)</em> 方法来设定. 这份文档在过去曾建议直接设置该属性. 虽然当前还没有立即弃用该属性的计划,不过还是要避免直接去设定它.</p>
+<p>有 3 种 建议使用的在窗口中控制 <cite>NEXT_ACTIVE_FORM</cite> 的机制.</p>
+<p>1.所有用 NPSAppManaged 注册的窗口里面那些 <em>没有</em> <em>.activate()</em> 特殊方法的, 其 <em>.afterEditing</em> 方法会被调用, 如果后者能有的话. 判定哪个应该是 <em>NEXT_ACTIVE_FORM</em> 逻辑应该放到这里. <em>NEXT_ACTIVE_FORM</em> 应该是通过调用应用的  <em>setNextForm(formid)</em> 方法来配置的. 如果你是希望用户来选择 ok/确认 或者 cancel/取消 按钮的话, 这是你切换屏幕的首选方法.</p>
+<p>2.应用的 <em>switchForm(formid)</em> 方法会造成应用立即停止编辑当前窗口,并切换到指定的窗口. 依窗口的类型而定,它们相关联的退出逻辑可能也会被绕过.</p>
+<p>3.用 NPSAppManaged 注册的窗口可能被赋予一个 <em>.activate()</em> 方法, NPSAppManaged 会调用它来代替较常用的  <em>.edit()</em> 方法. 这可以包含进一步的逻辑. 这 <strong>不是</strong> 最优方法, 但是却能允许有更大的灵活性. 要注意这种情况下, 除非你指明要调用, 否则通常的 .edit() 方法不会被调用. 举个栗子, 一个 .activate() 方法看着可能是这样的:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+     <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="p">()</span>
+     <span class="bp">self</span><span class="o">.</span><span class="n">parentApp</span><span class="o">.</span><span class="n">setNextForm</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这就会导致主循环在窗口结束后会退出.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>NPSAppManaged 提供的附加服务<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>下面这些方法可以在 NPSAppManaged 子类里有效重写. 默认他们什么也不做.</p>
+<dl class="method">
+<dt id="NPSAppManaged.onInMainLoop">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">onInMainLoop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NPSAppManaged.onInMainLoop" title="永久链接至目标">¶</a></dt>
+<dd><p>在程序运行时,在每个屏幕[切换]之间被调用. 但不在第一个屏幕之前被调用.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NPSAppManaged.onStart">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">onStart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NPSAppManaged.onStart" title="永久链接至目标">¶</a></dt>
+<dd><p>重写该方法可执行一切初始化任务. 如果你愿意,你可以在这里布置应用的窗口.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NPSAppManaged.onCleanExit">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">onCleanExit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NPSAppManaged.onCleanExit" title="永久链接至目标">¶</a></dt>
+<dd><p>重写该方法以便在程序无错退出时,执行一切清理任务.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="NPSAppManaged.keypress_timeout_default">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">keypress_timeout_default</code><a class="headerlink" href="#NPSAppManaged.keypress_timeout_default" title="永久链接至目标">¶</a></dt>
+<dd><p>如果配置了该项, 新窗口在创建时会将 keypress_timeout 配置成它, 只要它们知道自己所属的应用程序 - 也就是说, 它们在创建时被传递了 <em>parentApp=</em> 属性. 如果你用了 NPSAppManaged, 这些都是自动的.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NPSAppManaged.while_waiting">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">while_waiting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NPSAppManaged.while_waiting" title="永久链接至目标">¶</a></dt>
+<dd><p>应用可能都还有一个 <em>while_waiting</em> 方法. 你可以自由地定义和重写这部分, 它会在应用程序等待用户输入的时候被调用(参考其他窗口里的 while_waiting 方法).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NPSAppManaged._internal_while_waiting">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">_internal_while_waiting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NPSAppManaged._internal_while_waiting" title="永久链接至目标">¶</a></dt>
+<dd><p>该方法用于 npyscreen 内部使用.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">switchForm</code><span class="sig-paren">(</span><em class="sig-param">formid</em><span class="sig-paren">)</span></dt>
+<dd><p>立即停止编辑当前窗口并切换到指定的窗口.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">switchFormPrevious</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>立即切换到历史中的前一个窗口.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NPSAppManaged.resetHistory">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">resetHistory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NPSAppManaged.resetHistory" title="永久链接至目标">¶</a></dt>
+<dd><p>遗忘之前访问过的窗口[重置历史记录].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NPSAppManaged.getHistory">
+<code class="sig-prename descclassname">NPSAppManaged.</code><code class="sig-name descname">getHistory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NPSAppManaged.getHistory" title="永久链接至目标">¶</a></dt>
+<dd><p>获取之前访问过的窗口的列表.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id4">
+<h2>这个类管理的窗口的方法和属性<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>为 NPSAppManaged 所调用的窗口可提供的方法</p>
+<dl class="method">
+<dt id="Form.beforeEditing">
+<code class="sig-prename descclassname">Form.</code><code class="sig-name descname">beforeEditing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Form.beforeEditing" title="永久链接至目标">¶</a></dt>
+<dd><p>在窗口的编辑循环被调用之前调用.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Form.afterEditing">
+<code class="sig-prename descclassname">Form.</code><code class="sig-name descname">afterEditing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Form.afterEditing" title="永久链接至目标">¶</a></dt>
+<dd><p>窗口退出时被调用.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Form.activate">
+<code class="sig-prename descclassname">Form.</code><code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Form.activate" title="永久链接至目标">¶</a></dt>
+<dd><p>该方法的存在会完全覆盖已有的 .beforeEditing .edit 和 afterEditing 方法.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="id5">
+<h1>其他应用类<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h1>
+<dl class="class">
+<dt id="NPSApp">
+<em class="property">class </em><code class="sig-name descname">NPSApp</code><a class="headerlink" href="#NPSApp" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<p>要用 NPSApp 要将它子类化, 然后给出你自己的 <cite>.main()</cite> 定义. 当你准备好调用 <cite>.run()</cite> 运行应用程序的时候, 你的主循环就会被执行.</p>
+<p>虽然它提供了尽可能大的灵活性, 但是 NPSApp 几乎在其他各方面都次于 NPSAppManaged. 别在新项目中使用它, 要把它当成只在内部使用的基类.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="form-objects.html" class="btn btn-neutral float-right" title="Form Objects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="application-structure.html" class="btn btn-neutral float-left" title="创建npyscreen应用程序" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Nicholas Cole
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

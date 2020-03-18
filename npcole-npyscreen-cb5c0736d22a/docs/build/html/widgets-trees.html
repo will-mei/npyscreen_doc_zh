@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Widgets: Trees and Tree displays &mdash; npyscreen 中文手册 2 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Widgets: Dates, Sliders and Combination Widgets" href="widgets-general.html" />
+    <link rel="prev" title="Widgets: Picking Options" href="widgets-multiline.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> npyscreen 中文手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">npyscreen简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-structure.html">创建npyscreen应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html">应用对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html#id5">其他应用类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form-objects.html">Form Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets: Basic Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-text.html">Widgets: Displaying Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-multiline.html">Widgets: Picking Options</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Widgets: Trees and Tree displays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#representing-tree-data">Representing Tree Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trees">Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deprecated-tree-classes">Deprecated Tree Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html">Widgets: Dates, Sliders and Combination Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-grids">Widgets: Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-other-controls">Widgets: Other Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html">Widgets: Titled Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html#widgets-box-widgets">Widgets: Box Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keybindings.html">All about Key Bindings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Enhancing Mouse Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color.html">Support for Colour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html">Displaying Brief Messages and Choices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html#blanking-the-screen">Blanking the Screen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options.html">Application Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="muttlike.html">Writing More Complex Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-tests.html">Writing Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-addressbk.html">Example Application: A simple address book</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">npyscreen 中文手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Widgets: Trees and Tree displays</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/widgets-trees.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="widgets-trees-and-tree-displays">
+<h1>Widgets: Trees and Tree displays<a class="headerlink" href="#widgets-trees-and-tree-displays" title="永久链接至标题">¶</a></h1>
+<div class="section" id="representing-tree-data">
+<h2>Representing Tree Data<a class="headerlink" href="#representing-tree-data" title="永久链接至标题">¶</a></h2>
+<dl>
+<dt>TreeData</dt><dd><p>The TreeData class is used to represent tree objects.  Each node of the tree, including the root node, is an NPSTreeData instance.  Each node may have its own content, a parent or children.</p>
+<p>The content of each node is either set when it is created or using the <em>.set_content</em> method.</p>
+<p><em>get_content()</em> returns the content.</p>
+<p><em>get_content_for_display()</em> is used by the widgets that display trees, which expect it to return a string that can be displayed to the user to represent the content.  You might want to overload this method.</p>
+<p><em>new_child(content=…)</em> creates a new child node.</p>
+<p><em>selectable</em> If this attribute is true the user can mark a value as ‘selected’. This is used by MLTreeMultiSelect widget, and is True by default.</p>
+<p><em>ignore_root</em> This attribute controls whether the root node of the tree is displayed to the user.</p>
+<p><em>expanded</em> This attribute controls whether this branch of the tree is expanded, assuming the node has any children.</p>
+<p><em>sort</em> This attribute controls whether the tree should be sorted.</p>
+<p><em>sort_function</em> If the tree is sorted, the function named in this attribute will be used as a key to sort the tree when it is being displayed.</p>
+<p><em>walk_tree(only_expanded=True, ignore_root=True, sort=None, sort_function=None)</em>  Iterate over the tree.  You can override the standard sort and sort functions, and decide whether or not to iterate over only nodes of the tree that are marked as expanded.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="trees">
+<h2>Trees<a class="headerlink" href="#trees" title="永久链接至标题">¶</a></h2>
+<dl>
+<dt>MLTree, MLTreeAction</dt><dd><p>The <em>values</em> attribute of this class must store an NPSTree instance.
+However, if you wish you can override the method <em>convertToTree</em> of this
+class.  This method should return an NPSTree instance.  The function will be
+called automatically whenever <em>values</em> is assigned.</p>
+<p>By default this class uses <em>TreeLine</em> widgets
+to display each line of the tree.  In derived classes You can change this by changing
+the class attribute <em>_contained_widgets</em>.  The class attribute <cite>_contained_widget_height</cite>
+specifies how many lines of the screen each widget should be given.</p>
+</dd>
+<dt>MLTreeAnnotated, MLTreeAnnotatedAction</dt><dd><p>By default this class uses <em>TreeLineAnnotated</em> widgets to display each line of the tree.
+In derived classes You can change this by changing the class
+attribute <em>_contained_widgets</em>.</p>
+</dd>
+<dt>MLTreeMultiSelect</dt><dd><p><em>New in version 2.0pre70</em></p>
+<p>This class allows you to select multiple items of a tree.  You can select which nodes of NPSTreeData the user is able to select by setting the attribute <em>selectable</em> on that node.</p>
+<p>The method <em>get_selected_objects(self, return_node=True,)</em> returns an generator object that lists the nodes that are selected.  If return_node is True, the actual node itself is yielded, otherwise the value of <em>node.getContent()</em> is yielded instead.</p>
+<p><em>New in Version 2.0pre71</em>   If the attribute <em>select_cascades</em> is True (which can be set by passing the argument <em>select_cascades</em> at the time of creation or setting the attribute directly later), selecting a node will automatically select any selectable nodes under the selected node. This is set to True by default.</p>
+<p>The selected nodes also have their attribute <em>selected</em> set to True, and so you can walk through the tree to find them if you prefer.</p>
+<p>The widget used to display each line is <em>TreeLineSelectable</em>.</p>
+</dd>
+<dt>MLTreeMultiSelectAnnotated</dt><dd><p><em>New in version 2.0pre71</em></p>
+<p>A version of the MLTreeMultiSelect class that uses <em>TreeLineSelectableAnnotated</em> as its display widgets.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="deprecated-tree-classes">
+<h2>Deprecated Tree Classes<a class="headerlink" href="#deprecated-tree-classes" title="永久链接至标题">¶</a></h2>
+<dl>
+<dt>NPSTreeData</dt><dd><p>DEPRECATED in favour of the TreeData class.  The NPSTreeData class is used to represent tree objects.  Each node of the tree, including the root node, is an NPSTreeData instance.  Each node may have its own content, a parent or children.</p>
+<p>The content of each node is either set when it is created or using the <em>.setContent</em> method.</p>
+<p><em>.getContent</em> returns the content.</p>
+<p><em>.getContentForDisplay</em> is used by the widgets that display trees, which expect it to return a string that can be displayed to the user to represent the content.  You might want to overload this method.</p>
+<p><em>newChild(content=…)</em> creates a new child node.</p>
+<p><em>selectable</em> (new in version 2.0pre70) If this attribute is true the user can mark a value as ‘selected’. This is used by MLTreeMultiSelect widget, and is True by default.</p>
+</dd>
+<dt>MultiLineTree, SelectOneTree, and MultiLineTree</dt><dd><p>These widgets all work in a very similar way to the non-Tree versions,
+except that they expect to contain an NPSTree in their .values attribute.
+The other major difference is that their .value attribute does not contain
+the index of the selected value(s), but the selected value(s)
+itself/themselves.  However, these classes are DEPRECATED in favour of the
+much improved <em>MLTree</em> and <em>MLTreeAction</em> classes.</p>
+</dd>
+<dt>MultiLineTreeNew, MultiLineTreeNewAction</dt><dd><p><em>These classes are provided solely for compatibility with old code. New classes should use the MLTree and related classes</em></p>
+<p>The <em>values</em> attribute of this class must store an NPSTree instance.
+However, if you wish you can override the method <em>convertToTree</em> of this
+class.  This method should return an NPSTree instance.  The function will be
+called automatically whenever <em>values</em> is assigned.</p>
+<p>By default this class uses <em>TreeLineAnnotated</em> widgets
+to display each line of the tree.  In derived classes You can change this by changing
+the class attribute <em>_contained_widgets</em>.</p>
+</dd>
+<dt>MutlilineTreeNewAnnotated, MultilineTreeNewAnnotatedAction</dt><dd><p><em>These classes are provided solely for compatibility with old code. New classes should use the MLTree and related classes</em></p>
+<p>By default this class uses <em>TreeLineAnnotated</em> widgets
+to display each line of the tree.  In derived classes You can change this by changing
+the class attribute <em>_contained_widgets</em>.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="widgets-general.html" class="btn btn-neutral float-right" title="Widgets: Dates, Sliders and Combination Widgets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="widgets-multiline.html" class="btn btn-neutral float-left" title="Widgets: Picking Options" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Nicholas Cole
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

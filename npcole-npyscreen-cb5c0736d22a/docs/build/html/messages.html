@@ -1,0 +1,544 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Displaying Brief Messages and Choices &mdash; npyscreen 中文手册 2 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Application Support" href="options.html" />
+    <link rel="prev" title="Support for Colour" href="color.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> npyscreen 中文手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">npyscreen简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-structure.html">创建npyscreen应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html">应用对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html#id5">其他应用类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form-objects.html">Form Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets: Basic Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-text.html">Widgets: Displaying Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-multiline.html">Widgets: Picking Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-trees.html">Widgets: Trees and Tree displays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html">Widgets: Dates, Sliders and Combination Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-grids">Widgets: Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-other-controls">Widgets: Other Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html">Widgets: Titled Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html#widgets-box-widgets">Widgets: Box Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keybindings.html">All about Key Bindings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Enhancing Mouse Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color.html">Support for Colour</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Displaying Brief Messages and Choices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#blanking-the-screen">Blanking the Screen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options.html">Application Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="muttlike.html">Writing More Complex Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-tests.html">Writing Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-addressbk.html">Example Application: A simple address book</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">npyscreen 中文手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Displaying Brief Messages and Choices</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/messages.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="displaying-brief-messages-and-choices">
+<h1>Displaying Brief Messages and Choices<a class="headerlink" href="#displaying-brief-messages-and-choices" title="永久链接至标题">¶</a></h1>
+<p>The following functions allow you to display a brief message or choice to the user.</p>
+<p>Notify and related methods are implemented in <code class="docutils literal notranslate"><span class="pre">npyscreen/utilNotify.py</span></code></p>
+<p>The examples on this page build from this basic program:</p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">npyscreen</span>
+
+
+<span class="k">class</span> <span class="nc">NotifyBaseExample</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">key_of_choice</span> <span class="o">=</span> <span class="s1">&#39;p&#39;</span>
+        <span class="n">what_to_display</span> <span class="o">=</span> <span class="s1">&#39;Press </span><span class="si">{}</span><span class="s1"> for popup </span><span class="se">\n</span><span class="s1"> Press escape key to quit&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key_of_choice</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">how_exited_handers</span><span class="p">[</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">wgwidget</span><span class="o">.</span><span class="n">EXITED_ESCAPE</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exit_application</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">FixedText</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">what_to_display</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">exit_application</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentApp</span><span class="o">.</span><span class="n">setNextForm</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">editing</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="k">class</span> <span class="nc">MyApplication</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">NPSAppManaged</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">onStart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addForm</span><span class="p">(</span><span class="s1">&#39;MAIN&#39;</span><span class="p">,</span> <span class="n">NotifyBaseExample</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;To be improved upon&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">TestApp</span> <span class="o">=</span> <span class="n">MyApplication</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<dl class="function">
+<dt id="notify">
+<code class="sig-name descname">notify</code><span class="sig-paren">(</span><em class="sig-param">message</em>, <em class="sig-param">title=&quot;Message&quot;</em>, <em class="sig-param">form_color='STANDOUT'</em>, <em class="sig-param">wrap=True</em>, <em class="sig-param">wide=False</em><span class="sig-paren">)</span><a class="headerlink" href="#notify" title="永久链接至目标">¶</a></dt>
+<dd><p>This function displays a message on the screen.  It does not block and the user cannot interact with it - use it to display messages like “Please Wait” while other things are happening.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">../examples/notify/notify.py snippet</span><a class="headerlink" href="#id1" title="永久链接至代码">¶</a></div>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">npyscreen</span>
+<span class="hll"><span class="kn">import</span> <span class="nn">time</span>
+</span>
+
+<span class="k">class</span> <span class="nc">NotifyExample</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">key_of_choice</span> <span class="o">=</span> <span class="s1">&#39;p&#39;</span>
+        <span class="n">what_to_display</span> <span class="o">=</span> <span class="s1">&#39;Press </span><span class="si">{}</span><span class="s1"> for popup </span><span class="se">\n</span><span class="s1"> Press escape key to quit&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key_of_choice</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">how_exited_handers</span><span class="p">[</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">wgwidget</span><span class="o">.</span><span class="n">EXITED_ESCAPE</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exit_application</span>
+<span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">add_handlers</span><span class="p">({</span><span class="n">key_of_choice</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">spawn_notify_popup</span><span class="p">})</span>
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">FixedText</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">what_to_display</span><span class="p">)</span>
+
+<span class="hll">    <span class="k">def</span> <span class="nf">spawn_notify_popup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code_of_key_pressed</span><span class="p">):</span>
+</span><span class="hll">        <span class="n">message_to_display</span> <span class="o">=</span> <span class="s1">&#39;I popped up </span><span class="se">\n</span><span class="s1"> passed: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">code_of_key_pressed</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">npyscreen</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="n">message_to_display</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Popup Title&#39;</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># needed to have it show up for a visible amount of time</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="notify_wait">
+<code class="sig-name descname">notify_wait</code><span class="sig-paren">(</span><em class="sig-param">message</em>, <em class="sig-param">title=&quot;Message&quot;</em>, <em class="sig-param">form_color='STANDOUT'</em>, <em class="sig-param">wrap=True</em>, <em class="sig-param">wide=False</em><span class="sig-paren">)</span><a class="headerlink" href="#notify_wait" title="永久链接至目标">¶</a></dt>
+<dd><p>This function displays a message on the screen, and blocks for a brief amount of time. The user cannot interact with it.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">../examples/notify/notify_wait.py snippet</span><a class="headerlink" href="#id2" title="永久链接至代码">¶</a></div>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NotifyWaitExample</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">key_of_choice</span> <span class="o">=</span> <span class="s1">&#39;p&#39;</span>
+        <span class="n">what_to_display</span> <span class="o">=</span> <span class="s1">&#39;Press </span><span class="si">{}</span><span class="s1"> for popup </span><span class="se">\n</span><span class="s1"> Press escape key to quit&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key_of_choice</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">how_exited_handers</span><span class="p">[</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">wgwidget</span><span class="o">.</span><span class="n">EXITED_ESCAPE</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exit_application</span>
+<span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">add_handlers</span><span class="p">({</span><span class="n">key_of_choice</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">spawn_notify_popup</span><span class="p">})</span>
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">FixedText</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">what_to_display</span><span class="p">)</span>
+
+<span class="hll">    <span class="k">def</span> <span class="nf">spawn_notify_popup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code_of_key_pressed</span><span class="p">):</span>
+</span><span class="hll">        <span class="n">message_to_display</span> <span class="o">=</span> <span class="s1">&#39;I popped up </span><span class="se">\n</span><span class="s1"> passed: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">code_of_key_pressed</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">npyscreen</span><span class="o">.</span><span class="n">notify_wait</span><span class="p">(</span><span class="n">message_to_display</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Popup Title&#39;</span><span class="p">)</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="notify_confirm">
+<code class="sig-name descname">notify_confirm</code><span class="sig-paren">(</span><em class="sig-param">message</em>, <em class="sig-param">title=&quot;Message&quot;</em>, <em class="sig-param">form_color='STANDOUT'</em>, <em class="sig-param">wrap=True</em>, <em class="sig-param">wide=False</em>, <em class="sig-param">editw=0</em><span class="sig-paren">)</span><a class="headerlink" href="#notify_confirm" title="永久链接至目标">¶</a></dt>
+<dd><p>Display a message and an OK button.  The user can scroll the message if needed.  editw controls which widget is selected when the dialog is first displayed; set to 1 to have the OK button active immediately.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">../examples/notify/notify_confirm.py snippet</span><a class="headerlink" href="#id3" title="永久链接至代码">¶</a></div>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NotifyConfirmExample</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">key_of_choice</span> <span class="o">=</span> <span class="s1">&#39;p&#39;</span>
+        <span class="n">what_to_display</span> <span class="o">=</span> <span class="s1">&#39;Press </span><span class="si">{}</span><span class="s1"> for popup </span><span class="se">\n</span><span class="s1"> Press escape key to quit&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key_of_choice</span><span class="p">)</span>
+
+<span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">add_handlers</span><span class="p">({</span><span class="n">key_of_choice</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">spawn_notify_popup</span><span class="p">})</span>
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">how_exited_handers</span><span class="p">[</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">wgwidget</span><span class="o">.</span><span class="n">EXITED_ESCAPE</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exit_application</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">FixedText</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">what_to_display</span><span class="p">)</span>
+
+<span class="hll">    <span class="k">def</span> <span class="nf">spawn_notify_popup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code_of_key_pressed</span><span class="p">):</span>
+</span><span class="hll">        <span class="n">message_to_display</span> <span class="o">=</span> <span class="s1">&#39;You need to confirm me, so hit TAB, then ENTER&#39;</span>
+</span><span class="hll">        <span class="n">npyscreen</span><span class="o">.</span><span class="n">notify_confirm</span><span class="p">(</span><span class="n">message_to_display</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span> <span class="s1">&#39;popup&#39;</span><span class="p">)</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="notify_ok_cancel">
+<code class="sig-name descname">notify_ok_cancel</code><span class="sig-paren">(</span><em class="sig-param">message</em>, <em class="sig-param">title=&quot;Message&quot;</em>, <em class="sig-param">form_color='STANDOUT'</em>, <em class="sig-param">wrap=True</em>, <em class="sig-param">editw = 0</em><span class="sig-paren">)</span><a class="headerlink" href="#notify_ok_cancel" title="永久链接至目标">¶</a></dt>
+<dd><p>Display a message and return True if the user selected ‘OK’ and False if the user selected ‘Cancel’.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">../examples/notify/notify_ok_cancel.py snippet</span><a class="headerlink" href="#id4" title="永久链接至代码">¶</a></div>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NotifyOkCancelExample</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">key_of_choice</span> <span class="o">=</span> <span class="s1">&#39;p&#39;</span>
+        <span class="n">what_to_display</span> <span class="o">=</span> <span class="s1">&#39;Press </span><span class="si">{}</span><span class="s1"> for popup </span><span class="se">\n</span><span class="s1"> Press escape key to quit&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key_of_choice</span><span class="p">)</span>
+
+<span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">add_handlers</span><span class="p">({</span><span class="n">key_of_choice</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">spawn_notify_popup</span><span class="p">})</span>
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">how_exited_handers</span><span class="p">[</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">wgwidget</span><span class="o">.</span><span class="n">EXITED_ESCAPE</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exit_application</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">FixedText</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">what_to_display</span><span class="p">)</span>
+
+<span class="hll">    <span class="k">def</span> <span class="nf">spawn_notify_popup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code_of_key_pressed</span><span class="p">):</span>
+</span><span class="hll">        <span class="n">message_to_display</span> <span class="o">=</span> <span class="s1">&#39;You have a choice, to Cancel and return false, or Ok and return true.&#39;</span>
+</span><span class="hll">        <span class="n">notify_result</span> <span class="o">=</span> <span class="n">npyscreen</span><span class="o">.</span><span class="n">notify_ok_cancel</span><span class="p">(</span><span class="n">message_to_display</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span> <span class="s1">&#39;popup&#39;</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">npyscreen</span><span class="o">.</span><span class="n">notify_wait</span><span class="p">(</span><span class="s1">&#39;That returned: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">notify_result</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span> <span class="s1">&#39;results&#39;</span><span class="p">)</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="notify_yes_no">
+<code class="sig-name descname">notify_yes_no</code><span class="sig-paren">(</span><em class="sig-param">message</em>, <em class="sig-param">title=&quot;Message&quot;</em>, <em class="sig-param">form_color='STANDOUT'</em>, <em class="sig-param">wrap=True</em>, <em class="sig-param">editw = 0</em><span class="sig-paren">)</span><a class="headerlink" href="#notify_yes_no" title="永久链接至目标">¶</a></dt>
+<dd><p>Similar to <em>notify_ok_cancel</em> except the names of the buttons are ‘Yes’ and ‘No’.  Returns True or False.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="selectFile">
+<code class="sig-name descname">selectFile</code><span class="sig-paren">(</span><em class="sig-param">select_dir=False</em>, <em class="sig-param">must_exist=False</em>, <em class="sig-param">confirm_if_exists=True</em>, <em class="sig-param">sort_by_extension=True</em><span class="sig-paren">)</span><a class="headerlink" href="#selectFile" title="永久链接至目标">¶</a></dt>
+<dd><p>Display a dialog box for the user to select a filename. Uses the called from directory as the initial folder.  The
+return value is the name of the file selected.</p>
+<p><strong>Warning:</strong> This form is currently experimental.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">../examples/notify/select_file.py snippet</span><a class="headerlink" href="#id5" title="永久链接至代码">¶</a></div>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SelectFileExample</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">key_of_choice</span> <span class="o">=</span> <span class="s1">&#39;p&#39;</span>
+        <span class="n">what_to_display</span> <span class="o">=</span> <span class="s1">&#39;Press </span><span class="si">{}</span><span class="s1"> for popup </span><span class="se">\n</span><span class="s1"> Press escape key to quit&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key_of_choice</span><span class="p">)</span>
+
+<span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">how_exited_handers</span><span class="p">[</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">wgwidget</span><span class="o">.</span><span class="n">EXITED_ESCAPE</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exit_application</span>
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">add_handlers</span><span class="p">({</span><span class="n">key_of_choice</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">spawn_file_dialog</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">FixedText</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">what_to_display</span><span class="p">)</span>
+
+<span class="hll">    <span class="k">def</span> <span class="nf">spawn_file_dialog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code_of_key_pressed</span><span class="p">):</span>
+</span><span class="hll">        <span class="n">the_selected_file</span> <span class="o">=</span> <span class="n">npyscreen</span><span class="o">.</span><span class="n">selectFile</span><span class="p">()</span>
+</span><span class="hll">        <span class="n">npyscreen</span><span class="o">.</span><span class="n">notify_wait</span><span class="p">(</span><span class="s1">&#39;That returned: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">the_selected_file</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span> <span class="s1">&#39;results&#39;</span><span class="p">)</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="blanking-the-screen">
+<h1>Blanking the Screen<a class="headerlink" href="#blanking-the-screen" title="永久链接至标题">¶</a></h1>
+<dl class="function">
+<dt id="blank_terminal">
+<code class="sig-name descname">blank_terminal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#blank_terminal" title="永久链接至目标">¶</a></dt>
+<dd><p>This function blanks the terminal.  It may sometimes be needed if Forms are being displayed that do not fill the whole screen.</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">../examples/notify/blank_terminal.py snippet</span><a class="headerlink" href="#id6" title="永久链接至代码">¶</a></div>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="kn">import</span> <span class="nn">npyscreen</span>
+</span><span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">class</span> <span class="nc">BlankTerminalExample</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">key_of_choice</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span>
+        <span class="n">what_to_display</span> <span class="o">=</span> <span class="s1">&#39;Press </span><span class="si">{}</span><span class="s1"> to blank screen </span><span class="se">\n</span><span class="s1"> Press escape key to quit&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key_of_choice</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">how_exited_handers</span><span class="p">[</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">wgwidget</span><span class="o">.</span><span class="n">EXITED_ESCAPE</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exit_application</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_handlers</span><span class="p">({</span><span class="n">key_of_choice</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">initiate_blanking_sequence</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">FixedText</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">what_to_display</span><span class="p">)</span>
+
+<span class="hll">    <span class="k">def</span> <span class="nf">initiate_blanking_sequence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code_of_key_pressed</span><span class="p">):</span>
+</span><span class="hll">        <span class="n">npyscreen</span><span class="o">.</span><span class="n">blank_terminal</span><span class="p">()</span>
+</span><span class="hll">        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">npyscreen</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="s1">&#39;..and we</span><span class="se">\&#39;</span><span class="s1">re back&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Phew&#39;</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+</span>
+    <span class="k">def</span> <span class="nf">exit_application</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentApp</span><span class="o">.</span><span class="n">setNextForm</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">editing</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="k">class</span> <span class="nc">MyApplication</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">NPSAppManaged</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">onStart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addForm</span><span class="p">(</span><span class="s1">&#39;MAIN&#39;</span><span class="p">,</span> <span class="n">BlankTerminalExample</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;To show off blank_screen&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">TestApp</span> <span class="o">=</span> <span class="n">MyApplication</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="options.html" class="btn btn-neutral float-right" title="Application Support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="color.html" class="btn btn-neutral float-left" title="Support for Colour" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Nicholas Cole
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

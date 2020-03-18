@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Support for Colour &mdash; npyscreen 中文手册 2 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Displaying Brief Messages and Choices" href="messages.html" />
+    <link rel="prev" title="Enhancing Mouse Support" href="mouse.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> npyscreen 中文手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">npyscreen简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-structure.html">创建npyscreen应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html">应用对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html#id5">其他应用类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form-objects.html">Form Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets: Basic Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-text.html">Widgets: Displaying Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-multiline.html">Widgets: Picking Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-trees.html">Widgets: Trees and Tree displays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html">Widgets: Dates, Sliders and Combination Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-grids">Widgets: Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-other-controls">Widgets: Other Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html">Widgets: Titled Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html#widgets-box-widgets">Widgets: Box Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keybindings.html">All about Key Bindings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Enhancing Mouse Support</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Support for Colour</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-colour">Setting up colour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-widgets-use-colour">How Widgets use colour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-custom-colours-strongly-discouraged">Defining custom colours (strongly discouraged)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html">Displaying Brief Messages and Choices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html#blanking-the-screen">Blanking the Screen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options.html">Application Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="muttlike.html">Writing More Complex Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-tests.html">Writing Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-addressbk.html">Example Application: A simple address book</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">npyscreen 中文手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Support for Colour</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/color.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="support-for-colour">
+<h1>Support for Colour<a class="headerlink" href="#support-for-colour" title="永久链接至标题">¶</a></h1>
+<div class="section" id="setting-up-colour">
+<span id="color-reference"></span><h2>Setting up colour<a class="headerlink" href="#setting-up-colour" title="永久链接至标题">¶</a></h2>
+<p>All of the standard widgets are entirely usable on a monochrome terminal.  However, it’s a colourful world these days, and npyscreen lets you display your widgets in, well, if not Technicolor(TM) then as close as curses will allow.</p>
+<p>Colour is handled by the ThemeManager class.  Generally, your application should stick to using one ThemeManager, which you should set using the <em>setTheme(ThemeManager)</em> function.  So for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npyscreen</span><span class="o">.</span><span class="n">setTheme</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">Themes</span><span class="o">.</span><span class="n">ColorfulTheme</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Any default themes defined by npyscreen will be accessible via npyscreen.Themes.</p>
+<p>A basic theme looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DefaultTheme</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">ThemeManager</span><span class="p">):</span>
+    <span class="n">default_colors</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;DEFAULT&#39;</span>     <span class="p">:</span> <span class="s1">&#39;WHITE_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;FORMDEFAULT&#39;</span> <span class="p">:</span> <span class="s1">&#39;WHITE_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;NO_EDIT&#39;</span>     <span class="p">:</span> <span class="s1">&#39;BLUE_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;STANDOUT&#39;</span>    <span class="p">:</span> <span class="s1">&#39;CYAN_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CURSOR&#39;</span>      <span class="p">:</span> <span class="s1">&#39;WHITE_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CURSOR_INVERSE&#39;</span><span class="p">:</span> <span class="s1">&#39;BLACK_WHITE&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LABEL&#39;</span>       <span class="p">:</span> <span class="s1">&#39;GREEN_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LABELBOLD&#39;</span>   <span class="p">:</span> <span class="s1">&#39;WHITE_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CONTROL&#39;</span>     <span class="p">:</span> <span class="s1">&#39;YELLOW_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;IMPORTANT&#39;</span>   <span class="p">:</span> <span class="s1">&#39;GREEN_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SAFE&#39;</span>        <span class="p">:</span> <span class="s1">&#39;GREEN_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;WARNING&#39;</span>     <span class="p">:</span> <span class="s1">&#39;YELLOW_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DANGER&#39;</span>      <span class="p">:</span> <span class="s1">&#39;RED_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CRITICAL&#39;</span>    <span class="p">:</span> <span class="s1">&#39;BLACK_RED&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GOOD&#39;</span>        <span class="p">:</span> <span class="s1">&#39;GREEN_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GOODHL&#39;</span>      <span class="p">:</span> <span class="s1">&#39;GREEN_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;VERYGOOD&#39;</span>    <span class="p">:</span> <span class="s1">&#39;BLACK_GREEN&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CAUTION&#39;</span>     <span class="p">:</span> <span class="s1">&#39;YELLOW_BLACK&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CAUTIONHL&#39;</span>   <span class="p">:</span> <span class="s1">&#39;BLACK_YELLOW&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>The colours - such as WHITE_BLACK (“white on black”) - are defined in the <em>initialize_pairs</em> method of the ThemeManager class.  The following are defined by default:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;BLACK_WHITE&#39;</span><span class="p">,</span>      <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">,</span>      <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_WHITE</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;BLUE_BLACK&#39;</span><span class="p">,</span>       <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_BLUE</span><span class="p">,</span>       <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;CYAN_BLACK&#39;</span><span class="p">,</span>       <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_CYAN</span><span class="p">,</span>       <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;GREEN_BLACK&#39;</span><span class="p">,</span>      <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_GREEN</span><span class="p">,</span>      <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;MAGENTA_BLACK&#39;</span><span class="p">,</span>    <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_MAGENTA</span><span class="p">,</span>    <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;RED_BLACK&#39;</span><span class="p">,</span>        <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_RED</span><span class="p">,</span>        <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;YELLOW_BLACK&#39;</span><span class="p">,</span>     <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_YELLOW</span><span class="p">,</span>     <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>(‘WHITE_BLACK’ is always defined.)</p>
+<p>If you find you need more, subclass ThemeManager and change class attribute <em>_colours_to_define</em>.   You are able to use colours other than the standard curses ones, but since not all terminals support doing so, npyscreen does not by default.</p>
+<p>If you want to disable all colour in your application, npyscreen defines two convenient functions: <em>disableColor()</em> and <em>enableColor()</em>.</p>
+</div>
+<div class="section" id="how-widgets-use-colour">
+<h2>How Widgets use colour<a class="headerlink" href="#how-widgets-use-colour" title="永久链接至标题">¶</a></h2>
+<p>When a widget is being drawn, it asks the active ThemeManager to tell it appropriate colours.  ‘LABEL’, for example, is a label given to colours that will be used for the labels of widgets.  The Theme manager looks up the relevant name in its <em>default_colors</em> dictionary and returns the appropriate colour-pair as an curses attribute that is then used to draw the widget on the screen.</p>
+<p>Individual widgets often have <em>color</em> attribute of their own (which may be set by the constructor).  This is usually set to ‘DEFAULT’, but could be changed to any other defined name.  This mechanism typically only allows individual widgets to have one particular part of their colour-scheme changed.</p>
+<p>Title… versions of widgets also define the attribute <em>labelColor</em>, which can be used to change the colour of their label colour.</p>
+</div>
+<div class="section" id="defining-custom-colours-strongly-discouraged">
+<h2>Defining custom colours (strongly discouraged)<a class="headerlink" href="#defining-custom-colours-strongly-discouraged" title="永久链接至标题">¶</a></h2>
+<p>On some terminals, it is possible to define custom colour values.  rxvt/urxvt is one such terminal.  From version 4.8.4 onwards, support for this is built in
+to theme manager classes.</p>
+<p>The class variable color_values will be used when the class is initialized to redefine custom colour values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_color_values</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="c1"># redefining a standard color</span>
+        <span class="p">(</span><span class="n">curses</span><span class="o">.</span><span class="n">COLOR_GREEN</span><span class="p">,</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">100</span><span class="p">)),</span>
+                <span class="c1"># defining another color</span>
+                <span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">100</span><span class="p">)),</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>NB. Current versions of npyscreen make no effort to reset these values when the application exits.</p>
+<p>Use of this facility is discouraged, because it is impossible to tell reliably whether or not a terminal actually supports custom colours.  This feature was added at user request to support a custom application.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="messages.html" class="btn btn-neutral float-right" title="Displaying Brief Messages and Choices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mouse.html" class="btn btn-neutral float-left" title="Enhancing Mouse Support" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Nicholas Cole
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

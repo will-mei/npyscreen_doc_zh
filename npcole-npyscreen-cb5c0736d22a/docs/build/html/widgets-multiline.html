@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Widgets: Picking Options &mdash; npyscreen 中文手册 2 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Widgets: Trees and Tree displays" href="widgets-trees.html" />
+    <link rel="prev" title="Widgets: Displaying Text" href="widgets-text.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> npyscreen 中文手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">npyscreen简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-structure.html">创建npyscreen应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html">应用对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-objects.html#id5">其他应用类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form-objects.html">Form Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets: Basic Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-text.html">Widgets: Displaying Text</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Widgets: Picking Options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#custom-multiselect-widgets">Custom Multiselect Widgets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-trees.html">Widgets: Trees and Tree displays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html">Widgets: Dates, Sliders and Combination Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-grids">Widgets: Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-general.html#widgets-other-controls">Widgets: Other Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html">Widgets: Titled Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets-title.html#widgets-box-widgets">Widgets: Box Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keybindings.html">All about Key Bindings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Enhancing Mouse Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color.html">Support for Colour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html">Displaying Brief Messages and Choices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html#blanking-the-screen">Blanking the Screen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options.html">Application Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="muttlike.html">Writing More Complex Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-tests.html">Writing Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-addressbk.html">Example Application: A simple address book</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">npyscreen 中文手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Widgets: Picking Options</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/widgets-multiline.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="widgets-picking-options">
+<h1>Widgets: Picking Options<a class="headerlink" href="#widgets-picking-options" title="永久链接至标题">¶</a></h1>
+<dl>
+<dt>MultiLine</dt><dd><p>Offer the user a list of options.  (This widget could probably have a better name, but we’re stuck with it for now)</p>
+<p>The options should be stored in the attribute <em>values</em> as a list.  The attribute <em>value</em> stores the index of the user’s selection.  If you want to return the actual selected values rather than an index, use the <em>get_selected_objects()</em> method.</p>
+<p>One of the most important features of MultiLine and widgets derived from it is that it can be adapted easily to allow the user to choose different types of objects.  To do so, override the method <em>display_value(self, vl)</em>.  The argument <em>vl</em> will be the object being displayed, and the function should return a string that can be displayed on the screen.</p>
+<p>In other words you can pass in a list of objects of arbitrary types. By default, they will be displayed using <em>str()</em>, but by overriding <em>display_value</em> you can present them however you see fit.</p>
+<p>MultiLine also allows the user to ‘filter’ entries.  (bound to keys l, L, n, p by default for filter, clear filter, next and previous). The current implementation highlights lines that match on the screen.  Future implementations may hide the other lines or offer a choice.  You can control how the filter operates by overriding the filter_value method.  This should accept an index as an argument (which looks up a line in the list .values) and should return True on a match and False otherwise.  From version 2.0pre74, the whole filtering system can be disabled by setting that attribute <em>.allow_filtering</em> to False.  This can also be passed in as an argument to the constructor.</p>
+<blockquote>
+<div><p>Multiline widgets are a container widget that then holds a series of other widgets that handle various parts of the display.  All multiline classes have a <cite>_contained_widget</cite> class attribute. This controls how the widget is constructed.  The class attribute <cite>_contained_widget_height</cite> specifies how many lines of the screen each widget should be given.</p>
+</div></blockquote>
+</dd>
+<dt>TitleMultiLine</dt><dd><p>A titled version of the MultiLine widget.</p>
+<p>If creating your own subclasses of MultiLine, you can create Title versions by subclassing this object and changing the <em>_entry_type</em> class variable.</p>
+</dd>
+<dt>MultiSelect, TitleMultiSelect,</dt><dd><p>Offer the User a list of options, allow him or her to select more than one of them.</p>
+<p>The <em>value</em> attribute is a list of the indexes user’s choices.  As with the MultiLine widget, the list of choices is stored in the attribue <em>values</em>.</p>
+</dd>
+<dt>SelectOne, TitleSelectOne</dt><dd><p>Functionally, these are like the Multiline versions, but with a display similar to the MultiSelect widget.</p>
+</dd>
+<dt>MultiSelectFixed, TitleMultiSelectFixed</dt><dd><p>These special versions of MultiSelect are intended to display data, but like Textfixed do not allow the user to actually edit it.</p>
+</dd>
+<dt>MultiLineAction</dt><dd><p>A common use case for this sort of widget is to perform an action on the currently highlighted item when the user pushes Return, Space etc.  Override the method <em>actionHighlighted(self, act_on_this, key_press)</em> of this class to provide this sort of widget.  That method will be called when the user ‘selects’ an item (though in this case .value will not actually be set) and will be passed the item highlighted and the key the user actually pressed.</p>
+</dd>
+<dt>MultiSelectAction</dt><dd><p>This is similar to the MultiLineAction widget above, except that it also provides the method <em>actionSelected(self, act_on_these, keypress)</em>.  This can be overridden, and will be called if the user pressed ‘;’.  The method will be passed a list of the objects selected and the keypress.  You probably want to adjust the default keybindings to make this widget useful.</p>
+</dd>
+<dt>BufferPager, TitleBufferPager <em>New in Version 2.0pre90</em></dt><dd><p>The <cite>BufferPager</cite> class is a subclass of the <em>Pager</em> class.  It is designed to display text to the user in much the way that <cite>tail -f</cite> does under *nix.  By default, the .values attribute is set to an instance of the <cite>collections.deque</cite> class.  You can pass a <cite>maxlen=</cite> value to the constructor.  If not, the maxlen for the deque object will be taken from the class attribute <cite>DEFAULT_MAXLEN</cite>, which is None by default.</p>
+<dl class="method">
+<dt id="BufferPager.clearBuffer">
+<code class="sig-prename descclassname">BufferPager.</code><code class="sig-name descname">clearBuffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BufferPager.clearBuffer" title="永久链接至目标">¶</a></dt>
+<dd><p>Clear the buffer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="BufferPager.buffer">
+<code class="sig-prename descclassname">BufferPager.</code><code class="sig-name descname">buffer</code><span class="sig-paren">(</span><em class="sig-param">lines</em>, <em class="sig-param">scroll_end=True</em>, <em class="sig-param">scroll_if_editing=False</em><span class="sig-paren">)</span><a class="headerlink" href="#BufferPager.buffer" title="永久链接至目标">¶</a></dt>
+<dd><p>Add <cite>lines</cite> to the contained deque object.  If <cite>scroll_end</cite> is True, scroll to the end of the buffer.  If <cite>scroll_if_editing</cite> is True, then scroll to the end even if the user is currently editing the Pager.  If the contained deque object was created with a maximum length, then new data may cause older data to be forgotten.</p>
+</dd></dl>
+
+</dd>
+<dt>MultiLineEditable</dt><dd><p>A list of items that the user can edit, based on the multiline classes.  New in version 3.9</p>
+<dl class="method">
+<dt id="get_new_value">
+<code class="sig-name descname">get_new_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#get_new_value" title="永久链接至目标">¶</a></dt>
+<dd><p>This method should return a ‘blank’ object that can be used to initialize a new item on the list.  By default it returns an
+empty string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="check_line_value">
+<code class="sig-name descname">check_line_value</code><span class="sig-paren">(</span><em class="sig-param">vl</em><span class="sig-paren">)</span><a class="headerlink" href="#check_line_value" title="永久链接至目标">¶</a></dt>
+<dd><p>This method should say whether vl is a valid object that can be added to the list, returning True or False.  By default, this
+method rejects empty strings.</p>
+</dd></dl>
+
+</dd>
+<dt>MultiLineEditableTitle</dt><dd><p>A titled version of MultiLineEditable. The class attribute <em>_entry_type</em> controls the type of contained widget.</p>
+</dd>
+<dt>MultiLineEditableBoxed</dt><dd><p>A boxed version of MultiLineEditable. The class attribute <strong>_entry_type</strong> controls the type of contained widget.</p>
+</dd>
+</dl>
+<div class="section" id="custom-multiselect-widgets">
+<h2>Custom Multiselect Widgets<a class="headerlink" href="#custom-multiselect-widgets" title="永久链接至标题">¶</a></h2>
+<p>Multiline widgets are a container widget that then holds a series of other widgets that handle various parts of the display.  All multiline classes have a <cite>_contained_widget</cite> class attribute. This controls how the widget is constructed.  The class attribute <cite>_contained_widget_height</cite> specifies how many lines of the screen each widget should be given.</p>
+<p>From version 3.4 onwards, contained widgets that have a <cite>.selected</cite> attribute are handled differently: widgets will have their <cite>.selected</cite> attribute set to <cite>True</cite> if the line is selected and <cite>False</cite> otherwise.  Widgets may also have their <cite>.important</cite> attribute set to True or False, depending on if they are included in a current filter (see above).</p>
+<p>Widgets that do not have a <cite>selected</cite> attribute have the value for each line put in their <cite>name</cite> attribute, and whether the line is selected or not put in their <cite>value</cite> attribute.  This is a legacy of the fact that the standard multiselect widgets use checkboxes to display each line.</p>
+<p>From version 4.8.7 onwards, multiline widgets use the methods <cite>set_is_line_important</cite>, <cite>set_is_line_bold</cite> and <cite>set_is_line_cursor</cite> to control the display of each line.  These methods are passed the widget object in question and a Boolean value.  They are intended to be overridden.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="widgets-trees.html" class="btn btn-neutral float-right" title="Widgets: Trees and Tree displays" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="widgets-text.html" class="btn btn-neutral float-left" title="Widgets: Displaying Text" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Nicholas Cole
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
