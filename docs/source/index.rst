@@ -42,19 +42,23 @@
 其他信息
 ~~~~~~~~~
 
+
 readthedocs原版:
     https://npyscreen.readthedocs.io/index.html
 
-readthedoc中文版
-    建设中...
+    https://github.com/npcole/npyscreen (git仓库)
 
-git 中文文档地址
+readthedoc中文版
+    https://npyscreen-doc-zh.readthedocs.io/zh_CN/latest/ 建设中...
+
+    译注使用中括号[]标注
+
+npyscreen中文仓库
     https://github.com/will-mei/npyscreen_doc_zh
+
     旧文档在 old_html 目录下, 目前只更新文档, 代码没有更新.
 
 
-译注内容使用中括号[]标注
-mail: williammei@126.com
 
 
 说明: 现在的页面太粗糙了, 新版面正在重新装修中, 采用sphinx重新构建, 完成后将上传至readthedocs, 并自动构建更新.
