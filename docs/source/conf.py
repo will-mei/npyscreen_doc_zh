@@ -201,8 +201,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'npyscreen.tex', 'npyscreen  中文文档',
-   'Nicholas Cole [中文 William Mei]', '用户手册'),
+  ('index', 'npyscreen.tex', 'npyscreen  Document zh_CN',
+   'Nicholas Cole [中文 William Mei]', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -245,7 +245,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'npyscreen', 'npyscreen 中文手册',
+  ('index', 'npyscreen', 'npyscreen Document zh_CN',
    'Nicholas Cole [中文文档 William Mei]', 'npyscreen', 'One line description of project.',
    'Miscellaneous'),
 ]
