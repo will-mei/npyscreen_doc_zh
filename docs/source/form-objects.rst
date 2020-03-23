@@ -123,183 +123,175 @@
     自行把 `.editing` 属性设定为 False, 其实也会导致窗口退出.
 
 
-Standard Form Classes
-*********************
+标准窗口类
+***********
 
 .. py:class:: Form
 
-   The basic Form class.  When editing the form, the user can exit by selecting the OK button in the bottom right corner.
+    基本的窗口类. 在编辑窗口的时候,用户可以通过选择右下角的 OK 按钮来退出.
 
-   By default, a Form will fill the Terminal.  Popup is simply a Form with a smaller default size.
+   默认情况下,窗口会填满终端. 弹出式窗口只是具有更小的默认大小的窗口.
 
 
 .. py:class:: Popup
 
-   Popup is simply a Form with a smaller default size.
+   弹出式窗口只是个默认大小更小的窗口.
 
 
 .. py:class:: ActionForm
 
-   The ActionForm creates OK and Cancel buttons.  Selecting either exits the form.  The method *on_ok* or *on_cancel* is called when the Form exits (assuming the user selected one of these buttons).  Subclasses may therefore usefully override one or both of these methods, which by default do nothing.
+    动作窗口 ActionForm 会创建 OK/确认 和 cancel/取消 按键. 选择任一个都会退出窗口. 当窗口退出时(假设是用户选择了这之中的一个按钮) *on_ok* 或 *on_cancel* 方法将被调用. 因此,在子类中可以有效重写其中一个或者两个,默认它们没有动作.
 
     .. py:method:: on_ok
 
-        Called when the ok button is pressed.  Setting the attribute `.editing` to True in this method will abort editing the form.
+        按下 ok 按钮的时被调用. 设置该方法的 `.editing` 属性为 True 会中止窗口的编辑.
 
     .. py:method:: on_cancel
 
-        Called when the cancel button is pressed. Setting the attribute `.editing` to True in this method will abort editing the form.
+        当按下 cancel按钮的时候被调用. 设置该方法的 `.editing` 属性为 True 会中止窗口的编辑.
 
 .. py:class:: ActionFormV2
 
-   New in Version 4.3.0.  This version of ActionForm behaves similarly to ActionForm above, but the code is much cleaner.  It should
-   be much easier to subclass.  Eventually, this version may entirely replace ActionForm.
+    在 4.3.0 版本中被新加入. 这个版本的动作窗口 ActionForm 的动作跟前面的 ActiveForm 类似,但是代码更清爽. 它应该更容易子类化.最终这个版本应该会完全取代 ActionForm.
 
 .. py:class:: ActionFormMinimal
 
-    New in Version 4.4.0.  This version of ActionFormV2 only features an OK button.  Added at user request for use in
-    special circumstances.
+    于4.4.0版本被新加入. 这个版本的 ActionFormV2 只有一个 OK 按钮. 按用户的要求被添加用于特殊情况.
 
 .. py:class:: ActionPopup
 
-    A smaller version of the ActionForm.
+    是 ActionForm 小点的版本.
 
 
 .. py:class::TitleForm
 
-    A more minimal form with just a title bar, rather than a full border.
+    更小版的窗口,只带个标题栏而没有完整的边框.
 
 .. py:class::TitleFooterForm
 
-    A minimal form with a title bar and a bar along the bottom.
+    一个最小窗口, 只带一个标题和一条底线.
 
 .. py:class:: SplitForm
 
-   The SplitForm has a horizontal line across the middle.  The method *get_half_way()* will tell you where it has been drawn.
+   SplitForm 中间有一个水平线. 其 *get_half_way()* 方法会告诉你它被绘制在哪.
 
     .. py:attribute:: draw_line_at
 
-       This attribute defines the position at which the line should be drawn across the screen.  It can be set by passing `draw_line_at=`
-       to the constructor, or will be set automatically at the value returned by the method `get_half_way`.
+       改属性定义了横穿屏幕的横线所绘制的位置. 它可以通过传递 `draw_line_at=` 到构造函数来设置, 或者根据 `get_half_way` 方法的返回值自动设定.
 
     .. py:method:: get_half_way
 
-        return the y co-ordinate of the bar across the middle of the form.  In fact in subclasses of this form, there is no
-        particular reason why the y co-ordinate should in fact be half way down the form, and subclasses may return whatever
-        value is convenient.
+        返回穿过窗口中间的横线的y轴坐标. 实际上在此窗口的子类中,也没有什么特别原因,要让y轴坐标在实际上位于 窗口向下刚好一半的位置,其实子类可会返回任何方便的值.
 
     .. py:attribute:: MOVE_LINE_ON_RESIZE
 
-        This class attribute specifies whether the position of the line should be moved when the form is resized.  Since
-        any widgets below the line would also need to be moved (presumably in an overriden `resize` method on subclasses of
-        this form, this value is set to False by default).
+        这个类属性指定了当窗口调整大小时,横线的位置是否应该要被移动. 因为横线下面的所有的控件也都需要被移动(设想到该窗口的子类中 `resize` 方被重写了的情况,该值默认被设为 False ).
 
 
 .. py:class:: FormWithMenus
 
-    Similar to the Form class, but provides the additional functionality of Popup menus.
+    类似于 Form类,但是提供了弹出菜单的附加功能.
 
-    To add a new menu to the Form use the method *new_menu(name='')*.  This will create the menu and return a proxy to it.  For more details see the section on Menus below.
+   要添加新菜单到窗口,请使用 *new_menu(name='')* 方法. 这样会创建菜单并返回其代理. 更多细节参见下面菜单部分.
 
 
 .. py:class:: ActionFormWithMenus
 
-   Similar to the ActionForm class, but provides the additional functionality of Popup menus.
+    类似于 ActionForm类,但是提供了弹出菜单的附加功能.
 
-   To add a new menu to the Form use the method *new_menu(name='')*.  This will create the menu and return a proxy to it.  For more details see the section on Menus below.
+    要添加新菜单到窗口,请使用 *new_menu(name='')* 方法. 这样会创建菜单并返回其代理对象.更多细节参见下面菜单部分.
 
 .. py:class:: ActionFormV2WithMenus
 
-   New in Version 4.3.0.  This version of ActionFormWithMenus behaves similarly to ActionForm above, but the code is much cleaner.  It should
-   be much easier to subclass.  Eventually, this version may entirely replace ActionFormWithMenus.
+   在 4.3.0 版本被新加入. 这个版本的 ActionFormWithMenus 表现的跟上面的 ActionForm 类似,只是代码更加清爽. 子类操作上应该更容易. 最终, 这个版本应该会完全取代 ActionFormWithMenus.
 
 
 .. py:class:: FormBaseNew
 
-    This form does not have an *ok* or *cancel* button by default.  The additional methods *pre_edit_loop* and *post_edit_loop* are called before and after the Form is edited.  The default versions do nothing.  This class is intended as a base for more complex user interfaces.
+    这种窗口默认没有 *ok* 或 *cancel* 按钮. 附加方法 *pre_edit_loop* 和 *post_edit_loop* 会在该窗口被编辑之前与之后被调用. 默认版本中没有动作. 该类准备用作更复杂用户界面的基础.
 
     .. py:method:: pre_edit_loop
 
-        Called before the form is edited.
+        窗口开始被编辑之前被调用.
 
     .. py:method:: post_edit_loop
 
-        Called after the edit loop exits.
+        在编辑循环退出后被调用.
 
 .. py:class:: FormBaseNewWithMenus
 
-    Menu-enabled version of FormBaseNew.
+    开启菜单的 FormBaseNew.
 
 
-Mutt-like Forms
-***************
+类-Mutt 窗口
+*************
 
 
 .. py:class:: FormMutt
 
-    Inspired by the user interfaces of programs like *mutt* or *irssi*, this form defines four default widgets:
+    受类似 *mutt* [一个字符界面邮件客户端] 或 *irssi* [一个字符界面IRC程序] 用户界面的启发,这种窗口定义了 4 种默认控件:
 
     *wStatus1*
-        This is at the top of the screen.  You can change the type of widget used by changing the *STATUS_WIDGET_CLASS* class attribute (note this is used for both status lines).
+        它位于屏幕的顶部. 你可以通过调整窗口的 *STATUS_WIDGET_CLASS* 类属性改变要使用的控件类型(注意,它在两个状态行里面都要用到).
     *wStatus2*
-        This occupies the second to last line of the screen. You can change the type of widget used by changing the *STATUS_WIDGET_CLASS* class attribute (note this is used for both status lines).
+        它占据了屏幕的倒数第二行. 你可以通过调整窗口的 *STATUS_WIDGET_CLASS* 类属性改变要使用的控件类型(注意,它在两个状态行里面都要用到).
     *wMain*
-        This occupies the area between wStatus1 and wStatus2, and is a MultiLine widget.  You can alter the type of widget that appears here by subclassing *FormMutt* and changing the *MAIN_WIDGET_CLASS* class attribute.
+        它占据 wStatus1 和 wStatus2 之间的区域,而且是一个多行控件. 你可以改变出现在这里的控件的类型,先子类化 *FormMutt* ,然后改变 *MAIN_WIDGET_CLASS* 类属性即可.
     *wCommand*
-        This Field occupies the last line of the screen. You can change the type of widget used by altering the *COMMAND_WIDGET_CLASS* class attribute.
+        这个区域占据屏幕的最后一行. 你可以通过改变 *COMMAND_WIDGET_CLASS* 类属性来改变要用的控件类型.
 
-    By default, wStatus1 and wStatus2 have *editable* set to False.
+    默认, wStatus1 和 wStatus2 都把 *editable* 属性设为了 False.
 
 FormMuttActive, FormMuttActiveWithMenus, FormMuttActiveTraditional, FormMuttActiveTraditionalWithMenus
-    These classes are intended to make the creation of more complicated applications easier.  Each class uses the additional classes *NPSFilteredDataBase*, *ActionControllerSimple*, *TextCommandBox*, *TextCommandBoxTraditional*.
+    这些类都是用来简化创建更复杂应用的. 每个类都用了额外的 *NPSFilteredDataBase*, *ActionControllerSimple*, *TextCommandBox*, *TextCommandBoxTraditional* 类.
 
-    A very common \*nix style of terminal application (used by applications like mutt and irssi) has a central display with a list or grid of times, a command line at the bottom and some status lines.
+    常见的 \*nix 风格终端应用(像 mutt和 irssi 等用到的)都有个带中央显示的时间列表或网格,一个底部的命令行,还有一些状态信息行.
 
-    These classes make setting up a similar form easy.  The difference between the *FormMuttActive* and *FormMuttActiveTraditional* classes is that in the latter the only widget that the user ever actually edits is the command line at the bottom of the screen.  However, keypresses will be passed to the multiline widget in the centre of the display if these widgets are not editing a command line, allowing the user to scroll around and select items.
+    这些类让配置一个类似的窗口变得容易. *FormMuttActive* 和 *FormMuttActiveTraditional* 类的不同点是, 在后者中,用户最终实质编辑的唯一控件,是屏幕底部的命令行控件. 不过,如果这些控件没有在编辑命令行,按键动作会被传递到在显示中央的多行控件里, 以允许用户来回滚动并选择屏幕上的条目.
 
-    What is actually displayed on the screen is controlled by the *ActionControllerSimple* class, which uses as a base the data stored not by any of the individual widgets but by the *NPSFilteredDatabase* class.
+    实际上什么要被显示到屏幕上,是由 *ActionControllerSimple* 类控制的, 以它为基础, 数据不是被任意独立控件, 而是由 *NPSFilteredDatabase* 类来存储的.
 
-    See the section on writing Mutt-like applications later in this documentation for more information.
+    更多信息参见该文档后续的 编写 类-Mutt 应用程序 部分.
 
 
-Multi-page Forms
-****************
+多页面窗口
+***********
 
 .. py:class:: FormMultiPage (new in version 2.0pre63)
 
-    This *experimental* class adds support for multi-page forms.  By default, scrolling down off the last widget on a page moves to the next page, and moving up from the first widget moves back a page.
+    这个 *实验性的* 类添加了多页面窗口的支持. 默认,在一个页面上向下滚动超出上最后一个控件,就会移动到下一个页面, 而从第一个控件继续向上移动就会回到上一页面.
 
-    The default class will display the page you are on in the bottom right corner if the attribute *display_pages* is True and if there is more than one page.  You can also pass *display_pages=False* in to the constructor.  The color used for this display is stored in the attribute *pages_label_color*.  By default this is 'NORMAL'.  Other good values might be 'STANDOUT', 'CONTROL' or 'LABEL'. Again, you can pass this in to the constructor.
+    默认的该类会你把所在的页面显示在屏幕的右下角, 如果 *display_pages* 属性为 True 且页面多于一个的话. 你也可以把 *display_pages=False* 传递到构造函数. 用来进行显示的颜色存在 *pages_label_color* 属性中. 默认它的值是 'NORMAL'. 其他好用的值有 'STANDOUT', 'CONTROL' 或 'LABEL'. 同样,你也能把他们传进构造函数.
 
-    Please note that this class is EXPERIMENTAL.  The API is still under review, and may change in future releases.  It is intended for applications which may have to create forms dynamically, which might need to create a single form larger than a screen (for example, a Jabber client that needs to display an xmpp form specified by the server.)  It is *not* intended to display arbitrarily large lists of items.  For that purpose, the multiline classes of widgets are much more efficient.
+    要注意这个类是 實驗性的. 其 API 还在审查中,并且可能会在以后的版本中有所调整. 它计划用于那些可能不得不动态地去创建窗口的应用程序上, 它们可能需要创建比屏幕还要大的单个窗口(比如一个要显示服务器所指定的 xmpp表 的 Jabber 客户端). 它 *不是* 用来显示任意大的项目列表的. 要打算那样的话, multiline 类的控件可能会高效得多.
 
 
-    Three new methods are added to this form:
+    有3个新的方法被加到该窗口对象中:
 
 .. py:method:: FormMultiPage.add_page()
 
-        Intended for use during the creation of the form.  This adds a new page, and resets the position at which new widgets will be added.  The index of the page added is returned.
+        用于窗口的创建时期. 这会添加一个新的页面,并且重置新控件添加点的位置. 新添页面的索引页数将被返回.
 
 .. py:method:: FormMultiPage.switch_page(*index*)
 
-        This method changes the active page to the one specified by *index*.
+        该方法将活跃页面改为由 *index* 指定的页.
 
 .. py:method:: FormMultiPage.add_widget_intelligent(*args, **keywords)
 
-        This method adds a widget to the form.  If there is not enough space on the current page, it tries creating a new page and adding the widget there.  Note that this method may still raise an exception if the user has specified options that prevent the widget from appearing even on the new page.
+        该方法会添加一个控件到窗口. 如果当前页面没有足够的空间,它会尝试创建一个新页面然后再把控件加到那儿. 要注意, 如果用户指定了哪怕是在新页面是也会防止控件被显示的选项, 这个方法可能依然会抛出异常.
 
 
 .. py:class:: FormMultPageAction (new in version 2.0pre64)
 
-    This is an *experimental* version of the FormMultiPage class that adds the on_ok and on_cancel methods of the ActionForm class and automatically creates cancel and ok buttons on the last page of the form.
+    这是个 *实验* 版的 FormMultiPage 类, 添加了 ActionForm 的 on_ok 和 on_cancel 方法,并且窗口的最后一页页自动创建 cancel 和 ok 按钮.
 
 .. py:class:: FormMultiPageWithMenus
 
-    Menu-enabled version of MultiPage.
+    开启菜单版的 MultiPage.
 
 .. py:class:: FormMultiPageActionWithMenus
 
-    Menu-enabled version of MultiPageAction.
+    开启菜单版的 MultiPageAction.
 
 
 Menus

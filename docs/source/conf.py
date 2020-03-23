@@ -245,7 +245,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'npyscreen', 'npyscreen Document zh_CN',
+  ('index', 'npyscreen', 'npyscreen Document zh\_CN',
    'Nicholas Cole [中文文档 William Mei]', 'npyscreen', 'One line description of project.',
    'Miscellaneous'),
 ]
