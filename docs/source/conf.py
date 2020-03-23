@@ -201,7 +201,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'npyscreen.tex', 'npyscreen  Document zh_CN',
+  ('index', 'npyscreen.tex', 'npyscreen  Document zh\_CN',
    'Nicholas Cole [中文 William Mei]', 'manual'),
 ]
 
