@@ -294,52 +294,51 @@ FormMuttActive, FormMuttActiveWithMenus, FormMuttActiveTraditional, FormMuttActi
     开启菜单版的 MultiPageAction.
 
 
-Menus
+菜单
 *****
 
-Some Form classes support the use of popup menus.  Menus could in theory be used as widgets on their own.  Popup menus (inspired, in fact, by the menu system in RiscOS) were selected instead of drop-down menus as being more suitable for a keyboard environment, making better use of available screen space and being easier to deploy on terminals of varied sizes.
+一些窗口支持使用弹出窗口. 理论上菜单也可以作为独立的控件来使用. 我们选择使用弹出菜单而不是下拉菜单(实际上受 RiscOS 的菜单系统启发),因其更适合键盘环境使用,并有效利用可用的屏幕空间, 也更容易部署到各种大小的终端上.
 
-By default, the supporting forms will display an advert that the menu system is available to the user, and a shortcut to the list of menus.  If the form has multiple menus, a 'root' menu listing all of them will be displayed.
+默认,支持的窗口都会显示一个带菜单系统的广告页给用户,及一个菜单列表的快捷键. 如果窗口有多个菜单,那么一个将其全部列出的 '根' 菜单会被显示出来.
 
-Menus are usually created by calling a (supporting) Form's *new_menu* method.  Version 2.0pre82 adds the argument *shortcut=None* to this method.  In the list of menus that the Form displays, this shortcut will be displayed.  After a menu has been created, the following methods on that object are useful:
+菜单通常是调用(支持的)窗口的 *new_menu* 方法创建的. 2.0pre82 版本添加了 *shortcut=None* 参数到该方法. 在窗口显示的菜单列表中,这个快捷键也会被显示. 在一个菜单被创建之后,该对象的以下方法会很有用:
 
 .. py:method:: NewMenu.addItem(text='', onSelect=function, shortcut=None, arguments=None, keywords=None)
 
-   *text* should be the string to be displayed on the menu.  `onSelect` should be a function to be called if that item is selected by the user.  This is one of the few easy opportunities in npyscreen to create circular references - you may wish to pass in a proxy to a function instead.  I've tried to guard you against circular references as much as possible - but this is just one of those times I can't second-guess your application structure. Version 2.0pre82 adds the ability to add a shortcut.
+    *text* 应该是菜单上显示的字符串. `onSelect` 应该是菜单项被用户选中后需要调用的函数. 这是仅有的几个 npyscreen 中容易创建循环引用的地方之一 - 你可能希望只传递一个代理进来. 我一直在尽力保护你远离循环引用,而这也只其中一次,很多时候我也无法猜测你的应用程序结构. 2.0pre82 版本增加了添加快捷键的功能.
 
-   From version 3.6 onwards, menu items can be specified with a list of *arguments* and/or a dictionary of keywords.
+    从 3.6 版本以后, 菜单项可以使用 *参数* 列表 加上或者只用一个关键字字典来指定.
 
 .. py:method:: NewMenu.addItemsFromList(item_list)
 
-	The agument for this function should be a list or tuple. Each element of this should be a tuple of the arguments that are used for creating each item.  This method is DEPRECATED and may be removed or altered in a future version.
+    该函数的参数应该是一个列表或者元组. 其中的每个元素都应该是创建一个菜单的项参数的元组. 该方法已经*废弃*,并且可能在以后的版本中被移除或者修改.
 
 .. py:method:: NewMenu.addNewSubmenu(name=None, shortcut=None, preDisplayFunction=None, pdfuncArguments=None, pdfuncKeywords=None)
 
-   Create a new submenu (returning a proxy to it).  This is the preferred way of creating submenus. Version 2.0pre82 adds the ability to add a keyboard shortcut.
+    创建一个子菜单(返回其代理). 这是创建子菜单的最佳方式. 2.0pre82 版本增加了添加键盘快捷键的功能.
 
-   From version 3.7 onwards, you can define a function and arguments to be called before this menu is displayed.  This might mean you
-   can adjust the content of the menu at the point it is displayed.  Added at user request.
+    从 3.7 版本之后,你可以在这个菜单显示之前定义一个被调用的函数及参数. 这可能意味着你可以在菜单显示的时刻调整其内容. 应用户要求添加.
 
 .. py:method:: NewMenu.addSubmenu(submenu)
 
-    Add an existing Menu to the Menu as a submenu.  All things considered, addNewSubmenu is usually a better bet.
+    将一个已经存在的菜单添加到菜单中作为子菜单. 综合考虑, addNewSubmenu 通常都是更好的选择.
 
 
-(Internally, this menu system is referred to as the "New" menu system - it replaces a drop-down menu system with which I was never very happy.)
+(在内部,这个菜单系统被叫做 "新" 菜单系统 - 它替代了我一直不怎么喜欢的下拉菜单系统.)
 
 
-Resizing Forms (New in version 2.0pre88)
+窗口重调大小 (2.0pre88 版本新增)
 ****************************************
 
-When a form is resized, a signal is sent to the form currently on the screen.  Whether or not the form handles this is decided by three things.
+当窗口的大小被重新调整,会有一个信号发往屏幕上的当前窗口. 该窗口是否处理它取决于 3 件事.
 
-If you set the variable `npyscreen.DISABLE_RESIZE_SYSTEM` to True, forms will not resize at all.
+如果你设置 `npyscreen.DISABLE_RESIZE_SYSTEM` 变量为 True. 窗口将完全不会调整大小.
 
-The class attribute `ALLOW_RESIZE` (=True by default).
-	If this is set to false the form will not resize itself.
+类属性 `ALLOW_RESIZE` (默认 =True).
+    如果它被设置为 False,窗口不会调整自身大小.
 
-The class attribute `FIX_MINIMUM_SIZE_WHEN_CREATED` controls whether the form can be made smaller than the size it was when it was created.  By default this is set to `False`.  This is because for over a decade, npyscreen assumed that forms would never change size, and many programs may rely on the fact that the form will never be resized.  If you are writing new code from scratch, you can set this value to True, provided that you test the results to make sure that resizing the form will not crash your application.
+类属性 `FIX_MINIMUM_SIZE_WHEN_CREATED` 控制着窗口是否可以变得比创建时更小. 默认它被设为 `False`. 这是因为十多年来,npyscreen都假设窗口永远不会改变大小,并且很多程序可能都依赖于窗口大小永远不被调整这一现实. 如果你是在从头开始写新代码,你可以把这个值设成 True, 确保你测试过结果,来确定调整窗口大小不会让你的应用程序奔溃.
 
-When a form is resized, the method `resize` will be called *after* the new size of the form has been fixed.  Forms may override this method to move widgets to new locations or alter anything else about the layout of the form as appropriate.
+当窗口被重新调整大小, `resize` 方法会在新的窗口大小被确定后被调用. 窗口都可以重写此方法,来将控件移动到新的位置,或修改任何相关让窗口布局更合适的东西.
 
-When using the `NPSAppManaged` system, forms will be automatically resized before they are displayed.
+当你使用 `NPSAppManaged` 系统时,窗口会在显示之前被自动调整大小.
