@@ -337,7 +337,7 @@ FormMuttActive, FormMuttActiveWithMenus, FormMuttActiveTraditional, FormMuttActi
 类属性 `ALLOW_RESIZE` (默认 =True).
     如果它被设置为 False,窗口不会调整自身大小.
 
-类属性 `FIX_MINIMUM_SIZE_WHEN_CREATED` 控制着窗口是否可以变得比创建时更小. 默认它被设为 `False`. 这是因为十多年来,npyscreen都假设窗口永远不会改变大小,并且很多程序可能都依赖于窗口大小永远不被调整这一现实. 如果你是在从头开始写新代码,你可以把这个值设成 True, 确保你测试过结果,来确定调整窗口大小不会让你的应用程序奔溃.
+类属性 `FIX_MINIMUM_SIZE_WHEN_CREATED` 控制着窗口是否可以变得比创建时更小. 默认它被设为 `False`. 这是因为十多年来,npyscreen都假设窗口永远不会改变大小,并且很多程序可能都依赖于窗口大小永远不被调整这一现实. 如果你是在从头开始写新代码,你可以把这个值设成 True,  只是要确保你测试过结果,以确定调整窗口大小不会让你的应用程序崩溃.
 
 当窗口被重新调整大小, `resize` 方法会在新的窗口大小被确定后被调用. 窗口都可以重写此方法,来将控件移动到新的位置,或修改任何相关让窗口布局更合适的东西.
 
