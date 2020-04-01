@@ -34,7 +34,7 @@
 *color='DEFAULT'*, labelColor='LABEL'
    为颜色管理系统提供控件应如何显示的线索
 
-   更多详细信息参考:ref:`setting up colors <color_reference>`。
+   更多详细信息参考`setting up colors <color_reference>`。
    
 
 *scroll_exit=False*, *slow_scroll=False*, *exit_left*, *exit_right*
@@ -87,7 +87,7 @@
   如果为真或为假，则覆盖控件原本选择的内容
 
 *field_width=*
-  （对于文本字段） - 控件的输入部分应当有多宽？
+  （对于文本字段）-控件的输入部分应当有多宽？
 
 *begin_entry_at=16*
    控件输入部分应当从哪一行开始？
