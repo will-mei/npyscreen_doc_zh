@@ -1,115 +1,117 @@
-Widgets: Basic Features
+控件：基本特点
 =======================
 
-Creating Widgets
+创建控件
 ****************
 
-Widgets are created by passing their class as the first argument of a Form's *add(...)* method.  The remaining arguments will be passed to the widget's own constructor.  These control things such as size, position, name, and initial values.
+控件是通过表单类中*add(...)*方法的第一个参数来创建的。其余参数将传递给控件自身的构造函数。这些控制诸如大小、位置、名称和初始值等
 
-Constructor arguments
+
+构造函数参数
 *********************
 
 *name=*
-  You should probably give each widget a name (a string).  Where appropriate, it will be used as the label of the widget.
+  你可能需要给每个控件命名（字符串）。在适当的时候，它将被用于该控件的标签
 
 *relx=*, *rely=*
-   The position of the widget on the Form is controlled by relx and rely integers.   You don't have to specify them, in which case the form will do its best to decide where to put the widget.  You can specify only one or the other if you so choose (eg. you probably don't usually need to specify relx).  *New in Version 4.3.0*: if you give a negative value for rely or relx, the widget will be positioned relative to the bottom or right hand side of the Form.  If the form is resized, npyscreen will do its best to keep the widget in place.
+   控件在表格上的位置是被整型参数relx和rely控制的。你不需要指定他们，那样的话表单将尽最大可能决定控件放在何处。你可以指定他们中的其中一个如果你这样选择（eg.你通常不需要指定relx)。*New in Version 4.3.0*：如果你给rely或relx一个 负值，控件将被定位在相对于窗口底部或右侧的位置，如果窗体调整了大小，npyscreen将尽最大可能保持控件的位置
 
 *width=*, *height=*, *max_width=*, *max_height=*
-   By default, widgets will expand to fill all available space to the right and downwards, unless that would not make sense - for example single lines of text do not need moe than one line, and so don't claim more than one.  To alter the size of a widget, therefore, specify a different *max_width* or *max_height*.  It is probably better to use the max\_ versions - these will not raise an error if space is getting tight and you specify too much, but will try to squash the widget into remaining space.
+   默认情况下，控件会展开以填充右侧和下方的可用空间，除非这样做没有意义-例如单行文本不需要一行，因此无需另外声明。因此，为了改变控件大小，指定一个不同的*max_width*或*max_height*。最好使用max\_version - 如果空间不足或指定的空间太多，这些将不会报错，但会试图将控件压缩到剩余空间中。
 
 *value=*
-   The value of a widget is the thing a user can change - a string, a date, a selection of items, a filename.  The initial setting of the *.value* attribute can be specified here.
+   控件的值是用户可以更改的——字符串，日期，选择项，文件名。此处可初始化设置*.value*属性
 
 *values=*
-   Where a widget offers the user a selection from a list of values, these can be specified here: this is the initial setting of the *values* attribute.
+   当控件向用户提供列表值中的一个选项，这些在此处指定：这是*value*属性的初始化设置。
 
 *editable=True*
-   Whether the user should be able to edit a widget.  (Initial setting of the *.editable* attribute.)
+   用户是否能够编辑控件（*.editable*属性的初始化设置）
 
 *hidden=False*
-   Whether a widget is visible or not.  (Initial setting of the *.hidden* attribute.)
+   控件是否可见（*.hidden*属性的初始化设置）
 
 *color='DEFAULT'*, labelColor='LABEL'
-   Provides a hint to the colour-management system as to how the widget should be displayed.
+   为颜色管理系统提供控件应如何显示的线索
 
-   For more details see  :ref:`setting up colors <color_reference>`.
+   更多详细信息参考:ref:`setting up colors <color_reference>`。
+   
 
 *scroll_exit=False*, *slow_scroll=False*, *exit_left*, *exit_right*
-    These affect the way a user interacts with multi-line widgets.  *scroll_exit* decides whether or not the user can move from the first or last item to the previous or next widget.  *slow_scroll* means that widgets that scroll will do so one line at at time, not by the screen-full. The options *exit_left|right* dictate whether the user can exit a widget using the left and right arrow keys.
+	这些影响了用户和多行控件的交互模式。*scroll_exit*决定了用户是否能将第一个或最后一个项目移动到前一个或后一个控件。*slow_scroll*意味着滚动控件每次只能滚动一行，而不是满屏滚动。选项*exit_left|right*命令 用户是否能够使用向左和向右箭头键退出控件。
     
-Using and Displaying Widgets
+使用和显示控件
 ****************************
 
-All widgets have the following methods:
+所有控件包含以下方法：
 
 *display()*
-   Redraws the widget and tells curses to update the screen.
+   重绘控件并且告知curses更新屏幕
 
 *update(clear=True)*
-   Redraws the widget, but doesn't tell curses to update the screen (it is more efficient to update all widgets and then have the Form on which they sit tell curses to redraw the screen all in one go).
+   重绘控件，但不告知curses更新屏幕（更新所有控件，然后让控件所在的表单一次性告诉curses重新绘制屏幕。
 
-   Most widgets accept the optional argument *clear=False|True* which affects whether they first blank the area they occupy before redrawing themselves.
+   大多数控件接收可选参数*clear=False|True*，该参数会影响在重新绘制之前 是否先清空它所占用的区域。
    
 *when_parent_changes_value()*
-    Called whenever the parent form's *set_value(value)* method is called.
+	在调用父表单的*set_value(value)*方法时调用。
     
 *when_value_edited()*
-    Called when, during editing of the widget, its value changes.  I.e. after keypresses.
-    You can disable this by setting the attribute *check_value_change* to False.
+	在编辑控件过程中，当它的值改变时调用,之后按下键盘。
+	你可以通过设置属性*check_value_change*为False来禁用它。
     
-    You can override this function for your own use.
+	你可以根据自己的使用需要覆盖它。
 
 *when_cursor_moved()*
-    Called when, during the editing of the widget, its cursor has been moved.  You can disable
-    the check for this by setting the attribute *check_cursor_move* to False.
+	在编辑控件的过程中，当它的光标已经被移动时调用。你可以通过设置属性*check_cursor_move*为False来禁用这个检查。
     
-    You can override this function for your own use. 
+	你可以根据自己的使用需要覆盖它。
 
 *edit()*
-   Allow the user to interact with the widget.  The method returns when the user leaves the widget.  In most cases, you will never need to call this method yourself, and for the most part this should be regarded as part of the internal API of npyscreen.
+   允许用户与控件的交互作用。当用户离开控件则该方法返回。在多数情况下，你将永远不需要自己调用这个方法，并且在很大程度上，这应该被视为npyscreen内部API的一部分
+   
 
 *set_relyx()*
-    Set the position of the widget on the Form.  If y or x is a negative value,
-    npyscreen will try to position it relative to the bottom or right edge of the 
-    Form.  Note that this ignores any margins that the Form may have defined. 
-    (New in Version 4.3.0).
+	设置控件在表单中的位置。如果y或x是负值，npyscreen将尝试相对于表单底部或右侧边缘进行定位。注意，这会忽略表单可能定义的任何边距。(新版本4.3.0)
 	
 *safe_to_exit()*
-	This method is called by the default handlers before a user tries to exit from a widget.  It should return True if this should be allowed and False if it should not.  You may override this method to perform any verification of the contents of a field before allowing the user to exit.  (New in Version 4.10.0)
+	这个方法是在用户试图从控件退出之前，通过默认处理器被调用得。如果这被允许，它则返回True；如果不允许，则返回False。在允许用户退出之前，你可以覆盖这个方法来执行对字段内容的任何验证。(新版本4.3.0)
     
 
-Titled Widgets
+给控件加标题
 **************
 
-Many widgets exist in two forms, one with a label, one without.  For example Textbox and TitleText.  If the label is particularly long (at time of construction), the label may be put on its own line.  Additional constructor arguments:
+许多控件存在两种表单，一种有标签，一种没有。例如，Textbox和TitleText。如果该标签特别长（在构建时），该标签可能在自己的线上。附加构造器参数：
 
-*use_two_lines=*
-  If either True or False, override what the widget would otherwise choose. 
+*use_two_lines=* 
+  如果为真或为假，则覆盖控件原本选择的内容
 
 *field_width=*
-  (For text fields) - how wide should the entry part of the widget be?
+  （对于文本字段） - 控件的输入部分应当有多宽？
 
 *begin_entry_at=16*
-   At what column should the entry part of the widget begin?
+   控件输入部分应当从哪一行开始？
 
-Internally titled widgets are actually a textbox (for the label) and whatever other kind of widget is required.  You can access the separate widgets (if you ever need to - you shouldn't) through the *label_widget* and *entry_widget* attributes. However, you may never need to, since the *value* and *values* attributes of the combined widget should work as expected.
+内部命名的控件实际上是一个文本框(用于标签)和任何其他类型的控件是必需的。你可以通过*label_widget*和*entry_widget*属性访问单独的控件(如果你需要—实际你不应该)。但是，你可能永远都不需要这样做，因为组合控件的*value*和*values*属性会按照预期工作。
 
-Creating your own widgets
+
+
+创建自己的控件
 *************************
 
-All widgets should inherit from the class `Widget`.  
+所有控件应继承自`Widget`类。  
 
 *calculate_area_neeeded*
-    This function is called to ask the widget how many lines and columns it requires (for a minimal display).  You should return a tuple with exactly two numbers.  Returning 0 for either argument says that the widget should be given all the remaining space on the display if it is available.
+	这个函数被调用是为了询问控件需要多少行和列（用于最小显示）。你应该返回一个正好包含两个数字的元组。两者中的一个参数返回0说明，如果控件可用，应为它提供在显示上的所有剩余空间
+	
     
-If you are writing text to the screen you should avoid using curses directly, and instead use the function
+如果你正在屏幕中编辑文本，你应当避免直接使用光标，而是使用函数替代
 
 *add_line(realy, realx, unicode_string, attributes_list, max_columns, force_ascii=False)*
-    This function adds a line of text to the display. `realy` and `realx` are the absolute position on the Form. `attributes_list` is a list of attributes that should be applied to each character.  If all of them require the same attribute, use the `make_attributes_list` method to create a list of the right length.
+	这个函数添加了一行文本显示。`realy`和`realx`是在表格中的绝对定位。`attributes_list`是一个应被应用于每个字符的属性列表。如果所有这些要求同样的属性，使用`make_attributes_list`方法来创建一个正确长度的列表。
     
 *make_attributes_list(unicode_string, attribute)*
-    A convenience function.  Retuns a list the length of the unicode_string provided, with each entry of the list containing a copy of attribute.
+	一个方便的函数。重新设置提供的unicode_string长度的列表，列表中的每个项都包含一个属性副本。
 
 *resize()*
-    You can override this method to perform any necessary actions when the widget is resized.  (New in version 4.3.0)
+	当控件被调整大小，你可以覆盖这个方法来执行任何必要的操作。（新版本4.3.0）
