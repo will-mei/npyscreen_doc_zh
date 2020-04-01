@@ -1,22 +1,22 @@
-Widgets: Trees and Tree displays
+控件：树和显示树
 ********************************
 
 
-Representing Tree Data
+表示树的数据
 ++++++++++++++++++++++
 
 TreeData
-    The TreeData class is used to represent tree objects.  Each node of the tree, including the root node, is an NPSTreeData instance.  Each node may have its own content, a parent or children.
+	类TreeData是被用于表示树对象。每一个树节点，包括根节点，是一个NPSTreeData实例。每个节点可能有它自己的内容，父节点或子节点。
 
-    The content of each node is either set when it is created or using the *.set_content* method.
+	每个节点的内容不是在创建的时候设置，就是使用*.set_content*方法设置。
 
-    *get_content()* returns the content.
+	*get_content()* 返回该内容。
 
-    *get_content_for_display()* is used by the widgets that display trees, which expect it to return a string that can be displayed to the user to represent the content.  You might want to overload this method.
+	*get_content_for_display()* 是控件用于显示树，这些控件期望返回一个能够给用户显示内容的字符串。
 
-    *new_child(content=...)* creates a new child node.
-
-    *selectable* If this attribute is true the user can mark a value as 'selected'. This is used by MLTreeMultiSelect widget, and is True by default.
+	*new_child(content=...)* 创建一个新的子节点
+	
+	*selectable* 如果这个属性为真，则用户可以标记一个值为'selected'。这被MLTreeMultiSelect控件使用，并且默认值为True。
 
     *ignore_root* This attribute controls whether the root node of the tree is displayed to the user.
 
