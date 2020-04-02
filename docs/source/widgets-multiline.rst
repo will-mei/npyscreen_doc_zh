@@ -16,66 +16,64 @@ MultiLine
 
 
 TitleMultiLine
-   A titled version of the MultiLine widget.
+   一个带标题版的 MultiLine.
 
-   If creating your own subclasses of MultiLine, you can create Title versions by subclassing this object and changing the *_entry_type* class variable.
+   如果要创建自己的 MultiLine 的子类, 你可以子类化该对象然后修改类的 *_entry_type* 变量就能创出一个带标题的版本了.
 
 MultiSelect, TitleMultiSelect,
-    Offer the User a list of options, allow him or her to select more than one of them.
+    向用户给出一个选项的列表, 允许他/她选择其中的多个.
 
-    The *value* attribute is a list of the indexes user's choices.  As with the MultiLine widget, the list of choices is stored in the attribue *values*.
+    其 *value* 属性是一个用户所选项的索引的列表. 与 MultiLine 控件一样,选项的列表存放在 *values* 属性中.
 
 SelectOne, TitleSelectOne
-    Functionally, these are like the Multiline versions, but with a display similar to the MultiSelect widget.
+    功能上,这些类跟 MultiLine 版本的差不多,但是显示的跟 MultiSelect 控件更相似.
 
 MultiSelectFixed, TitleMultiSelectFixed
-    These special versions of MultiSelect are intended to display data, but like Textfixed do not allow the user to actually edit it.
+    这些 MultiSelect 特殊版本其实是用来显示数据的, 但是像 Textfixed 一样,不允许用户去实际编辑它们.
 
 MultiLineAction
-    A common use case for this sort of widget is to perform an action on the currently highlighted item when the user pushes Return, Space etc.  Override the method *actionHighlighted(self, act_on_this, key_press)* of this class to provide this sort of widget.  That method will be called when the user 'selects' an item (though in this case .value will not actually be set) and will be passed the item highlighted and the key the user actually pressed.
+    这种控件的一个常见的使用场景就是, 在用户按下回车,空格等键时, 对当前高亮的条目执行一个动作. 重写该类的  *actionHighlighted(self, act_on_this, key_press)* 方法即可做出这种控件. 此方法会在用户 '选中' 一个条目时被调用(虽然这种情况下 .value 还没被实际设定),并且被传进来高亮条目以及用户实际按下的键.
 
 MultiSelectAction
-    This is similar to the MultiLineAction widget above, except that it also provides the method *actionSelected(self, act_on_these, keypress)*.  This can be overridden, and will be called if the user pressed ';'.  The method will be passed a list of the objects selected and the keypress.  You probably want to adjust the default keybindings to make this widget useful.
+    这个跟上面的 MultiLineAction 控件类似, 不过它还提供 *actionSelected(self, act_on_these, keypress)* 方法. 这个可以被重写, 且如果用户按下';'(分号)键它会被调用. 这个函数会收到被选择的对象的列表和按下的键. 你或许会想调整它默认的按键绑定让它更好用.
 
-BufferPager, TitleBufferPager *New in Version 2.0pre90*
-    The `BufferPager` class is a subclass of the *Pager* class.  It is designed to display text to the user in much the way that `tail -f` does under \*nix.  By default, the .values attribute is set to an instance of the `collections.deque` class.  You can pass a `maxlen=` value to the constructor.  If not, the maxlen for the deque object will be taken from the class attribute `DEFAULT_MAXLEN`, which is None by default.
+BufferPager, TitleBufferPager *2.0pre90 版本新增*
+    `BufferPager` 类似是 *Pager* 类的一个子类. 它被设计用来把文本以非常类似于在 \*nix 环境下 tail -f 的方式显示给用户. 默认 .value 属性被设为一个 `collections.deque` [双向队列]类的实例. 你可以传递 `maxlen=` 到其构造函数. 否则, deque 对象的 maxlen[最大长度] 会从 `DEFAULT_MAXLEN` 类属性中获取, 而它默认是 None.
 
     .. py:method:: BufferPager.clearBuffer()
 
-        Clear the buffer.
+        清空缓存.
 
     .. py:method:: BufferPager.buffer(lines, scroll_end=True, scroll_if_editing=False)
 
-        Add `lines` to the contained deque object.  If `scroll_end` is True, scroll to the end of the buffer.  If `scroll_if_editing` is True, then scroll to the end even if the user is currently editing the Pager.  If the contained deque object was created with a maximum length, then new data may cause older data to be forgotten.
+        将 `lines` 添加到所包含的双向队列对象中. 如果 `scroll_end` 为 True, 则滚动到缓冲区的结尾. 如果 `scroll_if_editing` 为 True, 那么即使用户当前正在编辑页面控件也会滚动到末尾. 如果包含的双向队列对象在创建时被指定了最大长度, 那么新数据可能会导致较旧数据被遗忘.
 
 MultiLineEditable
-    A list of items that the user can edit, based on the multiline classes.  New in version 3.9
+    一个用户可以编辑的选项列表,基于多行控件类. 3.9 版本新增.
 
     .. py:method:: get_new_value()
 
-        This method should return a 'blank' object that can be used to initialize a new item on the list.  By default it returns an
-        empty string.
+        这个方法会返回一个'空白'对象, 它可以用来初始化列表中的新选项. 默认它返回一个空字符串.
 
 
     .. py:method:: check_line_value(vl)
 
-        This method should say whether vl is a valid object that can be added to the list, returning True or False.  By default, this
-        method rejects empty strings.
+        这个方法会说明 vl 是否是一个可以被添加到列表的有效对象, 返回 True 或 False. 默认该方法拒绝空字符串.
 
 MultiLineEditableTitle
-    A titled version of MultiLineEditable. The class attribute *_entry_type* controls the type of contained widget.
+    标题版的 MultiLineEditable. 其 *_entry_type* 类属性控制着容纳的控件的类型.
 
 MultiLineEditableBoxed
-    A boxed version of MultiLineEditable. The class attribute **_entry_type** controls the type of contained widget.
+    带框版的 MultiLineEditable. 其 *_entry_type* 类属性控制着容纳的控件的类型.
 
 
 Custom Multiselect Widgets
 ++++++++++++++++++++++++++
 
-Multiline widgets are a container widget that then holds a series of other widgets that handle various parts of the display.  All multiline classes have a `_contained_widget` class attribute. This controls how the widget is constructed.  The class attribute `_contained_widget_height` specifies how many lines of the screen each widget should be given.
+多行控件是一个容器控件,它容纳一系列用于处理各显示部分的其他控件. 所有的多行控件类都有一个 `_contained_widget` 类属性. 这个控制控件如何被构造. `_contained_widget_height` 指定了应该给各个控件多少屏幕上的行.
 
-From version 3.4 onwards, contained widgets that have a `.selected` attribute are handled differently: widgets will have their `.selected` attribute set to `True` if the line is selected and `False` otherwise.  Widgets may also have their `.important` attribute set to True or False, depending on if they are included in a current filter (see above).
+从 3.4 版本以后, 内含的带有 `.selected` 属性的控件的处理有些不同了: 若行被选中,则把它们的 `.selected` 属性设置为 `True` ,否则为 `False`. 控件的 `.important` 属性可能也会被设置为 True 或 False, 取决于他们是否被当前的 filter 所包含(参见上面).
 
-Widgets that do not have a `selected` attribute have the value for each line put in their `name` attribute, and whether the line is selected or not put in their `value` attribute.  This is a legacy of the fact that the standard multiselect widgets use checkboxes to display each line.
+没有 `selected` 属性的控件,每一行的值都会被放到 `name` 属性中, 且不论行是否被选中都放到它们的 `value` 属性中. 这是个遗留问题, 因为实际上标准的多选控件是用多个选框[checkboxes]来显示每一行的.
 
-From version 4.8.7 onwards, multiline widgets use the methods `set_is_line_important`, `set_is_line_bold` and `set_is_line_cursor` to control the display of each line.  These methods are passed the widget object in question and a Boolean value.  They are intended to be overridden.
+从 4.8.7 版本以后,多行控件都开始使用 `set_is_line_important`, `set_is_line_bold` 和 `set_is_line_cursor` 方法来控制每行的显示. 这些方法会被传递进待选择的控件对象和一个布尔值. 它们都是用来被重写的.
