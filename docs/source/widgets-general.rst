@@ -46,27 +46,27 @@ Slider, TitleSlider
       return stri
 
 SliderNoLabel, TitleSliderNoLabel
-    These versions of the Slider do not display a label.  (Similar to using the usual slider with *label=False*). New in Version 4.3.5
+    这些版本的滑块不显示标签。(类似于使用通常带 *label=False* 的滑块)。新版本4.3.5
 
 SliderPercent, TitleSliderPercent
-    These versions of the Slider display a percentage in the label.  The number of decimal places can be set by setting the attribute *accuracy* or by passing in the keyword *accuracy* to the constructor.  Default is 2. New in Version 4.3.5.
+    这些版本的滑块在标签中显示百分比。通过设置属性 *accuracy* 或向构造函数传递关键字 *accuracy*，可以设置小数位数。默认是2。新版本4.3.5。
 
 
 
 
-Widgets: Grids
+控件：网格
 **************
 
 SimpleGrid
-    This offers a spreadsheet-like display.  The default is only intended to display information (in a grid of text-fields).  However, it is designed to be flexible and easy to customize to display a variety of different data.  Future versions may include new types of grids.  Note that you can control the look of the grid by specifying either *columns* or *column_width* at the time the widget is created.  It may be that in the future the other multi-line classes will be derived from this class.
+    这提供了一种类似电子表格的显示方式。默认值仅仅用于显示信息（在文本字段的网格中）。但是，它是为了灵活且易于自定义显示各种不同数据而设计的。未来的版本可能包括新的网格类型。注意，你可以通过在创建控件时指定 *columns* 或 *column_width* 来控制网格的外观。将来可能从这个类派生出其他多行类。
 
-    The cursor location is specified in the attribute *.edit_cell*.  Note that this follows the (odd) curses convention of specifying the row, then the column.
+    光标位置是由属性 *.edit_cell* 指定。注意，这遵循“先指定行，再指定列”的（奇数）curses约定。
 
-    *values* should be specified as a two-dimensional array.
+    *values* 应被指定为一个二维数组。
 
-    The convenience function *set_grid_values_from_flat_list(new_values, max_cols=None, reset_cursor=True)* takes a flat list and displays it on the grid.
+    方便的函数 *set_grid_values_from_flat_list(new_values, max_cols=None, reset_cursor=True)* 采取一个简单列表并显示在网格中。
 
-    The following arguments can be passed to the constructor::
+    以下参数可被传递给构造函数::
 
         columns = None
         column_width = None,
@@ -76,33 +76,31 @@ SimpleGrid
         always_show_cursor = False
         select_whole_line = False (new in version 4.2)
 
-    Classes derived from SimpleGrid may wish to modify the following class attributes::
+    从SimpleGrid派生的类可能希望修改以下类属性::
 
         _contained_widgets    = textbox.Textfield
         default_column_number = 4  
-        additional_y_offset   = 0  # additional offset to leave within the widget before the grid
-        additional_x_offset   = 0  # additional offset to leave within the widget before the grid
-        select_whole_line   # highlight the whole line that the cursor is on
+        additional_y_offset   = 0  #在网格前留在控件内部的额外偏移量
+        additional_x_offset   = 0  #在网格前留在控件内部的额外偏移量
+        select_whole_line   #高亮显示游标所在的整行
 
 
 GridColTitles
-    Like the simple grid, but uses the first two lines of the display to display the column titles.  These can be provided as a *col_titles* argument at the time of construction, or by setting the *col_titles* attribute at any time.  In either case, provide a list of strings.
+    像简单网格，但使用网格前两行来显示列标题。这些可在构造时作为 *col_titles* 参数提供，或者通过任意时间设置 *col_titles* 属性。在这两种情况下，提供一个字符串列表。
 
 
-Customizing the appearance of individual grid cells
+自定义单个网格单元的外观
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 
-New in version 4.8.2.
+新版本4.8.2
 
-For some applications it may be desirable to customize the attributes of the contained grid widgets depending upon their content. Grid widgets call a method called `custom_print_cell(actual_cell, display_value)` after they have set the value of a cell and before the content of the cell is drawn to the screen.  The parameter `actual_cell` is the underlying widget object being used for display, while `display_value` is the object that has been set as the content of the cell (which is the output of the `display_value` method).
+对某些应用程序，最为理想的是自定义属性，那些包含依赖于他们内容的网格控件。网格控件在设置单元格的值之后，在单元格内容被绘制在屏幕上之前，调用一个名为 `custom_print_cell(actual_cell, display_value)` 的方法。参数 `actual_cell` 是用于显示底部控件对象，而 `display_value` 是被设置为单元格内容的对象（它是 `display_value` 方法的输出）。
 
-The following code demonstrates how to use this facility to adjust the color of the text displayed in a grid. My thanks are due to Johan Lundstrom for suggesting this feature::
+以下代码演示如何使用这个工具来调整网格中显示的文本颜色。特别感谢Johan Lundstrom提出的这个特点::
 
 
     class MyGrid(npyscreen.GridColTitles):
-        # You need to override custom_print_cell to manipulate how
-        # a cell is printed. In this example we change the color of the
-        # text depending on the string value of cell.
+        # 你需要覆盖custom_print_cell来操作如果打印单元格。在本例中，我们根据单元格的字符串值更改文本颜色
         def custom_print_cell(self, actual_cell, cell_display_value):
             if cell_display_value == 'FAIL':
                actual_cell.color = 'DANGER'
@@ -112,13 +110,12 @@ The following code demonstrates how to use this facility to adjust the color of 
                actual_cell.color = 'DEFAULT'
 
     def myFunction(*args):
-        # making an example Form
+        # 制作一个实例表单
         F = npyscreen.Form(name='Example viewer')
         myFW = F.add(npyscreen.TitleText)
         gd = F.add(MyGrid)
 
-        # Adding values to the Grid, this code just randomly
-        # fills a 2 x 4 grid with random PASS/FAIL strings.
+        # 给网格添加值，这段代码只是通过任意PASS/FAIL字符串填充一个2 x 4网格
         gd.values = []
         for x in range(2):
             row = []
@@ -135,29 +132,28 @@ The following code demonstrates how to use this facility to adjust the color of 
 
 
 
-Widgets: Other Controls
+控件：其他控件
 ***********************
 
 Checkbox, RoundCheckBox
-   These offer a single option - the label is generated from the attribute *name*, as for titled widgets.  The attribute *value* is either true or false.
+   这些提供一个单独选项 - 该标签是由属性 *name* 生成，作为标题控件。属性 *value* 为真或为假。
 
-   The function whenToggled(self) is called when the user toggles the state of the checkbox.  You can overload it.
+   当用户切换到复选框时，调用函数whenToggled(self)。你可以重载它。
 
 CheckboxBare
-    This has no label, and is only useful in special circumstances.  It was added at user request.
+    这没有标签，并且只有在特殊情况下才有用。它是根据用户请求添加得。
 
 CheckBoxMultiline, RoundCheckBoxMultiline
-    This widgets allow the label of the checkbox to be more than one line long.  The name of the widget should be specified as a
-    list or tuple of strings.
+    这控件允许复选框的标签超过一行。控件的名称应指定为字符串的列表或元组。
 
-    To use these widgets as part of a multiline widget, do the following::
+    把这些控件作为多行控件的一部分来使用，执行以下代码::
 
         class MultiSelectWidgetOfSomeKind(npyscreen.MultiSelect):
             _contained_widgets = npyscreen.CheckBoxMultiline
             _contained_widget_height = 2
 
             def display_value(self, vl):
-                # this function should return a list of strings.
+                # this function should return a list of strings.这个函数应返回字符串列表
 
 
     New in version 2.0pre83.
