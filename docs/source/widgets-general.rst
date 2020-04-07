@@ -153,58 +153,43 @@ CheckBoxMultiline, RoundCheckBoxMultiline
             _contained_widget_height = 2
 
             def display_value(self, vl):
-                # this function should return a list of strings.这个函数应返回字符串列表
+                # 这个函数应返回字符串列表
 
 
-    New in version 2.0pre83.
+    新版本2.0pre83。
 
 
 Button
-   Functionally similar to the Checkbox widgets, but looking different.  The Button is usually used for OK and Cancel Buttons on Forms and similar things, though they should probably be replaced with the ButtonPress type.  The colour that the button is shown when selected is either an inverse of the colour of the button, or else selected by the attribute *cursor_color*.  This value can also be passed in to the constructor.  If this value is None, the inverse of the button colour will be used.
+   功能上与复选框控件相似，但看起来不相同。 按钮通常用在表单和相似内容上的OK和Cancel按钮，尽管它们可能应被ButtonPress类型替代。按钮被选中时的颜色要么与按钮的颜色相反，要么通过属性 *cursor_color* 来选择。这个值也可传递给构造函数。如果这个值是None,将使用按钮颜色的相反值。
 
-ButtonPress
-    Not a toggle, but a control.  This widget has the method *whenPressed(self)*, which you should overload to do your own things.  
+ButtonPress  
+    不是一个触发器，仅仅一个控件。这个控件由方法 *whenPressed(self)*，该方法你应该重载来做你自己的事情。
 
-    From version 4.3.0 onwards, the constructor accepts an argument *when_pressed_function=None*.  If a callable is specified in this way, it will be called instead of the method *whenPressed*. NB.  The when_pressed_function functionality is potentially dangerous. It can set up a circular reference that the garbage collector will never free. If this is a risk for your program, it is best to subclass this object and override the *when_pressed_function* method instead.
+    从版本4.3.0开始，该构造函数接受一个参数 *when_pressed_function=None*。如果以这个方式指定一个callable，它将被调用，而不是方法 *whenPressed*. NB. when_pressed_function功能上有潜在危险。它能设置一个循环引用，该垃圾收集器将永远不会释放。如果这对你的程序存在风险，最好把这个对象设置为子类，并且重载 *when_pressed_function*方法来替代。
 
 FormControlCheckbox
-   A common use of Checkbox is to offer the user the option to enter additional data.  For example "Enter Expiry Date".  In such a case, the Form needs to display additional fields in some cases, but not in others.  FormControlCheckbox makes this trivial.
+   复选框的一般用法是为用户提供输入额外数据的选项。例如 "输入有效期"。在这种情况下，表单在某些情况下需要显示额外字段，但在其他情况下则不需要。FormControlCheckbox使这变得很简单。
 
-   Two methods are defined:
+   定义两种方法:
 
    addVisibleWhenSelected(*wg*)
-      *wg* should be a widget.  
+      *wg* 应是一个控件
 
-      This method does not create a widget, but instead puts an existing widget under the control of the FormControlCheckbox.  If FormControlCheckbox is selected, the widget will be visible.  
+      这个方法不创建一个控件，而是将现有控件置于FormControlCheckbox的控制之下。如果已选择FormControlCheckbox，该控件就是可见的。
 
-      As many widgets as you wish can be added in this way.
+      通过这种方式按照你的意愿添加许多控件。
 
    addInvisibleWhenSelected(*wg*)
-      Widgets registered in this way are visible only when the FormControlCheckbox is not selected.
+      只有在FormControlCheckbox没被选择时，以这种方式注册的控件才是可见的。
 
 AnnotateTextboxBase, TreeLineAnnotated, TreeLineSelectableAnnotated
-    The *AnnotateTextboxBase* class is mainly intended for use by the
-    multiline listing widgets, for situations where each item displayed needs an
-    annotation supplied to the left of the entry itself.  The API for these
-    classes is slightly ugly, because these classes were originally intended for
-    internal use only.  It is likely that more user-friendly versions will be
-    supplied in a later release.  Classes derived from *AnnotateTextboxBase*
-    should define the following:
+    *AnnotateTextboxBase* 类主要是为了给多行列表控件使用，用于显示的每一项都需要在选项本身左侧提供注释的情况。这些类的API有些难看，因为这些类最初只用于内部管理。在以后的本本中可能会提供更友好的版本。派生自 *AnnotateTextboxBase* 的类应定义以下内容:
 
     *ANNOTATE_WIDTH*
-        This class attribute defines how much margin to leave before the
-        text entry widget itself.  In the TreeLineAnnotated class the margin needed is calculated
-        dynamically, and ANNOTATE_WIDTH is not needed.
+        这个类属性定义了在文本输入控件本身之前按需要留出多少边距。在TreeLineAnnotated类中，边距需要动态计算，且不需要ANNOTATE_WIDTH。
 
     *getAnnotationAndColor*
-        This function should return a tuple consisting of the string to
-        display as the annotation and the name of the colour to use when displaying
-        it.  The colour will be ignored on B/W displays, but should be provided in
-        all cases, and the string should not be longer than *ANNOTATE_WIDTH*,
-        although by default the class does not check this.
+        这个函数应返回一个元组，该元组由作为注释显示的字符串和显示时使用颜色名字组成。在B/W显示器上，颜色会被忽略，但在所有情况下都应提供，并且字符串长度应不超过 *ANNOTATE_WIDTH*，尽管默认情况下该类不检查这个。
 
     *annotationColor*, *annotationNoColor*
-        These methods draw the annotation on the screen.  If using strings
-        only, these should not need overriding.  If one is altered, the other should
-        be too, since npyscreen will use one if the display is configured for colour
-        and the other if configured for black and white.
+        这些方法在屏幕上绘制注释。如果仅使用字符串，这些应不需要覆盖。如果其中一个被更改，另一个也应改变，因为npyscreen将使用一个的显示被配置为彩色，且另一个为黑白色。
