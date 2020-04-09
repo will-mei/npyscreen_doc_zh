@@ -1,60 +1,59 @@
-Widgets: Titled Widgets
+控件：带标题的控件
 ***********************
 
-Most versions of the standard widget set come in two forms - a basic version and a corresponding version that also prints a label with the name of the widget.  For example, Textfield and TitleText.
+大多数标准控件版本有两种形式 - 一个基础版本和一个相应版本，后者也打印一个带控件名称的标签。例如，Textfield和TitleText。
 
-The Title versions are in fact a wrapper around a contained widget, rather than being a proper widget in their own right, and this can be a cause of confusion when modifying their behaviour.  
+标题版本实际上是一个包含控件的装饰器，而不是成为一个对它们本身合适的控件，并且会在修改它们行为时造成混乱。
 
 In general, to create your own version of these widgets, you should first create the contained widget, and then create a titled version.
+通常情况下，为了创建自己的这些控件版本，你首先应该创建包含控件，然后创建一个标题版本。
 
-For example::
+例如::
 
 	class NewTextWidget(textbox.Textfield):
-		# all of the custom code for this class
-		# should go here.
-		
-	
+		# 这个类的所有自定义代码
+		# 应在这里
+
+
 	class TitleProductSearch(TitleText):
 		_entry_type = NewTextWidget
 
-You can adjust where the child widget is placed on the screen by passing in the argument *begin_entry_at* to the constructor. The default is 16. You can also override whether the widget uses a separate line for the title by passing in the argument *use_two_lines=True|False* at the time the widget is created.  The default *use_two_lines=None* will keep the title and the contained widget on the same line, unless the label is too long.
+你可以通过将参数 *begin_entry_at* 传递给构造函数来调整子控件在屏幕上的位置。默认值是16。你也可以通过在创建控件时传递参数 *use_two_lines=True|False* 来覆盖是否使用单独行做标题的控件。默认的 *use_two_lines=None* 将保持标题和包含控件在同一行，除非标签太长。
 
-You can change the label color at creation time using the argument *labelColor='LABEL'*.  You can specify any of the color names from the theme you are using.
+你可以在创建时使用参数 *labelColor='LABEL'* 来改变标签颜色。你可以从你正在使用的主题中指定任何颜色名称。
 
-After creation, the two widgets managed by the TitleWidget can be accessed through the *label_widget* and *entry_widget* attributes of the object. 
-		
+创建之后，由TitleWidget管理的两个控件可以通过对象的 *label_widget* 和 *entry_widget* 属性来访问。
 
-Titled multiline widgets
+
+带标题的多行控件
 ++++++++++++++++++++++++
 
-If you are creating titled versions of the multiline widgets, you will find it better to inherit from the class `TitleMultiLine` instead, which wraps more of the multiline functionality.
+如果你正在创建带标题的多行控件版本，你将发现最好的方法是从类 `TitleMultiLine` 继承，它封装了更多的多行功能
 
 
-Widgets: Box Widgets
+控件：框控件
 ********************
 
-These widgets work in a similar way to the Titled versions of widgets.  The box widget contains a widget of another class.  
+这些控件以一种与带标题的控件版本类似的方式工作。box控件包括另一个类的控件。
 
 
 BoxBasic
-   BoxBasic prints a box with an optional name and footer on the screen.  It is intended as a base class for further widgets, not for direct use.
-  
+	 BoxBasic 在屏幕上打印一个带可选名称和页脚的框。它是为了作为一个深一层控件的基类，不是直接使用。
+
 BoxTitle
-    BoxTitle is a hybrid of the Title widget and the Multiline widget.  Again, it is mostly intended as a base class for more complex layouts.  This class has a `_contained_widget` attribute that puts a widget inside the box when the class is created.  In the Boxtitle class this is a Multiline widget.  The title of the widget can be passed to `__init__` the parameter `name=....`.  Another perimeter  `footer=...` gives the text for the footer of the box.  These correspond to attributes named `name` and `footer` which can be changed at any time. 
-    
-    The attribute `entry_widget` gives direct access to the contained widget.
-    
-    The properties `editable`, `values`, and `value` give direct access to the attributes of `entry_widget`.
-	
-	The constructor for this widget can be passed the argument `contained_widget_arguments`. This should be a dictionary of arguments that will be passed to the entry_widget when it is created.  Note that no sanity checking is done on this dictionary at this time. (New in version 4.8.0)
-	
-Your own versions of these widgets can be created in the same way as new Titled widgets.  Create the contained widget class first, and then create the box class wrapper class::
+		BoxTitle是Title控件和多行控件的混合物。此外，它的主要目的是作为更复杂布局的基类。这个类有一个 `_contained_widget` 属性，它在创建时将控件放入框中。在Boxtitle类，这是一个多行控件。控件的标题可以传递给参数 `name=....` 的 `__init__`。另一个周长 `footer=...` 给页脚框的文本。这些对应的属性命名为 `name` 和 `footer`，可以随时更改。
+
+		属性 `entry_widget` 提供对包含控件的直接访问。
+
+		属性 `editable`、`values` 和 `value` 提供对 `entry_widget` 属性的直接访问。
+
+	这个控件的构造函数可以传递给参数 `contained_widget_arguments`。这个应是一个参数字典，在entry_widget创建时将被传递。注意，此时没有对该字典进行完整性检查。（4.8.0版本新增）
+
+你可以用与新的标题控件相同的方式来创建这些控件自己的版本。首先创建包含控件，然后创建box类封装类::
 
 	class NewMultiLineClass
-		# Do all sorts of clever things here!
+		# 在这里做巧妙的事情！
 		# ....
 
 	 class BoxTitle(BoxBasic):
 	     _contained_widget = NewMultiLineClass
-		 
-	 
