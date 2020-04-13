@@ -1,20 +1,20 @@
-Support for Colour
+对颜色的支持
 ==================
 
 .. _color_reference:
 
-Setting up colour
+设置颜色
 *****************
 
-All of the standard widgets are entirely usable on a monochrome terminal.  However, it's a colourful world these days, and npyscreen lets you display your widgets in, well, if not Technicolor(TM) then as close as curses will allow.
+所有的标准控件完全可以在黑白终端上显示。然而，目前这是一个多彩的世界，npyscreen让你显示你的控件，当然，如果不是Technicolor(TM)，并且尽可能允许接近curses。
 
-Colour is handled by the ThemeManager class.  Generally, your application should stick to using one ThemeManager, which you should set using the *setTheme(ThemeManager)* function.  So for example::
+颜色由ThemeManager类来处理。一般来说，你的应用程序应坚持使用ThemeManager，你应使用 *setTheme(ThemeManager)* 函数来设置它。所以举个例子::
 
     npyscreen.setTheme(npyscreen.Themes.ColorfulTheme)
-    
-Any default themes defined by npyscreen will be accessible via npyscreen.Themes.
 
-A basic theme looks like this::
+任何由npyscreen定义的默认主题将通过npyscreen.Themes访问。
+
+一个基础主题看起来像这样::
 
     class DefaultTheme(npyscreen.ThemeManager):
         default_colors = {
@@ -38,9 +38,9 @@ A basic theme looks like this::
         'CAUTION'     : 'YELLOW_BLACK',
         'CAUTIONHL'   : 'BLACK_YELLOW',
         }
-        
-The colours - such as WHITE_BLACK ("white on black") - are defined in the *initialize_pairs* method of the ThemeManager class.  The following are defined by default::
-    
+
+颜色 - 例如WHITE_BLACK("黑底白字") - 是在ThemeManager类的 *initialize_pairs* 方法中定义的::
+
     ('BLACK_WHITE',      curses.COLOR_BLACK,      curses.COLOR_WHITE),
      ('BLUE_BLACK',       curses.COLOR_BLUE,       curses.COLOR_BLACK),
      ('CYAN_BLACK',       curses.COLOR_CYAN,       curses.COLOR_BLACK),
@@ -50,11 +50,11 @@ The colours - such as WHITE_BLACK ("white on black") - are defined in the *initi
      ('YELLOW_BLACK',     curses.COLOR_YELLOW,     curses.COLOR_BLACK),
     )
 
-('WHITE_BLACK' is always defined.)    
+('WHITE_BLACK' 总是明确的。)    
 
-If you find you need more, subclass ThemeManager and change class attribute *_colours_to_define*.   You are able to use colours other than the standard curses ones, but since not all terminals support doing so, npyscreen does not by default.
+如果你发现你需要更多类，把ThemeManager归为子类并且改变类属性 *_colours_to_define*。你可以使用除了标准curses颜色的其他颜色，但由于不是所有终端都支持这样做，npyscreen不默认这样。
 
-If you want to disable all colour in your application, npyscreen defines two convenient functions: *disableColor()* and *enableColor()*.
+如果你想禁用应用程序中的所有颜色，npyscreen定义了两个方便的函数: *disableColor()* 和 *enableColor()*。
 
 
 How Widgets use colour
@@ -81,7 +81,7 @@ The class variable color_values will be used when the class is initialized to re
 			# defining another color
 			(70, (150,250,100)),
 	    )
-		
+
 NB. Current versions of npyscreen make no effort to reset these values when the application exits.
 
 Use of this facility is discouraged, because it is impossible to tell reliably whether or not a terminal actually supports custom colours.  This feature was added at user request to support a custom application.
