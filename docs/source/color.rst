@@ -57,31 +57,30 @@
 如果你想禁用应用程序中的所有颜色，npyscreen定义了两个方便的函数: *disableColor()* 和 *enableColor()*。
 
 
-How Widgets use colour
+控件如何使用颜色
 **********************
 
-When a widget is being drawn, it asks the active ThemeManager to tell it appropriate colours.  'LABEL', for example, is a label given to colours that will be used for the labels of widgets.  The Theme manager looks up the relevant name in its *default_colors* dictionary and returns the appropriate colour-pair as an curses attribute that is then used to draw the widget on the screen.
+当一个控件被绘制时，它要求有效的ThemeManager去告诉它适当的颜色。例如，'LABEL'，是一个给予颜色的标签，将用于控件的标签。主题管理器在它的 *default_colors* 字典中查找相关名称，并且返回合适的colour-pair作为curses属性，该属性随后用于在屏幕上绘制控件。
 
-Individual widgets often have *color* attribute of their own (which may be set by the constructor).  This is usually set to 'DEFAULT', but could be changed to any other defined name.  This mechanism typically only allows individual widgets to have one particular part of their colour-scheme changed.
+单个控件往往有自己的 *color* 属性（可能由构造函数设置）。这是通常设置为 'DEFAULT'，但可以更改为任何其他定义的名称。这种机制很典型地仅仅允许单个控件更改其颜色方案的某个特定部分。
 
-Title... versions of widgets also define the attribute *labelColor*, which can be used to change the colour of their label colour.
+标题... 控件版本也定义了属性 *labelColor*，它可以用于改变他们标签颜色的风格
 
 
-Defining custom colours (strongly discouraged)
+自定义颜色（强烈反对）
 ***********************************************
 
-On some terminals, it is possible to define custom colour values.  rxvt/urxvt is one such terminal.  From version 4.8.4 onwards, support for this is built in
-to theme manager classes.  
+在某些终端上，可以自定义颜色值。txvt/urxvt是这样一种终端。从版本4.8.4开始，theme manager类内置了对此的支持。  
 
-The class variable color_values will be used when the class is initialized to redefine custom colour values::
+类变量 color_values 将在类被初始化来重新自定义颜色值时被使用::
 
 	_color_values = (
-			# redefining a standard color
+			# 重新定义一种标准颜色
 	        (curses.COLOR_GREEN, (150,250,100)),
-			# defining another color
+			# 定义另一种颜色
 			(70, (150,250,100)),
 	    )
 
-NB. Current versions of npyscreen make no effort to reset these values when the application exits.
+NB. 当前的npyscreen版本在应用程序退出时没有尝试重置这些值
 
-Use of this facility is discouraged, because it is impossible to tell reliably whether or not a terminal actually supports custom colours.  This feature was added at user request to support a custom application.
+使用这些设备是被阻止的，因为准确地判断一个终端是否确实支持自定义颜色是不可能的。该功能是根据用户请求添加的，为了支持定制的应用程序。
