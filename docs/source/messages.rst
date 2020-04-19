@@ -1,19 +1,19 @@
-Displaying Brief Messages and Choices
+显示简明的消息和选择
 =====================================
 
-The following functions allow you to display a brief message or choice to the user.
+下列函数允许你向用户显示一个简短的消息或选择。
 
-Notify and related methods are implemented in ``npyscreen/utilNotify.py``
+通知相关的方法是在 ``npyscreen/utilNotify.py`` 中实现的。
 
-The examples on this page build from this basic program:
+本页的例子从这个基本程序上建立的:
 
 .. literalinclude:: ../examples/notify/notify_skeleton.py
     :linenos:
 
 .. py:function:: notify(message, title="Message", form_color='STANDOUT', wrap=True, wide=False,)
 
-    This function displays a message on the screen.  It does not block and the user cannot interact with it - use it to display messages like "Please Wait" while other things are happening.
-    
+    这个函数在屏幕上显示一条消息。它不阻塞，且用户不会与它交互 - 在其他事情正在发生时，使用它来显示类似“Please wait”的消息。
+
     .. literalinclude:: ../examples/notify/notify.py
         :emphasize-lines: 2, 11, 14-17
         :lines: 1-17
@@ -21,8 +21,8 @@ The examples on this page build from this basic program:
         :caption: ../examples/notify/notify.py snippet
 
 .. py:function:: notify_wait(message, title="Message", form_color='STANDOUT', wrap=True, wide=False,)
-    
-    This function displays a message on the screen, and blocks for a brief amount of time. The user cannot interact with it.
+
+    这个函数在屏幕上显示一条消息，且阻塞很短的一段时间。用户不会与它进行交互。
 
     .. literalinclude:: ../examples/notify/notify_wait.py
         :lineno-start: 4
@@ -31,8 +31,8 @@ The examples on this page build from this basic program:
         :caption: ../examples/notify/notify_wait.py snippet
 
 .. py:function:: notify_confirm(message, title="Message", form_color='STANDOUT', wrap=True, wide=False, editw=0)
-    
-    Display a message and an OK button.  The user can scroll the message if needed.  editw controls which widget is selected when the dialog is first displayed; set to 1 to have the OK button active immediately.
+
+    显示一条消息和OK按钮。如果需要，用户可以滚动消息。editw控制对话框首次显示时选择哪一个控件；设置为1则立刻激活OK按钮。
 
     .. literalinclude:: ../examples/notify/notify_confirm.py
         :lineno-start: 4
@@ -42,27 +42,26 @@ The examples on this page build from this basic program:
 
 .. py:function:: notify_ok_cancel(message, title="Message", form_color='STANDOUT', wrap=True, editw = 0,)
 
-    Display a message and return True if the user selected 'OK' and False if the user selected 'Cancel'.
+    显示一条消息,如果用户选择‘OK’,则返回True；如果用户选择‘Cancel’，则返回False。
 
     .. literalinclude:: ../examples/notify/notify_ok_cancel.py
         :lineno-start: 4
         :emphasize-lines: 6, 10-13
         :lines: 4-16
         :caption: ../examples/notify/notify_ok_cancel.py snippet
-    
+
 .. py:function:: notify_yes_no(message, title="Message", form_color='STANDOUT', wrap=True, editw = 0)
 
-    Similar to *notify_ok_cancel* except the names of the buttons are 'Yes' and 'No'.  Returns True or False.
-    
+    与 *notify_ok_cancel* 相似，除了按钮名称是‘Yes’和‘No’，返回True或False。
+
 
 
 
 .. py:function:: selectFile(select_dir=False, must_exist=False, confirm_if_exists=True,sort_by_extension=True,)
 
-    Display a dialog box for the user to select a filename. Uses the called from directory as the initial folder.  The
-    return value is the name of the file selected.
+    显示一个提示用户选择文件名的对话框。使用来自目录的调用作为初始化文件夹。返回值是所选文件的名称。
 
-    **Warning:** This form is currently experimental.
+    **Warning:** 这个形式当前还是试验阶段。
 
     .. literalinclude:: ../examples/notify/select_file.py
         :lineno-start: 4
@@ -70,12 +69,12 @@ The examples on this page build from this basic program:
         :lines: 4-15
         :caption: ../examples/notify/select_file.py snippet
 
-Blanking the Screen
+空白的屏幕
 ===================
 
 .. py:function:: blank_terminal()
 
-    This function blanks the terminal.  It may sometimes be needed if Forms are being displayed that do not fill the whole screen.
+    这个函数使终端消失。如果显示的表单没有占满整个屏幕，它有时可能被需要。
 
     .. literalinclude:: ../examples/notify/blank_terminal.py
         :lineno-start: 1
