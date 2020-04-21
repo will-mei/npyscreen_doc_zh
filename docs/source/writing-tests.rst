@@ -1,11 +1,11 @@
-Writing Tests
-=============
+编写测试
+=========
 
-(New in version 4.7.0)
+(4.7.0版本新增)
 
-It is possible to script npyscreen application keyboard input for the purposes of testing.  
+脚本化 npyscreen 应用的键盘输入用于测试目的是可行的.
 
-The npyscreen module exports the following dictionary containing the relevant settings::
+npyscreen 模块导出下面包含了相关设置的字典::
 
     TEST_SETTINGS = {
         'TEST_INPUT': None,
@@ -14,40 +14,40 @@ The npyscreen module exports the following dictionary containing the relevant se
         'INPUT_GENERATOR': False
         }
 
-If 'TEST_INPUT' is None the application progresses normally.  If it is an array, keystrokes are loaded from the left hand side of the array and fed to the application in place of getting input from the keyboard.  Note that special characters such as *curses.KEYDOWN* can be handled, and control characters can be indicated by a string such as *"^X"*.
+如果 'TEST_INPUT' 是 None, 应用照常进行. 如果它是一个数组, 按键动作会从数组的左边开始被加载, 然后送到应用程序获取键盘输入的地方. 注意,像 *curses.KEYDOWN* 这样的特殊字符也可以被处理,而控制字符可以用像 *"^X"* 这样的字符串来表示.
 
-A keypress that is fed to the application in this way is automatically appended to *'TEST_INPUT_LOG'*, so it is possible to see where an error occurred when handling input.
+这种方式发送到应用程序的按键动作会自动的添加到 *'TEST_INPUT_LOG'* , 所以就能看到在处理输入的时候在哪里出现了错误.
 
-If 'CONTINUE_AFTER_TEST_INPUT' is true, then after the automatic input has been specified, *'TEST_INPUT'* is set to *None* and the application continues normally.  If it is False, then the exception *ExhaustedTestInput* is raised instead.  This would allow a unittest to then test the state of the application.  
+如果 'CONTINUE_AFTER_TEST_INPUT' 为 True, 那么在指定自动输入之后, *'TEST_INPUT'* 就被设成 *None* 并且应用程序会正常继续. 如果它为 False, 那就会抛出  *ExhaustedTestInput* 异常. 这可以让单元测试来接着检测应用的状态.
 
-'INPUT_GENERATOR' can be set to an iterable object.  Each keypress will be read by calling `next(INPUT_GENERATOR)`.  Provided the iterable object chosen is thread-safe, this makes it easy to use one thread to feed the test input.  This can be used in preference to TEST_INPUT.  New in Version 4.9 and added at user request.
+'INPUT_GENERATOR' 可以设置为一个可迭代对象. 调用 `next(INPUT_GENERATOR)` 每一个按键都会被读取. 假如可迭代对象是线程安全的, 这就让用一个线程来提供测试用的输入变得容易了. 相对 TEST_INPUT 可以多用一下这个. 在 4.9 版本中按用户要求加入.
 
 
 
-Convenience Functions (new in version 4.8.5)
+便捷函数 (4.8.5 版本新增)
 --------------------------------------------
 
 .. py:function:: npyscreen.add_test_input_from_iterable(iterable)
-	
-	Add each item of `iterable` to `TEST_SETTINGS['TEST_INPUT']`.
+
+	将每个 `iterable` 项 加入 `TEST_SETTINGS['TEST_INPUT']`.
 
 .. py:function:: npyscreen.add_test_input_ch(ch)
 
-	Add `ch` to `TEST_SETTINGS['TEST_INPUT']`.
-    
+	添加 `ch` 到 `TEST_SETTINGS['TEST_INPUT']`.
 
-Preventing Forking for writing unittests
+
+防止编写单元测试产生分叉
 ----------------------------------------
 
-In order to avoid a memory leak in the underlying curses module, the npyscreen library sometimes chooses to run the application code in a forked process.  For testing purposes this is usually undesirable, and you probably want to pass `fork=False` to the `run()` method of your application for testing purposes.
+为了避免底层 curses 模块的内存溢出, npyscreen 库有时会悬着在 fork 出的进程中运行应用程序代码. 处于一定的测试目的这可能不是我们想要的, 或许会想在你的应用程序中传递 `fork=False` 到 `run()` 方法来测试.
 
 
 
 
-Example
+例子
 -------
 
-The following is a trivial example::
+下面是个小例子::
 
     #!/usr/bin/python
     import curses
@@ -60,15 +60,13 @@ The following is a trivial example::
     class TestForm(npyscreen.Form):
         def create(self):
             self.myTitleText = self.add(npyscreen.TitleText, name="Events (Form Controlled):", editable=True)
-    
+
     class TestApp(npyscreen.StandardApp):
         def onStart(self):
             self.addForm("MAIN", TestForm)
-    
+
 
     if __name__ == '__main__':
         A = TestApp()
         A.run(fork=False)
         # 'This is a test' will appear in the first widget, as if typed by the user.
-        
-
