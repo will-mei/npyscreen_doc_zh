@@ -47,7 +47,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'npyscreen 中文手册'
-copyright = '2014, Nicholas Cole (中文文档 williammei)'
+copyright = '2014, Nicholas Cole (中文文档 williammei, Never-way)'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -202,7 +202,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   ('index', 'npyscreen.tex', 'npyscreen  Document zh\_CN',
-   'Nicholas Cole [中文 William Mei]', 'manual'),
+   'Nicholas Cole [中文 William Mei, Never-way]', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -232,7 +232,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'npyscreen', 'npyscreen  中文文档',
-     ['Nicholas Cole', '[中文 William Mei]'], 1)
+     ['Nicholas Cole', '[中文 William Mei, Never-way]'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -246,7 +246,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'npyscreen', 'npyscreen Document zh\_CN',
-   'Nicholas Cole [中文文档 William Mei]', 'npyscreen', 'One line description of project.',
+   'Nicholas Cole [中文文档 William Mei, Never-way]', 'npyscreen', 'One line description of project.',
    'Miscellaneous'),
 ]
 
