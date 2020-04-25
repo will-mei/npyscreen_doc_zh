@@ -67,7 +67,7 @@ MultiLineEditableBoxed
     带框版的 MultiLineEditable. 其 *_entry_type* 类属性控制着容纳的控件的类型.
 
 
-Custom Multiselect Widgets
+自定义多选控件
 ++++++++++++++++++++++++++
 
 多行控件是一个容器控件,它容纳一系列用于处理各显示部分的其他控件. 所有的多行控件类都有一个 `_contained_widget` 类属性. 这个控制控件如何被构造. `_contained_widget_height` 指定了应该给各个控件多少屏幕上的行.
