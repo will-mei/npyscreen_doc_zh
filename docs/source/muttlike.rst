@@ -1,13 +1,13 @@
-Writing More Complex Forms
+编写更复杂的表单
 ==========================
 
-A very typical style of programming for terminal applications has been to have a screen that has a command line, typically at the bottom of the screen, and then some kind of list widget or other display taking up most of the screen, with a title bar at the top and a status bar above the command line.  Variations on this scheme are found in applications like Mutt, less, Vim, irssi and so on.
+终端应用程序的一个非常典型的编程风格是有一个带命令行的屏幕，通常显示在屏幕底部，然后一些列表控件或其他显示占用了大部分屏幕顶部的标题栏和状态栏上方的命令行。在这个模式上的变化在像Mutt、less、Vim、irssi等应用程序中可以找到。
 
-To make writing these kinds of form easier, npyscreen provides a series of classes that are intended to work together.
+为了让编写这些类型的表单更容易，npyscreen提供一系列能够协同工作的类。
 
 FormMuttActive, FormMuttActiveWithMenus, FormMuttActiveTraditional, FormMuttActiveTraditionalWithMenus
-    These classes define the basic form.  The following *class attributes* dictate exactly how the form is created::
-            
+    这些类定义了基本表单。以下 *class attribute* 明确指定了表单如何工作::
+
             MAIN_WIDGET_CLASS   = wgmultiline.MultiLine
             MAIN_WIDGET_CLASS_START_LINE = 1
             STATUS_WIDGET_CLASS = wgtextbox.Textfield
@@ -16,64 +16,64 @@ FormMuttActive, FormMuttActiveWithMenus, FormMuttActiveTraditional, FormMuttActi
             COMMAND_WIDGET_NAME = None
             COMMAND_WIDGET_BEGIN_ENTRY_AT = None
             COMMAND_ALLOW_OVERRIDE_BEGIN_ENTRY_AT = True
-    
+
             DATA_CONTROLER    = npysNPSFilteredData.NPSFilteredDataList
-            
+
             ACTION_CONTROLLER  = ActionControllerSimple
-    
-    The default definition makes the following instance attributes available after initalization::
-            
-            # Widgets - 
+
+    默认定义使以下实例属性在初始化后可用::
+
+            # Widgets -
             self.wStatus1 # by default a title bar
             self.wStatus2 # just above the command line
             self.wMain    # the main area of the form - by default a MultiLine object
             self.wCommand # the command widget
-            
+
             self.action_controller # not a widget. See below.
-    
-    The form's *.value* attribute is set to an instance of the object specified by DATA_CONTROLLER.
-    
-    Typically, and application will want to define its own DATA_CONTROLLER and ACTION_CONTROLLER.
-    
-    The difference between the traditional and non-traditional forms is that in the traditional form, the focus stays always with the command line widget, although some keypresses will be passed to the MAIN_WIDGET_CLASS - so that, from the user's point of view, it looks as if he/she is interacting with both at once.
-    
+
+    表单的 *.value* 属性设置为一个指定对象实例DATA_CONTROLLER
+
+    通常，应用程序希望定义属于自己的DATA_CONTROLLER和ACTION_CONTROLLER。
+
+    传统和非传统的表单之间的区别是，传统表单的重点总是停留在命令行控件，尽管一些按键将传递到MAIN_WIDGET_CLASS - 所以，从用户角度看，看起来像他们同时在交互。
+
 TextCommandBox
-    The TextCommandBox is like a usual text box, except that it passes what the user types to the action_controller.  In addition, it can keep a history of the commands entered.  See the documentation on ActionControllerSimple for more details.
-    
+    TextCommandBox是像一个普通的文本框，只是将用户输入传递给了action_controller。另外，它可以保持命令输入历史记录。请参阅ActionControllerSimple文档，获取更多细节。
+
 TextCommandBoxTraditional
-    This is the same as the TextCommandBox, except that it additionally will pass certain keystrokes to the widget specified by *self.linked_widget*.  In the default case, any keystroke that does not match a handler in TextCommandBoxTraditional will be passed to the linked widget.  Additionally, any keystroke that is listed in the list *self.always_pass_to_linked_widget* will be handled by the linked widget.  However, if the current command line begins with any character that is listed in the class attribute *BEGINNING_OF_COMMAND_LINE_CHARS*, the user input will be handled by this class, not by the linked widget.
-    
-    This is rather complicated, but an example will make it clearer.  The default BEGINNING_OF_COMMAND_LINE_CHARS specifies that ':' or '/' marks the beginning of a command.  After that point, keypresses are handled by this widget, not by the linked widget, so that the up and down arrows start to navigate the command history.  However, if the command line is currently empty, those keys navigate instead the linked widget.  
-    
-    As in the TextCommandBox widget, the value of the command line is passed to the parent form's action_controller object.
-    
+    这个与TextCommandBox相同，不同点在于它将特定的按键传递给由 *self.linked_widget* 指定的控件。在默认情况下，任何与TextCommanBoxTraditional中处理程序不匹配的按键都将被传递给链接控件。除此之外，列表 *self.always_pass_to_linked_widget* 列出的任何按键将被链接控件处理。但是，如果当前命令行是以类属性 *BEGINNING_OF_COMMAND_LINE_CHARS* 列表中的任意字母开头，用户输入将由该类处理，而不是链接控件。
+
+    这相当复杂，但举个例子可能会更清晰。默认的BEGINNING_OF_COMMAND_LINE_CHARS明确':'或'/'标志着命令行的开始。在那之后，按键由这个控件处理，而不是链接控件，因此向上和向下的箭头开始导航命令历史记录。但是，如果当前命令行是空的，这些键将导航到链接控件。
+
+    与TextCommandBox控件一样，命令行的值传递给父窗体的action_controller对象。
+
 ActionControllerSimple
-    This object receives command lines and executes call-back functions.  
+    这个对象接受命令行并且执行call-back函数。
+
+    它可识别两种类型的命令行 - 一个"live"命令行，指命令行每次更新都会执行一个动作，并且在按下返回键时执行一条命令。
+
+    使用 *add_action(ident, function, live)* 方法添加回调。'ident'是一个正则表达式，它将与命令行相匹配，*function* 是回调本身，*live* 为真或为假，用于指定是否应该在每次按键时执行回调（假设"ident"匹配）。
     
-    It recognises two types of command line - a "live" command line, where an action is taken with every change in the command line, and a command that is executed when the return key is pressed.
-    
-    Callbacks are added using the *add_action(ident, function, live)*, method.  'ident' is a regular expression that will be matched against the command line, *function* is the callback itself and *live* is either True or False, to specify whether the callback should be executed with every keypress (assuming that 'ident' matches).
-    
-    Command lines that match the regular expression 'ident' cause the call-back to be called with the following arguments: *call_back(command_line, control_widget_proxy, live=True)*.  Here *command_line* is the string that is the command line, *control_widget_proxy* is a weak reference to the command line widget, and live specifies whether the function is being called 'live' or as a result of a return.  
-    
-    The method *create()* can be overridden. It is called when the object is created. The default does nothing.  You probably want to use this as a place to call *self.add_action*.
+    匹配正则表达式'ident'的命令行导致回调函数去调用以下参数：*call_back(command_line, control_widget_proxy, live=True)*。这里 *command_line* 是命令行的字符串，*control_widget_proxy* 是对命令行控件的弱引用，live指定这个函数将调用'live'还是作为一个返回结果。
+
+    方法 *create()* 可被覆盖。当创建对象是调用它。默认不做任何事。你可能想使用它来调用 *self.add_action*。
 
 NPSFilteredDataBase
-    The default *NPSFilteredDataBase* class suggests how the code to manage the display might be separated out into a separate object.  The precise methods will be very application dependent.  This is not an essential part of this kind of application, but it is good practice to keep the logic of (for example) database access separate from the logic of the user interface.
+    默认 *NPSFilteredDataBase* 类建议如何管理代码的显示可能被分隔成一个单独的对象。精确的方法将非常依赖于应用程序。这不是此类型应用程序最重要的部分，但这是把数据库访问逻辑从用户接口逻分离出来最好的实践。
 
 
 
-Example Code
+Example Code示例代码
 ************
 
-The following example shows how this model works.  The application creates an ActionController that has a search action.  This action calls the user-defined function set_search, which communicates with the Form's parent.value (actually a NPSFilteredDataBase class). It then uses this class to set the values in wMain.values and calls wMain.display() to update the display.
+以下示例展示该模块如果工作。应用程序创建一个由搜索功能的ActionController。该功能调用了用户自定义函数 set_search，它与表单的父类进行通信。值（实际是NPSFilteredDataBase类）然后它使用这个类去设置wMain.values并且调用wMain.display()来更新显示。
 
-FmSearchActive is simply a FormMuttActiveTraditional class, with a class attribute that specifies that the form should use our action controller::
-    
+FmSearchActive是一个简单的FormMuttActiveTraditional类，它有一个类属性，指定表单应使用我们的功能控制器::
+
     class ActionControllerSearch(npyscreen.ActionControllerSimple):
         def create(self):
             self.add_action('^/.*', self.set_search, True)
-    
+
         def set_search(self, command_line, widget_proxy, live):
             self.parent.value.set_filter(command_line[1:])
             self.parent.wMain.values = self.parent.value.get()
@@ -90,7 +90,7 @@ FmSearchActive is simply a FormMuttActiveTraditional class, with a class attribu
             F.wStatus2.value = "Second Status Line "
             F.value.set_values([str(x) for x in range(500)])
             F.wMain.values = F.value.get()
-        
+
             F.edit()
 
 
