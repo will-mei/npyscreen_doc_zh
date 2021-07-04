@@ -4,4 +4,4 @@
 在线浏览地址:
 
  - readthedocs.io    https://npyscreen-doc-zh.readthedocs.io/zh_CN/latest/
- - docs.iterdaily.com  https://docs.iterdaily.com/npyscreen_doc_zh/
+ - docs.iterdaily.com  https://docs.iterdaily.com/projects/npyscreen_doc_zh/
